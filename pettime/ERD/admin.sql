@@ -1,21 +1,21 @@
 
---ю╞юЗ╣╔юлем DML--
+--Л°═Л═─К█╟Л²╢М└╟ DML--
 INSERT INTO PETTIME.USERDATA
 (ID, PASSWORD, NAME, PHONE, EMAIL, ENABLED)
-VALUES('ryu5986', '╟Ё╤к╡©','a12345', '01088175986', 'ryu5986@naver.com', '1');
---╟Ё╣╔юлем DML--
+VALUES('ryu5986', 'Й╟°К≤╔Й╪╛','a12345', '01088175986', 'ryu5986@naver.com', '1');
+--Й╟°К█╟Л²╢М└╟ DML--
 INSERT INTO PETTIME.PETDATA
 (USERID, NAME, "TYPE", KIND, MEMO, STATE)
-VALUES('ryu5986', '╨Щ╪╪╢ы', '╟ъ', 'аъгЭ╟ъ', 'б╒ю╫', '1');
---╣ПюзюлЁй╣╔юлем DML--
+VALUES('ryu5986', 'К╧║Л└╦К▀╓', 'Й╡╛', 'Л╓▒М≤∙Й╡╛', 'Л╖√Л²▄', '1');
+--К■■Л·░Л²╢К└┬К█╟Л²╢М└╟ DML--
 INSERT INTO PETTIME.DESIGNER
 (ID, PASSWORD, NAME, EMAIL, PHONE, INTRO, ENABLED)
-VALUES('seon0216', 'a12345', '©║╦╝д╚', 'aaa1234@naver.com', '01012345678', 'гоюлгоюл', '1');
+VALUES('seon0216', 'a12345', 'Л≈░К╕╛Л╧╢', 'aaa1234@naver.com', '01012345678', 'М∙≤Л²╢М∙≤Л²╢', '1');
 
---©╧╬Ю╣╔юлем DML--
+--Л≤┬Л∙╫К█╟Л²╢М└╟ DML--
 INSERT INTO PETTIME.RESLIST
 (STIME, ETIME, ADDRESS, USERID, DEGID, PETNUM, TPRICE, STATE)
-VALUES('2020-12-01', '2020-12-01', '╟╜╪╜╠╦', 'ryu5986', 'seon0216', 1, 30000, '©╧╬Ю');
+VALUES('2020-12-01', '2020-12-01', 'Й╟∙Л└°Й╣╛', 'ryu5986', 'seon0216', 1, 30000, 'Л≤┬Л∙╫');
 
 SELECT COUNT(*) FROM PETTIME.RESLIST WHERE TO_CHAR(STIME,'YYYYMMDD') = TO_CHAR(SYSDATE,'YYYYMMDD');
 
