@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.admin.beans.adminInfoDAO">
 	<select id="selectUserlist"
-		resultType="com.admin.beans.adminUserDTO">
+		resultType="com.admin.beans.UserDTO">
 		SELECT
 		usernum, id, name, email
 		FROM PETTIME.USERDATA
@@ -11,7 +11,7 @@
 	</select>
 
 	<select id="selectUserByNum"
-		resultType="com.admin.beans.adminUserDTO">
+		resultType="com.admin.beans.UserDTO">
 		SELECT
 		usernum, id, name, phone, email, enabled
 		FROM
@@ -21,7 +21,7 @@
 	</select>
 
 	<select id="selectDeslist"
-		resultType="com.admin.beans.adminDesDTO">
+		resultType="com.admin.beans.DesignerDTO">
 		SELECT
 		num, id, name, email
 		FROM PETTIME.DESIGNER
@@ -30,7 +30,7 @@
 	</select>
 
 	<select id="selectDesByNum"
-		resultType="com.admin.beans.adminDesDTO">
+		resultType="com.admin.beans.DesignerDTO">
 		SELECT
 		num, id, name, email, phone, intro, enabled
 		FROM
@@ -51,7 +51,7 @@
 		WHERE usernum = #{param1}
 	</update>
 	 
-	<insert id="insertDes" flushCache="true" parameterType="com.admin.beans.adminDesDTO">
+	<insert id="insertDes" flushCache="true" parameterType="com.admin.beans.DesignerDTO">
 	INSERT INTO PETTIME.DESIGNER
 	(ID, PASSWORD, NAME, EMAIL, PHONE, INTRO, ENABLED)
 	VALUES(#{a.id}, #{a.password}, #{a.name}, #{a.email}, #{a.phone}, #{a.intro}, #{a.enabled})

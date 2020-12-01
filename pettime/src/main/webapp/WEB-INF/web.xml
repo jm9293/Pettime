@@ -24,11 +24,58 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-		
+	
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	
+ 	<servlet-mapping>
+	    <servlet-name>default</servlet-name>
+	    <url-pattern>*.js</url-pattern>
+	    <url-pattern>*.css</url-pattern>
+	    <url-pattern>*.ico</url-pattern>
+	    <url-pattern>*.png</url-pattern>
+	    <url-pattern>*.jpg</url-pattern>
+	    <url-pattern>*.htc</url-pattern>
+	    <url-pattern>*.gif</url-pattern>
+	    <url-pattern>*.html</url-pattern>
+	    <url-pattern>*.htm</url-pattern>
+	 </servlet-mapping>
+	 
+	<servlet>
+	    <servlet-name>page</servlet-name>
+	    <jsp-file>/resources/vue/index.html</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>page</servlet-name>
+	    <url-pattern>*.vue</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	    <servlet-name>page</servlet-name>
+	    <url-pattern>/resources/vue/</url-pattern>
+	</servlet-mapping>
+	
+	
+
+	
+	
+	
+	<!--
+	<servlet>
+	    <servlet-name>htmlServlet</servlet-name>
+	    <servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
+	    <load-on-startup>2</load-on-startup>
+	</servlet>
+ 
+	<servlet-mapping>
+	    <servlet-name>htmlServlet</servlet-name>
+	    <url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+	
+		-->
 	<!-- url encoding filter-->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -50,7 +97,10 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>                 
 	</filter-mapping>
-	<!-- Security filter -->
+	
+
+	
+	<!-- Security filter 
 	<filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -59,5 +109,6 @@
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    -->
 	
 </web-app>
