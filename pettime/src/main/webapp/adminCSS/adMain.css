@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+#resCnt {
+	float: left;
+	height: 150px;
+	text-align: center;
+	line-height: 100px;
+	font-size: 40px;
+	padding: 20px;
+}
+
+#resCnt div {
+	box-sizing: border-boxed;
+	border: 1px solid white;
+	border-radius: 10px;
+}
+
+#userCnt {
+	float: left;
+	height: 150px;
+	text-align: center;
+	line-height: 100px;
+	font-size: 40px;
+	padding: 20px;
+}
+
+#userCnt div {
+	box-sizing: border-boxed;
+	border: 1px solid white;
+	border-radius: 10px;
+}
+
+#weather {
+	float: left;
+	height: 150px;
+	text-align: center;
+	padding: 20px;
+}
+
+#desList {
+	float: left;
+	height: 650px;
+	text-align: center;
+	box-sizing: border-boxed;
+	border: 1px solid black;
+}
+#destitle{
+	height: 50px;
+	line-height: 50px;
+	color:white;
+	box-sizing: border-boxed;
+	border: 1px solid white;
+	border-radius: 5px 5px 0px 0px;
+	background-color: #2581ef;
+	font-size: 25px;
+}
+#desmenu{
+	height: 50px;
+	line-height: 50px;
+	margin:auto;
+	padding:0;
+}
+#weather div {
+	float: left;
+	height: 100px;
+}
+
+#weatherimg {
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: left;
+	background-color: #f2daa2;
+	border-radius: 0px 10px 10px 0px;
+}
+
+.weathertxt {
+	height: 150px;
+	font-size: 16px;
+	text-align: right;
+	background-color: #f2daa2;
+	border-radius: 10px 0px 0px 10px;
+}

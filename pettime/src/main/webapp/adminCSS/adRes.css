@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+#myCalender {
+	float: left;
+	box-sizing: border-boxed;
+	border: 1px solid black;
+	height: 500px;
+}
+
+#resList {
+	float: left;
+	box-sizing: border-boxed;
+	border: 1px solid black;
+	height: 500px;
+}
+
+.cal_top{
+    text-align: center;
+    font-size: 30px;
+}
+.cal{
+    text-align: center; 
+}
+table.calendar{
+ 
+    display: inline-table;
+    text-align: center;
+}
+table.calendar td{
+    vertical-align: top;
+   
+    width: 100px;
+}
+
+td:hover{
+	background-color:#c1c1d5;
+}
+.cal-day{
+	box-sizing: border-boxed;
+	border: 1px dotted white;
+	background-color:#749dfe;
+}
+.cal-schedule{
+	box-sizing: border-boxed;
+	 border: 1px dotted black;
+	 height:75px;
+}
+@media screen and (min-width: 769px) {
+	#myCalender {
+		height: 800px;
+	}
+	#resList {
+		height: 800px;
+	}
+	tr{
+		height: 100px;
+	}
+}

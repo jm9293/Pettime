@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.contentBox {
+	height: 500px;
+	float: left;
+	box-sizing: border-boxed;
+	border: 1px solid black;
+}
+
+.contentType {
+	line-height:100px;
+	height: 100px;
+	box-sizing: border-boxed;
+	border: 1px solid black;
+}
+
+@media screen and (min-width: 769px) {
+	.content {
+		padding: 30px;
+	}
+	.contentBox {
+		margin-top:150px;
+	}
+}

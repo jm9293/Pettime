@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.admin.beans.adResAjaxDAO">
+
+	<select id="searchRes" resultType="com.admin.beans.adminResDTO">
+		SELECT * FROM PETTIME.RESLIST
+	</select>
+
+	<select id="readRes" resultType="com.admin.beans.adminResDTO">
+		SELECT * FROM PETTIME.RESLIST WHERE STIME in #{param1}
+	</select>
+</mapper>

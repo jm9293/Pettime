@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.admin.beans.adminInfoDAO">
+	<select id="selectUserlist"
+		resultType="com.admin.beans.adminUserDTO">
+		SELECT
+		usernum, id, name, email
+		FROM PETTIME.USERDATA
+		ORDER BY
+		usernum DESC
+	</select>
+
+	<select id="selectUserByNum"
+		resultType="com.admin.beans.adminUserDTO">
+		SELECT
+		usernum, id, name, phone, email, enabled
+		FROM
+		PETTIME.USERDATA
+		WHERE
+		usernum=#{param1}
+	</select>
+
+	<select id="selectDeslist"
+		resultType="com.admin.beans.adminDesDTO">
+		SELECT
+		num, id, name, email
+		FROM PETTIME.DESIGNER
+		ORDER BY num
+		DESC
+	</select>
+
+	<select id="selectDesByNum"
+		resultType="com.admin.beans.adminDesDTO">
+		SELECT
+		num, id, name, email, phone, intro, enabled
+		FROM
+		PETTIME.DESIGNER
+		WHERE
+		num=#{param1}
+	</select>
+
+	<update id="updateDesInfo" flushCache="true">
+		UPDATE PETTIME.DESIGNER SET 
+		id = #{a.id}, name = #{a.name}, email = #{a.email}, phone = #{a.phone}, intro = #{a.intro}, enabled = #{a.enabled}
+		WHERE num = #{param1}
+	</update>
+	
+	<update id="updateUserInfo" flushCache="true">
+		UPDATE PETTIME.USERDATA SET 
+		id = #{a.id}, name = #{a.name}, email = #{a.email}, phone = #{a.phone}, enabled = #{a.enabled}
+		WHERE usernum = #{param1}
+	</update>
+	 
+	<insert id="insertDes" flushCache="true" parameterType="com.admin.beans.adminDesDTO">
+	INSERT INTO PETTIME.DESIGNER
+	(ID, PASSWORD, NAME, EMAIL, PHONE, INTRO, ENABLED)
+	VALUES(#{a.id}, #{a.password}, #{a.name}, #{a.email}, #{a.phone}, #{a.intro}, #{a.enabled})
+	</insert>
+
+</mapper>
