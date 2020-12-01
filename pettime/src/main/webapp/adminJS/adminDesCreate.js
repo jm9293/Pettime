@@ -180,13 +180,34 @@ function submitchk() {
 }
 
 function createChk() {
-	if (idlist.indexOf($("#idtext").val()) != -1) {
-		alert("중복된 ID 입니다.");
-	} else {
-		$("#idtext").removeClass("is-invalid");
-		$("#idtext").addClass("is-valid");
-		$("#idchk-btn").text("체크완료");
-		$("#idtext").attr("readonly", "");
-		$("#idchk-btn").attr("disabled", "");
+	var text = $("#idtext").val();
+	checkId(text);
+}
+function checkId(text) {
+	$.ajax({
+		url : "./adDesCreate/" + text,
+		type : "GET",
+		cache : false,
+		success : function(data, status) {
+			if (status == "success") {
+				if (chkData(data)) {}
+			}
+		}
+
+	});
+}
+
+function chkData(jsonObj) {
+	if (jsonObj.status == "OK") {
+		if (jsonObj.cnt != 0) {
+			alert("중복된 ID 입니다.");
+		} else {
+			$("#idtext").removeClass("is-invalid");
+			$("#idtext").addClass("is-valid");
+			$("#idchk-btn").text("체크완료");
+			$("#idtext").attr("readonly", "");
+			$("#idchk-btn").attr("disabled", "");
+		}
 	}
 }
+

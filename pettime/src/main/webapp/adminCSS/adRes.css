@@ -4,14 +4,15 @@
 	float: left;
 	box-sizing: border-boxed;
 	border: 1px solid black;
-	height: 500px;
+	height: 700px;
 }
 
 #resList {
 	float: left;
 	box-sizing: border-boxed;
 	border: 1px solid black;
-	height: 500px;
+	height: 700px;
+	overflow:auto;
 }
 
 .cal_top{
@@ -45,14 +46,12 @@ td:hover{
 	 border: 1px dotted black;
 	 height:75px;
 }
-@media screen and (min-width: 769px) {
-	#myCalender {
-		height: 800px;
-	}
-	#resList {
-		height: 800px;
-	}
-	tr{
+tr{
 		height: 100px;
-	}
+}
+.id, .time, .address{
+	box-sizing: border-boxed;
+	 border: 1px solid black;
+	 padding:0;
+	 text-align:center;
 }

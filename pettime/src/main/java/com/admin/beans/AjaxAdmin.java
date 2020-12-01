@@ -37,6 +37,12 @@ public class AjaxAdmin {
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
 	}
+
+	@Override
+	public String toString() {
+		return "AjaxAdmin [status=" + status + ", cnt=" + cnt + ", data=" + data + "]";
+	}
+	
 	
 
 	

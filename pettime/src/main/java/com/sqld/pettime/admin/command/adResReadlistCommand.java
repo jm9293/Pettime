@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.ui.Model;
 
 import com.admin.beans.AjaxAdmin;
-import com.admin.beans.adResAjaxDAO;
-import com.admin.beans.adminResDTO;
+import com.admin.beans.AdResAjaxDAO;
+import com.admin.beans.AdminResDTO;
 import com.sqld.pettime.util.DBSession;
 
 public class adResReadlistCommand implements adminCommand {
@@ -14,11 +14,11 @@ public class adResReadlistCommand implements adminCommand {
 	@Override
 	public void execute(Model model) {
 		
-		adResAjaxDAO dao = DBSession.sqlSession.getMapper(adResAjaxDAO.class);
+		AdResAjaxDAO dao = DBSession.sqlSession.getMapper(AdResAjaxDAO.class);
 		
 		String date = (String)model.getAttribute("date");
 		
-		List<adminResDTO> list = dao.readRes(date);
+		List<AdminResDTO> list = dao.readRes(date);
 		
 		String status = "FAIL";
 		

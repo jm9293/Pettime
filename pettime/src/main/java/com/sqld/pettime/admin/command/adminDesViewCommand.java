@@ -7,7 +7,7 @@ import java.util.Map;
 import org.springframework.ui.Model;
 
 import com.admin.beans.DesignerDTO;
-import com.admin.beans.adminInfoDAO;
+import com.admin.beans.AdminInfoDAO;
 
 import com.sqld.pettime.util.DBSession;
 
@@ -17,7 +17,7 @@ public class adminDesViewCommand implements adminCommand {
 	public void execute(Model model) {
 		Map<String, Object> map = model.asMap();
 		int num = (Integer)map.get("num");
-		adminInfoDAO dao = DBSession.sqlSession.getMapper(adminInfoDAO.class);
+		AdminInfoDAO dao = DBSession.sqlSession.getMapper(AdminInfoDAO.class);
 
 		List<DesignerDTO> list = dao.selectDesByNum(num);
 		model.addAttribute("list", list);

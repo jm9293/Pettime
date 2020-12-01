@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 import lombok.Data;
 
 @Data
-public class adminResDTO {
+public class AdminResDTO {
 	
 	private int num;
 	private Timestamp stime;

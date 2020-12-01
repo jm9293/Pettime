@@ -43,11 +43,20 @@
 				</button>
 			</div>
 			<div id="cal_tab" class="cal"></div>
-
-			<div>선택한 날짜 :</div>
-			<div id="choiceday"></div>
+			
 		</div>
+		<form id="frmList" name="frmList">
 		<div id="resList" class="col-12 col-md-6"></div>
+		</form>
+		<div class="row col-12">
+		<div class="row col-6">
+			<div class="col-6">선택한 날짜 :</div>
+			<div class="col-6"id="choiceday"></div>
+		</div>
+		<div class="row col-6">
+			<button type="button" onclick="deleteList();" id="delete" disabled="disabled">삭제하기</button>
+		</div>
+		</div>
 	</div>
 	<br>
 	<br>

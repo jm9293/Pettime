@@ -1,27 +1,29 @@
 package com.sqld.pettime.admin.command;
 
-import java.util.ArrayList;
-
 
 import org.springframework.ui.Model;
-
-import com.admin.beans.DesignerDTO;
-import com.admin.beans.adminInfoDAO;
+import com.admin.beans.AjaxAdmin;
+import com.admin.beans.AdminInfoDAO;
 import com.sqld.pettime.util.DBSession;
 
 public class adDesCreateIdChkCommand implements adminCommand {
 
 	@Override
 	public void execute(Model model) {
-		ArrayList<String> idList = new ArrayList<String>();
+		String id = (String) model.getAttribute("id");
 
-		adminInfoDAO dao = DBSession.sqlSession.getMapper(adminInfoDAO.class);
+		AdminInfoDAO dao = DBSession.sqlSession.getMapper(AdminInfoDAO.class);
 
-		for (DesignerDTO dto : dao.selectDeslist()) {
-			idList.add(dto.getId());
-			model.addAttribute("idList", idList);
+		int cnt = dao.idChk(id);
+		String status = "FAIL";
+
+		if(id != null) {
+			status = "OK";
 		}
 
+		AjaxAdmin data = new AjaxAdmin(status, cnt, null);
+
+		model.addAttribute("data", data);
 	}
 
 }

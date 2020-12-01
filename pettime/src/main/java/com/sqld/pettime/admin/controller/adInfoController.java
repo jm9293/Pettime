@@ -24,13 +24,11 @@ public class adInfoController {
 
 	@RequestMapping("/adUserlist")
 	public void goUserlist(Model model) {
-		System.out.println("��������������");
 		new adminUserlistCommand().execute(model);
 	}
 	
 	@RequestMapping("/adUserInfo")
 	public void goUserInfo(int userNum, Model model) {
-		System.out.println("���� �� ������");
 		model.addAttribute("userNum", userNum);
 		new adminUserViewCommand().execute(model);
 	}
@@ -40,7 +38,6 @@ public class adInfoController {
 		model.addAttribute("selectMenu", selectMenu);
 		model.addAttribute("text", text);
 		new adminUserSearchCommand().execute(model);
-		System.out.println("���� �˻�");
 		return "admin/adInfo/adUserlistSearch";
 	}
 	
@@ -53,13 +50,11 @@ public class adInfoController {
 	
 	@RequestMapping("/adDeslist")
 	public void goDeslist(Model model) {
-		System.out.println("�̿������������");
 		new adminDeslistCommand().execute(model);
 	}
 	
 	@RequestMapping("/adDesInfo")
 	public void goDesInfo(int num, Model model) {
-		System.out.println("�̿�� �� ������");
 		model.addAttribute("num", num);
 		new adminDesViewCommand().execute(model);
 	}
@@ -69,7 +64,6 @@ public class adInfoController {
 		model.addAttribute("selectMenu", selectMenu);
 		model.addAttribute("text", text);
 		new adminDesSearchCommand().execute(model);
-		System.out.println("�̿�� �˻�");
 		return "admin/adInfo/adDeslistSearch";
 	}
 	

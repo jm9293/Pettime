@@ -8,7 +8,7 @@ import java.util.Map;
 import org.springframework.ui.Model;
 
 import com.admin.beans.UserDTO;
-import com.admin.beans.adminInfoDAO;
+import com.admin.beans.AdminInfoDAO;
 import com.sqld.pettime.util.DBSession;
 
 public class adminUserSearchCommand implements adminCommand {
@@ -16,7 +16,7 @@ public class adminUserSearchCommand implements adminCommand {
 	@Override
 	public void execute(Model model) {
 		
-		adminInfoDAO dao =  DBSession.sqlSession.getMapper(adminInfoDAO.class);
+		AdminInfoDAO dao =  DBSession.sqlSession.getMapper(AdminInfoDAO.class);
 		List<UserDTO> list = null;
 		List<UserDTO> list2 = new ArrayList<UserDTO>();
 		Map<String, Object> map = model.asMap();

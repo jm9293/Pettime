@@ -6,14 +6,14 @@ import java.util.List;
 import org.springframework.ui.Model;
 
 import com.admin.beans.UserDTO;
-import com.admin.beans.adminInfoDAO;
+import com.admin.beans.AdminInfoDAO;
 import com.sqld.pettime.util.DBSession;
 
 public class admindUserStatusCommand implements adminCommand {
 
 	@Override
 	public void execute(Model model) {
-		adminInfoDAO dao = DBSession.sqlSession.getMapper(adminInfoDAO.class);
+		AdminInfoDAO dao = DBSession.sqlSession.getMapper(AdminInfoDAO.class);
 		int num = (int)model.getAttribute("num");
 		char chk = '1';
 		char chk2 = '0';
