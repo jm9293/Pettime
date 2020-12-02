@@ -9,7 +9,10 @@
 .searchbox div{
 	float:right;
 }
-
+#box{
+	height:725px;
+	overflow:auto;
+}
 .menu{
 	margin: auto;
 	height: 50px;

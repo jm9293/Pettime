@@ -75,9 +75,7 @@ public class adInfoController {
 	}
 	
 	@RequestMapping("/adDesCreate")
-	public void CreateDes(Model model) {
-		new adDesCreateIdChkCommand().execute(model);
-	}
+	public void CreateDes() {}
 	
 	@RequestMapping(value = "/adDesCreateOk", method = RequestMethod.POST)
 	public String CreateDesOk(DesignerDTO dto, Model model) {

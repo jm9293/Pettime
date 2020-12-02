@@ -23,7 +23,7 @@ public class adminDesSearchCommand implements adminCommand {
 		Map<String, Object> map = model.asMap();
 		String [] selectMenu = (String[])map.get("selectMenu");
 		String text = (String)map.get("text");
-		
+		String select = selectMenu[0];
 		list = dao.selectDeslist();
 		
 		for (int i = 0; i < list.size(); i++) {
@@ -37,7 +37,7 @@ public class adminDesSearchCommand implements adminCommand {
 		
 		model.addAttribute("list", list);
 		model.addAttribute("text", text);
-		model.addAttribute("selectMenu", selectMenu);
+		model.addAttribute("select", select);
 
 	}
 

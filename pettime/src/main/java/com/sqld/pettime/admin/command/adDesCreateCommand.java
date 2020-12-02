@@ -11,10 +11,12 @@ public class adDesCreateCommand implements adminCommand {
 	@Override
 	public void execute(Model model) {
 		DesignerDTO dto = (DesignerDTO)model.getAttribute("dto");
-		
+		System.out.println(dto.getId());
 		AdminInfoDAO dao = DBSession.sqlSession.getMapper(AdminInfoDAO.class);
-		
-		model.addAttribute("result", dao.insertDes(dto));
+		int result = dao.insertDes(dto);
+		int res = dao.grantDes(dto.getId(), "ROLE_DESIGNER");
+		System.out.println(res);
+		model.addAttribute("result", result);
 
 	}
 

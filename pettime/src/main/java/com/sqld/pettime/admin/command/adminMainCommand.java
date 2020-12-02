@@ -12,6 +12,7 @@ public class adminMainCommand implements adminCommand {
 		AdminMainDAO dao = DBSession.sqlSession.getMapper(AdminMainDAO.class);
 		model.addAttribute("cnt", dao.selectRes());
 		model.addAttribute("cnt2", dao.selectUser());
+		model.addAttribute("list", dao.worklist());
 	}
 
 }

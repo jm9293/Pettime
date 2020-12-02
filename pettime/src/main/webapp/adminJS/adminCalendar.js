@@ -117,7 +117,14 @@ $(function() {
 		fullstr = yy + "-" + mm + "-" + dd;
 		$("#choiceday").text(fullstr);
 		loadPage(fullstr);
-
+		var date = moment().format('YYYY-MM-DD');
+		var pdate = moment(date).isAfter(fullstr);
+		console.log(pdate);
+		if(pdate == true){
+			$("input[type=checkbox]").css({"display" : "none"});
+			$("#delete").attr("disabled", true);
+		}
+		
 	});
 });
 
@@ -149,7 +156,6 @@ function updateList(jsonObj) {
 		if (jsonObj.cnt != 0) {
 			$("#change").attr("disabled", false);
 			$("#delete").attr("disabled", false);
-
 			var result = "<div class='row col-12'><div class='col-3'>번호</div><div class='col-3'>ID</div><div class='col-3'>예약 시간</div><div class='col-3'>주소</div>";
 			var cnt = jsonObj.cnt;
 			var data = jsonObj.data;
@@ -157,12 +163,11 @@ function updateList(jsonObj) {
 			for (var i = 0; i < cnt; i++) {
 				result += "<div class='row col-12'>";
 				result += "<div class='col-2'><input type='checkbox' name='num' value='"+data[i].num+"'>"
-						+ i + "</div>";
+						+ (i+1) + "</div>";
 				result += "<div class='id col-3'>" + data[i].userid + "</div>";
 				result += "<div class='time col-3'><textarea name='text'" + i
 						+ " readonly placeholder='YYYY-MM-DD 형식으로 입력하세요'>"
-						+ moment(data[i].stime).format('YYYY-MM-DD HH') + "시 부터"
-						+ moment(data[i].etime).format('YYYY-MM-DD HH') + "시 까지"
+						+ moment(data[i].stime).format('YYYY-MM-DD HH')
 						+ "</textarea></div>";
 				result += "<div class='address col-4'>" + data[i].address
 						+ "</div>";

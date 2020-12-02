@@ -46,6 +46,7 @@
 			</form>
 		</div>
 		<br><br><br>
+		<div class="col-12" id="box">
 		<div class="row col-12 menu">
 			<div class="col-3">등록ID</div>
 			<div class="col-4">이름</div>
@@ -59,6 +60,7 @@
 			<div class="col-5">${list.email }</div>
 		</div>
 		</c:forEach>
+		</div>
 	</div>
 	<br><br>
 </body>

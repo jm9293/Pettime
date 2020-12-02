@@ -45,6 +45,7 @@
 					<button type="button"
 						onclick="location.href='adDesPassword?id=${list[0].id}&email=${list[0].email }'">임시비밀번호
 						발급</button>
+					<button type="button" onclick="history.back()">목록으로</button>	
 				</div>
 			</div>
 			<div class="col-12 col-md-6 contentBox">

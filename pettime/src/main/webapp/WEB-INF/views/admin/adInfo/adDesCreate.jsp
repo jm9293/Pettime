@@ -41,7 +41,7 @@ console.log(size);
 			<div class="input-box col-12">
 				<label for="idtext">ID : </label> <input type="text"
 					class="form-control" id="idtext" name="id" maxlength="6" required />
-				<button type="button" onclick="createChk();" id="idchk-btn" disabled>중복체크</button>
+				<button type="button" onclick="createChk()" id="idchk-btn" disabled>중복체크</button>
 				<div class="invalid-feedback" id="id-invalid">아이디는 4~6자
 					영문소문자+숫자여야 합니다.</div>
 			</div>
@@ -76,10 +76,12 @@ console.log(size);
 						<option value="nate.com">nate.com</option>
 						<option value="direct">직접 입력</option>
 					</select> <input type="text" class="form-control emailb"
-						id="inputEmaildirect" placeholder="" value="직접입력"> <input
+						id="inputEmaildirect" placeholder="" value="직접입력">
+					<button type="button" onclick="createChk2()" id="emailchk-btn" disabled>중복체크</button>	
+					<input
 						type="hidden" id="email" name="email" value=""> <input
 						type="hidden" name="enabled" value="1">
-					<div class="invalid-feedback">이메일 형식이아닙니다.</div>
+					<div class="invalid-feedback" id="email-invalid">이메일 형식이아닙니다.</div>
 				</div>
 			</div>
 			<div class="input-box col-12">

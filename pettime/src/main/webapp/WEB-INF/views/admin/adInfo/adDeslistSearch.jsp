@@ -36,12 +36,12 @@
 						class="form-control col-12 btn btn-success btn-sm">검색</button>
 				</div>
 				<div class="col-3">
-					<input class="col-12 form-control" type="text" name="text" />
+					<input class="col-12 form-control" type="text" name="text" value="${text }"/>
 				</div>
 				<div class="col-3">
 					<select class="col-12 form-control" name="selectMenu">
-						<option value="id_sch" id="id_sch">ID검색</option>
-						<option value="name_sch" id="name_sch">이름검색</option>
+						<option value="id_sch" id="id_sch" <c:if test="${select eq 'id_sch' }">selected</c:if>>ID검색</option>
+						<option value="name_sch" id="name_sch" <c:if test="${select eq 'name_sch' }">selected</c:if>>이름검색</option>
 					</select>
 				</div>
 				<div class="col-3">

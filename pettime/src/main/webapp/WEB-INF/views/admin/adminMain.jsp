@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,6 +43,14 @@
 				<div class="col-6 col-md-4 bg-light text-dark">연락처</div>
 				<div class="col-6 col-md-4 bg-light text-dark">이메일</div>
 			</div>
+			<c:forEach var="item" items="${list }" varStatus="status">
+				<div class="col-12 row" id="desinfo">
+					<div class="col-6 col-md-2">${item.id }</div>
+					<div class="col-6 col-md-2">${item.name }</div>
+					<div class="col-6 col-md-4">${item.phone }</div>
+					<div class="col-6 col-md-4">${item.email }</div>
+				</div>
+			</c:forEach>
 		</div>
 	</div>
 	<br>

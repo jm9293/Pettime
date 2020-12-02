@@ -26,8 +26,7 @@ public class adResController {
 	public AjaxAdmin deleteList(int [] num, Model model) {
 		System.out.println(num);
 		model.addAttribute("nums", num);
-		new adResDeleteCommand().execute(model);//??? 왜여기서 끈기지?다시한번해줘셈 
-		System.out.println("들어옴?4");
+		new adResDeleteCommand().execute(model);
 		AjaxAdmin data = (AjaxAdmin)model.getAttribute("data");
 		System.out.println(data);
 		return data;

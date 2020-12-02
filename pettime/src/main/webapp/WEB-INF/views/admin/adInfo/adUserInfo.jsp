@@ -41,6 +41,7 @@
 							<button type="submit">블랙리스트 해제</button>
 						</c:otherwise>
 					</c:choose>
+					<button type="button" onclick="history.back()">목록으로</button>
 				</div>
 		</div>
 		<div class="col-12 col-md-6 contentBox">

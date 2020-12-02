@@ -1,3 +1,5 @@
+var emailStr = null;
+var emailId = null;
 $(function() {
 
 	$("#inputEmaildirect").hide();
@@ -93,6 +95,8 @@ $(function() {
 		if (/[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}/.test(value)) {
 			$("#emailtext").removeClass("is-invalid");
 			$("#emailtext").addClass("is-valid");
+			$("#email-invalid").text("중복확인을 해주세요.");
+			$("#emailchk-btn").removeAttr("disabled");
 		} else {
 			$("#emailtext").removeClass("is-valid");
 			$("#emailtext").addClass("is-invalid");
@@ -113,6 +117,8 @@ $(function() {
 		if (/[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}/.test(value)) {
 			$("#inputEmaildirect").removeClass("is-invalid");
 			$("#inputEmaildirect").addClass("is-valid");
+			$("#emailchk-btn").removeAttr("disabled");
+			$("#email-invalid").text("중복확인을 해주세요.");
 		} else {
 			$("#inputEmaildirect").removeClass("is-valid");
 			$("#inputEmaildirect").addClass("is-invalid");
@@ -130,9 +136,7 @@ $(function() {
 		var email = "";
 
 		email = emailId + '@' + emailAdd;
-		console.log(email);
 		$("#email").val(email);
-		console.log($("#email").val());
 	}
 
 	$("#introtext").keyup(function() {
@@ -207,6 +211,49 @@ function chkData(jsonObj) {
 			$("#idchk-btn").text("체크완료");
 			$("#idtext").attr("readonly", "");
 			$("#idchk-btn").attr("disabled", "");
+		}
+	}
+}
+
+function createChk2() {
+	
+	var emailAddress = "";
+	if ($("#emailSelect").val() !== 'direct') {
+		emailId = $("#emailtext").val();
+		emailAddress = $("#emailSelect").val().split(".");
+	}else{
+		emailId = $("#emailtext").val();
+		emailAddress = $("#inputEmaildirect").val().split(".");
+	}
+	emailStr = emailAddress[0].concat(emailAddress[1]);
+	checkEmail(emailId);
+	console.log(emailId)
+	console.log(emailStr)
+}
+function checkEmail(emailId) {
+	$.ajax({
+		url : "./adDesCreate/" + emailId + "/" + emailStr,
+		type : "GET",
+		cache : false,
+		success : function(data, status) {
+			if (status == "success") {
+				if (chkData2(data)) {}
+			}
+		}
+
+	});
+}
+
+function chkData2(jsonObj) {
+	if (jsonObj.status == "OK") {
+		if (jsonObj.cnt != 0) {
+			alert("중복된 Email 입니다.");
+		} else {
+			$("#emailtextext").removeClass("is-invalid");
+			$("#emailtext").addClass("is-valid");
+			$("#emailchk-btn").text("체크완료");
+			$("#emailtext").attr("readonly", "");
+			$("#emailchk-btn").attr("disabled", "");
 		}
 	}
 }

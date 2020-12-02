@@ -24,7 +24,7 @@
                     </div>
                   </li>
                   <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="${pageContext.request.contextPath }/admin/adProduct/adProlist" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
                       상품관리
                     </a>     
                   </li>

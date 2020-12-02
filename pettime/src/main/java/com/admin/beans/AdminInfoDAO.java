@@ -15,4 +15,6 @@ public interface AdminInfoDAO {
 	public int updateUserInfo(int num, @Param("a") UserDTO dto);
 	public int insertDes(@Param("a")DesignerDTO dto);
 	public int idChk(String id);
+	public int emailChk(String email);
+	public int grantDes(String degId, String grant);
 }

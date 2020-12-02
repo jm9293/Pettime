@@ -6,18 +6,20 @@ import com.admin.beans.AjaxAdmin;
 import com.admin.beans.AdminInfoDAO;
 import com.sqld.pettime.util.DBSession;
 
-public class adDesCreateIdChkCommand implements adminCommand {
+public class adDesCreateEmailChkCommand implements adminCommand {
 
 	@Override
 	public void execute(Model model) {
-		String id = (String) model.getAttribute("id");
+		String emailId = (String) model.getAttribute("emailId");
+		StringBuffer emailAdd = (StringBuffer) model.getAttribute("emailAdd");
 		AdminInfoDAO dao = DBSession.sqlSession.getMapper(AdminInfoDAO.class);
-
-		int cnt = dao.idChk(id);
+		emailAdd.insert(emailAdd.lastIndexOf("c"), ".");
+		String email = emailId + "@" + emailAdd;
+		int cnt = dao.emailChk(email);
 		
 		String status = "FAIL";
 
-		if(id != null) {
+		if(email != null) {
 			status = "OK";
 		}
 
