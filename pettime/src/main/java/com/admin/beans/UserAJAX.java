@@ -11,10 +11,15 @@ String status;
 	
 	int maxpage;
 	
+
+	
 	public UserAJAX() {
 		
 	}
 	 
+
+
+
 
 	public int getMaxpage() {
 		return maxpage;
@@ -25,14 +30,6 @@ String status;
 		this.maxpage = maxpage;
 	}
 
-
-	public UserAJAX(String status, int cnt, List data, int maxpage) {
-		super();
-		this.status = status;
-		this.cnt = cnt;
-		this.data = data;
-		this.maxpage = maxpage;
-	}
 
 
 	public String getStatus() {

@@ -10,5 +10,6 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+<input type="hidden" name="_csrf" value="${CSRF_TOKEN}" />
 </body>
 </html>
