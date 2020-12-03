@@ -1,9 +1,12 @@
-package com.admin.beans;
+package com.sqld.pettime.dao;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.annotation.MapperScan;
+
+import com.sqld.pettime.dto.DesignerDTO;
+import com.sqld.pettime.dto.UserDTO;
 @MapperScan
 public interface AdminInfoDAO {
 

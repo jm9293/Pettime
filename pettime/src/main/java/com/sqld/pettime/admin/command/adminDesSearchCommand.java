@@ -7,9 +7,8 @@ import java.util.Map;
 
 import org.springframework.ui.Model;
 
-import com.admin.beans.DesignerDTO;
-import com.admin.beans.AdminInfoDAO;
-
+import com.sqld.pettime.dao.AdminInfoDAO;
+import com.sqld.pettime.dto.DesignerDTO;
 import com.sqld.pettime.util.DBSession;
 
 public class adminDesSearchCommand implements adminCommand {

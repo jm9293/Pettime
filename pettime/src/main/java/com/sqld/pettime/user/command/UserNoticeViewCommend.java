@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.springframework.ui.Model;
 
-import com.admin.beans.NoticeDAO;
-import com.admin.beans.NoticeDTO;
-import com.admin.beans.UserAJAX;
+import com.sqld.pettime.dao.NoticeDAO;
+import com.sqld.pettime.dto.NoticeDTO;
+import com.sqld.pettime.user.beans.UserDataJSON;
 import com.sqld.pettime.util.DBSession;
 
 public class UserNoticeViewCommend implements UserCommand{
@@ -15,7 +15,7 @@ public class UserNoticeViewCommend implements UserCommand{
 	@Override
 	public void excute(Model model) {
 		List<NoticeDTO> list = null;
-		UserAJAX ajax = new UserAJAX();
+		UserDataJSON ajax = new UserDataJSON();
 		
 		NoticeDAO dao = DBSession.sqlSession.getMapper(NoticeDAO.class);
 		int uid = (int)model.getAttribute("uid");

@@ -1,4 +1,4 @@
-package com.admin.beans;
+package com.sqld.pettime.dto;
 
 import java.sql.Timestamp;
 

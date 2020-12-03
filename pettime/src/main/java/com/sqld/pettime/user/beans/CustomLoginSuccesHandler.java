@@ -1,4 +1,4 @@
-package com.admin.beans;
+package com.sqld.pettime.user.beans;
 
 import java.io.IOException;
 import java.security.Principal;
@@ -35,10 +35,6 @@ public class CustomLoginSuccesHandler implements AuthenticationSuccessHandler {
 			System.out.println(ud.getUsername());
 			response.sendRedirect(request.getContextPath() + "/rest/loginOk");
 			
-		}else if(roleNames.contains("ROLE_MEMBER")) {
-			response.sendRedirect(request.getContextPath() + "/sample/member");
-		}else {
-			response.sendRedirect(request.getContextPath());
 		}
 		
 		

@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.ui.Model;
 
-import com.admin.beans.MenuDAO;
-import com.admin.beans.MenuDTO;
+import com.sqld.pettime.dao.MenuDAO;
+import com.sqld.pettime.dto.MenuDTO;
 import com.sqld.pettime.util.DBSession;
 
 public class adMenulistCommand implements adminCommand {

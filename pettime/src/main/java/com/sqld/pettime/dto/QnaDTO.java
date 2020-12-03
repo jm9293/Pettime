@@ -1,25 +1,15 @@
-package com.admin.beans;
+package com.sqld.pettime.dto;
 
 import java.sql.Date;
 
-//공지사항 
-public class NoticeDTO {
-	
- public NoticeDTO() {
-	
- }	
+//묻고 답하기 
+public class QnaDTO {
 
- public NoticeDTO(Integer num, String title, String content, Integer viewcnt, Date wrdate) {
-		super();
-		this.num = num;
-		this.title = title;
-		this.content = content;
-		this.viewcnt = viewcnt;
-		this.wrdate = wrdate;
-	}
-
-// 식별번호 
+ // 식별번호 
  private Integer num;
+
+ // 작성자 
+ private String userid;
 
  // 제목 
  private String title;
@@ -33,12 +23,29 @@ public class NoticeDTO {
  // 작성일 
  private Date wrdate;
 
+ // 답변 
+ private String anser;
+
+ // 답변일 
+ private Date andate;
+
+ // 공개여부 
+ private String open;
+
  public Integer getNum() {
      return num;
  }
 
  public void setNum(Integer num) {
      this.num = num;
+ }
+
+ public String getUserid() {
+     return userid;
+ }
+
+ public void setUserid(String userid) {
+     this.userid = userid;
  }
 
  public String getTitle() {
@@ -73,12 +80,29 @@ public class NoticeDTO {
      this.wrdate = wrdate;
  }
 
-@Override
-public String toString() {
-	return "NoticeDTO [num=" + num + ", title=" + title + ", content=" + content + ", viewcnt=" + viewcnt + ", wrdate="
-			+ wrdate + "]";
-}
+ public String getAnser() {
+     return anser;
+ }
 
- 
+ public void setAnser(String anser) {
+     this.anser = anser;
+ }
+
+ public Date getAndate() {
+     return andate;
+ }
+
+ public void setAndate(Date andate) {
+     this.andate = andate;
+ }
+
+ public String getOpen() {
+     return open;
+ }
+
+ public void setOpen(String open) {
+     this.open = open;
+ }
+
 
 }

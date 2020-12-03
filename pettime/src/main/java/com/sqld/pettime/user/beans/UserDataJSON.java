@@ -1,8 +1,8 @@
-package com.admin.beans;
+package com.sqld.pettime.user.beans;
 
 import java.util.List;
 
-public class UserAJAX {
+public class UserDataJSON {
 String status;
 	
 	int cnt;
@@ -13,7 +13,7 @@ String status;
 	
 
 	
-	public UserAJAX() {
+	public UserDataJSON() {
 		
 	}
 	 

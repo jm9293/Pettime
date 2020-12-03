@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.admin.beans.DesignerDTO;
 import com.sqld.pettime.admin.command.adDesCreateCommand;
 import com.sqld.pettime.admin.command.adDesCreateIdChkCommand;
 import com.sqld.pettime.admin.command.adminDesSearchCommand;
@@ -17,6 +16,7 @@ import com.sqld.pettime.admin.command.adminUserViewCommand;
 import com.sqld.pettime.admin.command.adminUserlistCommand;
 import com.sqld.pettime.admin.command.admindDesStatusCommand;
 import com.sqld.pettime.admin.command.admindUserStatusCommand;
+import com.sqld.pettime.dto.DesignerDTO;
 
 @Controller
 @RequestMapping("/admin/adInfo")

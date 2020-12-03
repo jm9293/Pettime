@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.springframework.ui.Model;
 
-import com.admin.beans.UserDTO;
-import com.admin.beans.AdminInfoDAO;
+import com.sqld.pettime.dao.AdminInfoDAO;
+import com.sqld.pettime.dto.UserDTO;
 import com.sqld.pettime.util.DBSession;
 
 public class admindUserStatusCommand implements adminCommand {

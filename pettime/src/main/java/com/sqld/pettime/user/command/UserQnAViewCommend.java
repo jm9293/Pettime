@@ -5,11 +5,11 @@ import java.util.List;
 
 import org.springframework.ui.Model;
 
-import com.admin.beans.NoticeDAO;
-import com.admin.beans.NoticeDTO;
-import com.admin.beans.QnaDAO;
-import com.admin.beans.QnaDTO;
-import com.admin.beans.UserAJAX;
+import com.sqld.pettime.dao.NoticeDAO;
+import com.sqld.pettime.dao.QnaDAO;
+import com.sqld.pettime.dto.NoticeDTO;
+import com.sqld.pettime.dto.QnaDTO;
+import com.sqld.pettime.user.beans.UserDataJSON;
 import com.sqld.pettime.util.DBSession;
 
 public class UserQnAViewCommend implements UserCommand{
@@ -17,7 +17,7 @@ public class UserQnAViewCommend implements UserCommand{
 	@Override
 	public void excute(Model model) {
 		List<QnaDTO> list = null;
-		UserAJAX ajax = new UserAJAX();
+		UserDataJSON ajax = new UserDataJSON();
 		
 		QnaDAO dao = DBSession.sqlSession.getMapper(QnaDAO.class);
 		int uid = (int)model.getAttribute("uid");

@@ -1,4 +1,4 @@
-package com.admin.beans;
+package com.sqld.pettime.admin.beans;
 
 import java.util.List;
 

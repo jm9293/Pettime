@@ -1,4 +1,4 @@
-package com.admin.beans;
+package com.sqld.pettime.user.beans;
 
 import java.io.IOException;
 
@@ -16,8 +16,9 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 			AccessDeniedException accessDeniedException) throws IOException, ServletException {
 		System.out.println("Access Denined Handler");
 		System.out.println(accessDeniedException.getMessage());
-		System.out.println("에러처리");
-		response.sendRedirect(request.getContextPath()+"/accessError");
+		System.out.println("로그인에러");
+		request.getSession().setAttribute("accessDeniedMessage", accessDeniedException.getMessage());
+		response.sendRedirect(request.getContextPath()+"/rest/isNotLogin");
 	}
 
 }

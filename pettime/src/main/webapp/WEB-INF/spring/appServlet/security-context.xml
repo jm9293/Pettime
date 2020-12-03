@@ -6,30 +6,27 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 <bean id="bcryptPasswordEncoder"
 			class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
-<bean id="customAccessDenied" class="com.admin.beans.CustomAccessDeniedHandler"/>
-<bean id="customLoginSuccesHandler" class="com.admin.beans.CustomLoginSuccesHandler"></bean>
-
-<security:http>
-	<security:form-login login-page="/rest/login" login-processing-url="/loginAJAX" authentication-success-handler-ref="customLoginSuccesHandler"/>
-	<security:intercept-url pattern="/rest/isLogin" access="hasRole('ROLE_USER')"/>
-	
-	<security:access-denied-handler ref="customAccessDenied"/>
-</security:http>
-
-<security:authentication-manager>
+<bean id="usercustomAccessDenied" class="com.sqld.pettime.user.beans.CustomAccessDeniedHandler"/>
+<bean id="usercustomLoginSuccesHandler" class="com.sqld.pettime.user.beans.CustomLoginSuccesHandler"></bean>
+<security:authentication-manager id="userAuthManager">
 	<security:authentication-provider>
-	<security:jdbc-user-service data-source-ref="dataSource"
-		 
+	<security:jdbc-user-service data-source-ref="dataSource"		 
 		 	users-by-username-query="SELECT ID username, password, enabled
-FROM USERDATA WHERE ID = ?"
+										FROM USERDATA WHERE ID = ?"
 		 	authorities-by-username-query="SELECT ID username, authority
-FROM UAUTH WHERE ID = ?"
-		 
-		 
-		 />
+										FROM UAUTH WHERE ID = ?"
+	/>
 	 	<security:password-encoder ref="bcryptPasswordEncoder"/>
 	</security:authentication-provider>
 </security:authentication-manager>
+
+<security:http pattern="/rest/**" authentication-manager-ref="userAuthManager">
+	<security:form-login login-page="/rest/login" login-processing-url="/rest/loginAJAX" authentication-success-handler-ref="usercustomLoginSuccesHandler"/>
+	<security:intercept-url pattern="/rest/isLogin" access="hasRole('ROLE_USER')"/>
+	
+	<security:access-denied-handler ref="usercustomAccessDenied"/>
+</security:http>
+
 
 
 </beans>

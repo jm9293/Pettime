@@ -2,8 +2,9 @@ package com.sqld.pettime.admin.command;
 
 
 import org.springframework.ui.Model;
-import com.admin.beans.AjaxAdmin;
-import com.admin.beans.AdminInfoDAO;
+
+import com.sqld.pettime.admin.beans.AjaxAdmin;
+import com.sqld.pettime.dao.AdminInfoDAO;
 import com.sqld.pettime.util.DBSession;
 
 public class adDesCreateIdChkCommand implements adminCommand {

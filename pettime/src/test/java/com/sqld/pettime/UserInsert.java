@@ -78,23 +78,24 @@ public class UserInsert {
 		
 	
 		try {
-//			pstmt = conn.prepareStatement(SQL_INSERT_MEMBER);
-//			pstmt.setString(1, "user3");
-//			pstmt.setString(2, pwencoder.encode("a1234"));
-//			pstmt.setString(3, "user3");
-//			pstmt.setString(4, "01012341234");
-//			pstmt.setString(5, "pettime1234@gmail.com");
-//			
-//			pstmt.executeUpdate();
+			pstmt = conn.prepareStatement(SQL_INSERT_MEMBER);
+			pstmt.setString(1, "user3");
+			pstmt.setString(2, pwencoder.encode("a1234"));
+			pstmt.setString(3, "user3");
+			pstmt.setString(4, "01012341234");
+			pstmt.setString(5, "pettime1234@gmail.com");
 			
+			pstmt.executeUpdate();
+			conn.commit();
 			pstmt = conn.prepareStatement(SQL_INSERT_AUTH);
 			pstmt.setString(1, "user3");
 			
 			
 			pstmt.executeUpdate();
-			
+			conn.commit();
 		}catch (Exception e) {
 			e.printStackTrace();
+			fail();
 		}finally {
 			try {
 				conn.close();

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.admin.beans.UserAJAX;
+
+import com.sqld.pettime.user.beans.UserDataJSON;
+import com.sqld.pettime.user.beans.UserLoginJSON;
 import com.sqld.pettime.user.command.UserNoticeSelectCommend;
 import com.sqld.pettime.user.command.UserNoticeViewCommend;
 import com.sqld.pettime.user.command.UserQnASearchCommend;
@@ -34,72 +37,91 @@ public class UserRestController {
 
 	
 	@RequestMapping(value="/csrf-token", method=RequestMethod.GET)
-	public @ResponseBody String getCsrfToken(HttpServletRequest request, Authentication authentication) {
+	public @ResponseBody String getCsrfToken(HttpServletRequest request) {
 	    CsrfToken token = (CsrfToken)request.getAttribute(CsrfToken.class.getName());
 	    return token.getToken();
 	}
 	
 	@RequestMapping("/notice/list/{pageNum}")
-	UserAJAX noticeSelect(Model model, @PathVariable int pageNum,HttpSession session) {
+	UserDataJSON noticeSelect(Model model, @PathVariable int pageNum,HttpSession session) {
 		model.addAttribute("pageNum", pageNum);
 		new UserNoticeSelectCommend().excute(model);
 		
-		UserAJAX ajax = (UserAJAX) model.getAttribute("ajax");
+		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
 
 		return ajax;
 	}
 	
 	@RequestMapping("/login")
-	UserAJAX loginInput(String error , String logout , Model model) {
-		System.out.println(error);
-		System.out.println(logout);
+	UserDataJSON loginInput(Model model) {
 		System.out.println("로그인페이지");
-		UserAJAX ajax = new UserAJAX();
+		UserDataJSON ajax = new UserDataJSON();
 
 		return ajax;
 	}
 	
+	@RequestMapping("/isLogin")
+	UserLoginJSON isLogin(Model model, Authentication authentication ) {
+		System.out.println("로그인확인");
+		UserLoginJSON json = new UserLoginJSON();
+		json.setStatus("OK");
+		json.setUsername(((UserDetails)authentication.getPrincipal()).getUsername());
+		json.setIslogin(true);
+		return json;
+	}
+	
+	@RequestMapping("/isNotLogin")
+	UserLoginJSON isNotLogin(Model model, HttpSession session) {
+		System.out.println("로그인실패");
+		UserLoginJSON json = new UserLoginJSON();
+		json.setStatus("OK");
+		json.setUsername("Notlogin");
+		json.setIslogin(false);
+		json.setMessage((String)session.getAttribute("accessDeniedMessage"));
+		return json;
+	}
+	
 	@RequestMapping("/qna/list/{pageNum}")
-	UserAJAX qnaSelect(Model model, @PathVariable int pageNum ,HttpSession session) {
+	UserDataJSON qnaSelect(Model model, @PathVariable int pageNum ,HttpSession session) {
 		model.addAttribute("pageNum", pageNum);
 		new UserQnASelectCommend().excute(model);
 		
-		UserAJAX ajax = (UserAJAX) model.getAttribute("ajax");
+		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
 	
 		return ajax;
 	}
 	
 	@RequestMapping("/qna/search/{val}/{pageNum}")
-	UserAJAX qnaSearch(Model model, @PathVariable String val,@PathVariable int pageNum ,HttpSession session) {
+	UserDataJSON qnaSearch(Model model, @PathVariable String val,@PathVariable int pageNum ,HttpSession session) {
 		model.addAttribute("val", val);
 		System.out.println(val);
 		model.addAttribute("pageNum", pageNum);
 		System.out.println(pageNum);
 		new UserQnASearchCommend().excute(model);
 		
-		UserAJAX ajax = (UserAJAX) model.getAttribute("ajax");
+		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
 
 		return ajax;
 	}
 	
 	@RequestMapping("/notice/view/{uid}")
-	UserAJAX noticeView(Model model, @PathVariable int uid ,HttpSession session) {
+	UserDataJSON noticeView(Model model, @PathVariable int uid ,HttpSession session) {
 		model.addAttribute("uid", uid);
 		
 		new UserNoticeViewCommend().excute(model);
 		
-		UserAJAX ajax = (UserAJAX) model.getAttribute("ajax");
+		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
 
 		return ajax;
 	}
 	
 	@RequestMapping("/qna/view/{uid}")
-	UserAJAX qnaView(Model model, @PathVariable int uid ,HttpSession session) {
+	UserDataJSON qnaView(Model model, @PathVariable int uid ,HttpSession session) {
 		model.addAttribute("uid", uid);
 		
 		new UserQnAViewCommend().excute(model);
 		
-		UserAJAX ajax = (UserAJAX) model.getAttribute("ajax");
+		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
 
 		return ajax;
 	}

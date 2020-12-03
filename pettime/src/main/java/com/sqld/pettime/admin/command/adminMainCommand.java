@@ -2,7 +2,7 @@ package com.sqld.pettime.admin.command;
 
 import org.springframework.ui.Model;
 
-import com.admin.beans.AdminMainDAO;
+import com.sqld.pettime.dao.AdminMainDAO;
 import com.sqld.pettime.util.DBSession;
 
 public class adminMainCommand implements adminCommand {

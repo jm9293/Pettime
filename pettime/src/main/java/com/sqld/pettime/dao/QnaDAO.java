@@ -1,6 +1,8 @@
-package com.admin.beans;
+package com.sqld.pettime.dao;
 
 import java.util.List;
+
+import com.sqld.pettime.dto.QnaDTO;
 
 public interface QnaDAO {
 	List<QnaDTO> select();

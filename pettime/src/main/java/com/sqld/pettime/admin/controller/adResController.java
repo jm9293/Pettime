@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.admin.beans.AjaxAdmin;
+
+import com.sqld.pettime.admin.beans.AjaxAdmin;
 import com.sqld.pettime.admin.command.adResDeleteCommand;
 import com.sqld.pettime.admin.command.adResReadlistCommand;
 

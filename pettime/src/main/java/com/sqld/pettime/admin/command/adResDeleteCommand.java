@@ -6,9 +6,9 @@ import java.util.List;
 
 import org.springframework.ui.Model;
 
-import com.admin.beans.AdResAjaxDAO;
-import com.admin.beans.AdminResDTO;
-import com.admin.beans.AjaxAdmin;
+import com.sqld.pettime.admin.beans.AjaxAdmin;
+import com.sqld.pettime.dao.AdResAjaxDAO;
+import com.sqld.pettime.dto.AdminResDTO;
 import com.sqld.pettime.util.DBSession;
 
 
