@@ -47,6 +47,8 @@
 				<div class="col-3">
 					<button type="button" onclick="location.href='${pageContext.request.contextPath}/admin/adInfo/adDesCreate'">직원 생성</button>
 				</div>
+				<input type="hidden"
+					name="${_csrf.parameterName }" value="${_csrf.token }" />
 			</form>
 		</div>
 		<br>

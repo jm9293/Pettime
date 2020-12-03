@@ -106,7 +106,10 @@ public class UserInsert {
 			}
 		}
 	}
-  
+	@Test
+	public void test() {
+		System.out.println(pwencoder.encode("1234"));
+	}
   
 } // end class
 

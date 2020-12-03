@@ -43,6 +43,8 @@
 						<option value="name_sch" id="name_sch">이름검색</option>
 					</select>
 				</div>
+				<input type="hidden"
+					name="${_csrf.parameterName }" value="${_csrf.token }" />
 			</form>
 		</div>
 		<br><br><br>

@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sqld.pettime.dao.MenuDAO">
-	<select id="selectList" resultType="com.sqld.pettime.dto.MenuDTO">
+	<select id="selectList"
+		resultType="com.sqld.pettime.dto.MenuDTO">
 		SELECT * FROM PETTIME.MENU
 	</select>
+
+	<select id="selectNum" flushCache="true"
+		resultType="com.sqld.pettime.dto.MenuDTO">
+		SELECT * FROM PETTIME.MENU WHERE NUM = #{param1}
+	</select>
+
+	<insert id="addMenu" flushCache="true">
+		INSERT INTO PETTIME.MENU
+		(SUBJECT, PRICE) VALUES (#{param1}, #{param2})
+	</insert>
+
+	<update id="updateMenu" flushCache="true">
+		UPDATE PETTIME.MENU
+		SET
+		SUBJECT= #{a.subject}, PRICE= #{a.price}
+		WHERE NUM= #{a.num}
+	</update>
+
+	<delete id="deleteMenu" flushCache="true">
+		DELETE FROM PETTIME.MENU
+		WHERE NUM=#{param1}
+	</delete>
 </mapper>

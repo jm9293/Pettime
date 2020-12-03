@@ -9,6 +9,9 @@
 <bean id="usercustomAccessDenied" class="com.sqld.pettime.user.beans.CustomAccessDeniedHandler"/>
 <bean id="usercustomLoginSuccesHandler" class="com.sqld.pettime.user.beans.CustomLoginSuccesHandler"></bean>
 <bean id="usercustomLoginFailHandler" class="com.sqld.pettime.user.beans.CustomLoginFailHandler"></bean>
+<bean id="admincustomAccessDenied" class="com.sqld.pettime.admin.beans.AdminAccessDeniedHandler"/>
+<bean id="admincustomLoginSuccesHandler" class="com.sqld.pettime.admin.beans.AdminLoginSuccesHandler"></bean>
+<bean id="admincustomLoginFailHandler" class="com.sqld.pettime.admin.beans.AdminLoginFailHandler"></bean>
 <security:authentication-manager id="userAuthManager">
 	<security:authentication-provider>
 	<security:jdbc-user-service data-source-ref="dataSource"		 
@@ -16,6 +19,18 @@
 										FROM USERDATA WHERE ID = ?"
 		 	authorities-by-username-query="SELECT ID username, authority
 										FROM UAUTH WHERE ID = ?"
+	/>
+	 	<security:password-encoder ref="bcryptPasswordEncoder"/>
+	</security:authentication-provider>
+</security:authentication-manager>
+
+<security:authentication-manager id="adminAuthManager">
+	<security:authentication-provider>
+	<security:jdbc-user-service data-source-ref="dataSource"		 
+		 	users-by-username-query="SELECT ID username, password, enabled
+										FROM ADMIN WHERE ID = ?"
+		 	authorities-by-username-query="SELECT ID username, authority
+										FROM AAUTH WHERE ID = ?"
 	/>
 	 	<security:password-encoder ref="bcryptPasswordEncoder"/>
 	</security:authentication-provider>
@@ -31,6 +46,19 @@
 	<security:intercept-url pattern="/rest/qna/delete" access="hasRole('ROLE_USER')"/>
 	<security:logout invalidate-session="true" logout-url="/rest/logout"/>
 	<security:access-denied-handler ref="usercustomAccessDenied"/>
+</security:http>
+
+<security:http pattern="/admin/**" authentication-manager-ref="adminAuthManager">
+	<security:form-login login-page="/admin/adminLogin" login-processing-url="/admin/adminLoginOk" 
+	authentication-success-handler-ref="admincustomLoginSuccesHandler"
+	authentication-failure-handler-ref="admincustomLoginFailHandler"/>
+	<security:intercept-url pattern="/admin/adRes" access="hasRole('ROLE_ADMIN')"/>
+	<security:intercept-url pattern="/admin/adminMain" access="hasRole('ROLE_ADMIN')"/>
+	<security:intercept-url pattern="/admin/adInfo/**" access="hasRole('ROLE_ADMIN')"/>
+	<security:intercept-url pattern="/admin/adProduct/**" access="hasRole('ROLE_ADMIN')"/>
+	<security:intercept-url pattern="/admin/adminLogin" access="permitAll"/>
+	<security:logout invalidate-session="true" logout-url="/admin/logout" logout-success-url="/admin/logoutOk"/>
+	<security:access-denied-handler ref="admincustomAccessDenied"/>
 </security:http>
 
 

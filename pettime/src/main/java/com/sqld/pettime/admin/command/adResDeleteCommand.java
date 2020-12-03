@@ -24,7 +24,6 @@ public class adResDeleteCommand implements adminCommand {
 		List<AdminResDTO> list = new ArrayList<AdminResDTO>();
 		for (int i = 0; i < nums.length; i++) {
 			list.add(dao.searchRes(nums[i]));
-			System.out.println("들어옴?1");
 		}
 		
 		for (int i = 0; i < list.size(); i++) {
@@ -40,7 +39,6 @@ public class adResDeleteCommand implements adminCommand {
 			}else if(time == 16) {
 				dao.updateListC(degId, stime);
 			}
-			System.out.println("들어옴?2");
 			
 		}
 		
@@ -49,7 +47,6 @@ public class adResDeleteCommand implements adminCommand {
 		if(nums != null) {
 			cnt = dao.deleteList(nums);
 			status = "OK";
-			System.out.println("들어옴?3");
 		}
 		
 		AjaxAdmin data = new AjaxAdmin(status, cnt, null);

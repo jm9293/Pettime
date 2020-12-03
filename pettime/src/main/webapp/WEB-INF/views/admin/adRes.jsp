@@ -47,6 +47,7 @@
 		</div>
 		<form id="frmList" name="frmList">
 		<div id="resList" class="col-12 col-md-6"></div>
+		<input type="hidden" name="_csrf" value="${CSRF_TOKEN}" /> 
 		</form>
 		<div class="row col-12">
 		<div class="row col-6">

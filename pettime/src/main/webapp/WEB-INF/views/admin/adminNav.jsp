@@ -24,7 +24,7 @@
                     </div>
                   </li>
                   <li class="nav-item dropdown">
-                    <a class="nav-link" href="${pageContext.request.contextPath }/admin/adProduct/adProlist" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="${pageContext.request.contextPath }/admin/adProduct/adProductlist" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
                       상품관리
                     </a>     
                   </li>
@@ -37,7 +37,16 @@
                         <a class="dropdown-item" href="">공지사항</a>                        
                         <a class="dropdown-item" href="">고객 상담 게시판</a>
                     </div>
-                  </li>                 
+                  </li> 
+                  <li class="nav-item">
+                  <form action="/pettime/admin/logout" method="post">
+                  <input type="hidden"
+					name="${_csrf.parameterName }" value="${_csrf.token }" />
+                    <button type="submit" class="btn">
+                      logout
+                     </button>  
+                    </form> 
+                  </li>                
               </ul>
             </div>
           </nav>

@@ -43,6 +43,8 @@
 						<option value="name_sch" id="name_sch" <c:if test="${select eq 'name_sch' }">selected</c:if>>이름검색</option>
 					</select>
 				</div>
+				<input type="hidden"
+					name="${_csrf.parameterName }" value="${_csrf.token }" />
 			</form>
 		</div>
 		<br>

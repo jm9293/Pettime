@@ -1,17 +1,7 @@
 @charset "UTF-8";
 #menulist{
 	float:left;
-	height:800px;
-	box-sizing: border-boxed;
-	border: 1px solid black;
-	overflow:auto;
-	margin:auto;
-	text-align:center;
-	padding:0;
-}
-#changelist{
-	float:left;
-	height:800px;
+	height:700px;
 	box-sizing: border-boxed;
 	border: 1px solid black;
 	overflow:auto;

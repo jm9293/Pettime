@@ -25,11 +25,9 @@ public class adResController {
 	
 	@DeleteMapping("")
 	public AjaxAdmin deleteList(int [] num, Model model) {
-		System.out.println(num);
 		model.addAttribute("nums", num);
 		new adResDeleteCommand().execute(model);
 		AjaxAdmin data = (AjaxAdmin)model.getAttribute("data");
-		System.out.println(data);
 		return data;
 	}
 }

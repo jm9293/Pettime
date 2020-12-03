@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>      
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,35 +23,31 @@
 <script src="${pageContext.request.contextPath }/adminJS/adminMenu.js"></script>
 <title>Pettime Manager</title>
 </head>
-<body class="col-lg-10" style="margin:auto;">
+<body class="col-lg-10" style="margin: auto;">
 	<div id="navbar-wrap">
 		<%@ include file="../adminNav.jsp"%>
 	</div>
-	
 	<div class="content col-12">
-		<div class="col-6" id="menulist">
-			<div class="col-12 row menubar">
+		<form action="adProductAddOk" method="POST">
+			<div class="col-12 row">
 				<div class="col-6">메뉴</div>
-				<div class="col-6">금액</div>
-			</div>
-			<c:forEach var="item" items="${list }" varStatus="status">
-				<div class="col-12 row menuvalue">
-					<div class="col-6 subject_text">${item.subject }</div>
-					<div class="col-6 price_text">${item.price }</div>
+				<div class="col-6">
+					<input type="text" name="subject">
 				</div>
-			</c:forEach>
-		</div>
-		<div class="col-6" id="changelist">
-			<div class="col-12 row">
-				<div class="col-6">메뉴</div><input type="text" maxlength="20" required name="subject" id="subject" readonly>
-				<div class="col-6">금액</div><input type="text" maxlength="20" required name="price" id="price" readonly>
+				<div class="col-6">금액</div>
+				<div class="col-6">
+					<input type="text" name="price">
+				</div>
 			</div>
+
 			<div class="col-12 row">
-				<div><button type="button" onclick="" id="addbtn">추가하기</button></div>
-				<div><button type="button" onclick="" id="updatebtn">수정하기</button></div>
-				<div><button type="button" onclick="" id="deletebtn">삭제하기</button></div>
+				<button type="submit">생성하기</button>
+				<button type="button" onclick="history.back()">목록으로</button>
 			</div>
-		</div>
+			<input type="hidden"
+					name="${_csrf.parameterName }" value="${_csrf.token }" />
+		</form>
 	</div>
+
 </body>
 </html>

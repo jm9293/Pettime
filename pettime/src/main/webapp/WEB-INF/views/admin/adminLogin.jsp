@@ -24,8 +24,9 @@
 		<div class="adLogin col-4">
 			<h1>환영합니다 관리자님!</h1>
 			<h3>로그인을 진행해주세요</h3>
-			<form action="" method="${pageContext.request.contextPath }/login">
-				<input type="text" name="username" required><br> <input
+			<h3>${msg }</h3>
+			<form action="adminLoginOk" method="POST">
+				ID<input type="text" name="username" required><br> PW<input
 					type="password" name="password" required><br> <input
 					type="submit" value="로그인"><br> <input type="hidden"
 					name="${_csrf.parameterName }" value="${_csrf.token }" />

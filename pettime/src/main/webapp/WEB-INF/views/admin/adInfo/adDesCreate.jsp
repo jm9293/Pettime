@@ -100,6 +100,8 @@ console.log(size);
 				id="signup-btn" disabled>계정발급</button>
 			<button type="button" class="btn btn-danger emailf"
 				onclick="history.back();">취소</button>
+				<input type="hidden"
+					name="${_csrf.parameterName }" value="${_csrf.token }" />
 		</form>
 	</div>
 	<script
