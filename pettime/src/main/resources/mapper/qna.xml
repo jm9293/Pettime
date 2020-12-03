@@ -47,7 +47,19 @@ WHERE RN BETWEEN ((#{param1}-1)*7)+1 AND ((#{param1}-1)*7)+7]]>
 		SET VIEWCNT = VIEWCNT+1 
         WHERE NUM = #{param1}
 	</update>
-
+	
+	<insert id="insert" flushCache="true" parameterType="com.sqld.pettime.dto.QnaDTO">
+	INSERT INTO QNA(USERID, TITLE, CONTENT, VIEWCNT, WRDATE,OPEN)
+	VALUES(#{dto.userid}, #{dto.title}, #{dto.content}, 0, sysdate, #{dto.open})
+	</insert>
+	
+	<update id="update" flushCache="true" parameterType="com.sqld.pettime.dto.QnaDTO">
+		UPDATE QNA SET TITLE = #{dto.title},  CONTENT = #{dto.content},  OPEN = #{dto.open} WHERE NUM = #{dto.num}
+	</update>
+	
+	<delete id="delete" flushCache="true" parameterType="com.sqld.pettime.dto.QnaDTO">
+	DELETE FROM QNA WHERE NUM = #{dto.num} AND USERID = #{dto.userid}
+	</delete>
 	
 
 </mapper>

@@ -8,6 +8,7 @@
 			class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 <bean id="usercustomAccessDenied" class="com.sqld.pettime.user.beans.CustomAccessDeniedHandler"/>
 <bean id="usercustomLoginSuccesHandler" class="com.sqld.pettime.user.beans.CustomLoginSuccesHandler"></bean>
+<bean id="usercustomLoginFailHandler" class="com.sqld.pettime.user.beans.CustomLoginFailHandler"></bean>
 <security:authentication-manager id="userAuthManager">
 	<security:authentication-provider>
 	<security:jdbc-user-service data-source-ref="dataSource"		 
@@ -21,9 +22,14 @@
 </security:authentication-manager>
 
 <security:http pattern="/rest/**" authentication-manager-ref="userAuthManager">
-	<security:form-login login-page="/rest/login" login-processing-url="/rest/loginAJAX" authentication-success-handler-ref="usercustomLoginSuccesHandler"/>
+	<security:form-login login-page="/rest/login" login-processing-url="/rest/loginAJAX" 
+	authentication-success-handler-ref="usercustomLoginSuccesHandler"
+	authentication-failure-handler-ref="usercustomLoginFailHandler"/>
 	<security:intercept-url pattern="/rest/isLogin" access="hasRole('ROLE_USER')"/>
-	
+	<security:intercept-url pattern="/rest/qna/write" access="hasRole('ROLE_USER')"/>
+	<security:intercept-url pattern="/rest/qna/update" access="hasRole('ROLE_USER')"/>
+	<security:intercept-url pattern="/rest/qna/delete" access="hasRole('ROLE_USER')"/>
+	<security:logout invalidate-session="true" logout-url="/rest/logout"/>
 	<security:access-denied-handler ref="usercustomAccessDenied"/>
 </security:http>
 

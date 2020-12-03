@@ -1,11 +1,6 @@
 package com.sqld.pettime.user.controller;
 
 
-
-
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -19,13 +14,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sqld.pettime.dto.QnaDTO;
 import com.sqld.pettime.user.beans.UserDataJSON;
 import com.sqld.pettime.user.beans.UserLoginJSON;
 import com.sqld.pettime.user.command.UserNoticeSelectCommend;
 import com.sqld.pettime.user.command.UserNoticeViewCommend;
+import com.sqld.pettime.user.command.UserQnADeleteCommend;
 import com.sqld.pettime.user.command.UserQnASearchCommend;
 import com.sqld.pettime.user.command.UserQnASelectCommend;
+import com.sqld.pettime.user.command.UserQnAUpdateCommend;
 import com.sqld.pettime.user.command.UserQnAViewCommend;
+import com.sqld.pettime.user.command.UserQnAWriteCommend;
 
 
 
@@ -52,32 +51,50 @@ public class UserRestController {
 		return ajax;
 	}
 	
+	
+	
 	@RequestMapping("/login")
-	UserDataJSON loginInput(Model model) {
+	UserLoginJSON loginInput(Model model) {
 		System.out.println("로그인페이지");
-		UserDataJSON ajax = new UserDataJSON();
-
-		return ajax;
+		UserLoginJSON json = new UserLoginJSON();
+		json.setStatus("OK");
+		json.setUsername("Notlogin");
+		json.setIslogin(false);
+		return json;
 	}
 	
 	@RequestMapping("/isLogin")
 	UserLoginJSON isLogin(Model model, Authentication authentication ) {
-		System.out.println("로그인확인");
+		System.out.println("로그인정상확인");
 		UserLoginJSON json = new UserLoginJSON();
 		json.setStatus("OK");
 		json.setUsername(((UserDetails)authentication.getPrincipal()).getUsername());
 		json.setIslogin(true);
+		
+		return json;
+	}
+	
+	@RequestMapping("/LoginFail")
+	UserLoginJSON isLoginFail(Model model, HttpSession session ) {
+		System.out.println("로그인실패");
+		UserLoginJSON json = new UserLoginJSON();
+		json.setStatus("OK");
+		json.setUsername("loginFail");
+		json.setMessage((String)session.getAttribute("loginFailMsg"));
+		session.removeAttribute("loginFailMsg");
+		json.setIslogin(false);
 		return json;
 	}
 	
 	@RequestMapping("/isNotLogin")
 	UserLoginJSON isNotLogin(Model model, HttpSession session) {
-		System.out.println("로그인실패");
+		System.out.println("권한오류 및 로그인 상태 이상");
 		UserLoginJSON json = new UserLoginJSON();
 		json.setStatus("OK");
 		json.setUsername("Notlogin");
 		json.setIslogin(false);
 		json.setMessage((String)session.getAttribute("accessDeniedMessage"));
+		session.removeAttribute("accessDeniedMessage");
 		return json;
 	}
 	
@@ -99,6 +116,37 @@ public class UserRestController {
 		System.out.println(pageNum);
 		new UserQnASearchCommend().excute(model);
 		
+		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
+
+		return ajax;
+	}
+	
+	@RequestMapping(value = "/qna/write" , method = RequestMethod.POST)
+	UserDataJSON qnaWrite(Model model, QnaDTO dto, Authentication authentication) {
+		
+		dto.setUserid(((UserDetails)authentication.getPrincipal()).getUsername());
+		model.addAttribute("dto", dto);
+		new UserQnAWriteCommend().excute(model);
+		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
+
+		return ajax;
+	}
+	
+	@RequestMapping(value = "/qna/update" , method = RequestMethod.POST)
+	UserDataJSON qnaUpdate(Model model, QnaDTO dto, Authentication authentication) {
+		dto.setUserid(((UserDetails)authentication.getPrincipal()).getUsername());
+		model.addAttribute("dto", dto);
+		new UserQnAUpdateCommend().excute(model);
+		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
+
+		return ajax;
+	}
+	
+	@RequestMapping(value = "/qna/delete" , method = RequestMethod.POST)
+	UserDataJSON qnaDelete(Model model, QnaDTO dto, Authentication authentication) {
+		dto.setUserid(((UserDetails)authentication.getPrincipal()).getUsername());
+		model.addAttribute("dto", dto);
+		new UserQnADeleteCommend().excute(model);
 		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
 
 		return ajax;

@@ -44,7 +44,13 @@ public class QnaDTO {
      return userid;
  }
 
- public void setUserid(String userid) {
+ @Override
+public String toString() {
+	return "QnaDTO [num=" + num + ", userid=" + userid + ", title=" + title + ", content=" + content + ", viewcnt="
+			+ viewcnt + ", wrdate=" + wrdate + ", anser=" + anser + ", andate=" + andate + ", open=" + open + "]";
+}
+
+public void setUserid(String userid) {
      this.userid = userid;
  }
 
