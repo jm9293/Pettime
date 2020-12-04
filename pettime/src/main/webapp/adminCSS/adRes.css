@@ -33,15 +33,6 @@ table.calendar td{
     width: 100px;
 }
 
-.resbox{
-	padding:0;
-	text-align:center;
-}
-
-.resbox2:hover{
-	background:rgb(255, 178, 146);
-}
-
 td:hover{
 	background-color:#c1c1d5;
 }

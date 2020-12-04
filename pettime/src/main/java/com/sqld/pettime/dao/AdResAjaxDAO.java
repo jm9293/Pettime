@@ -6,7 +6,6 @@ import java.util.List;
 import org.mybatis.spring.annotation.MapperScan;
 
 import com.sqld.pettime.dto.AdminResDTO;
-import com.sqld.pettime.dto.ResDetailDTO;
 @MapperScan
 public interface AdResAjaxDAO {
 	
@@ -16,5 +15,4 @@ public interface AdResAjaxDAO {
 	public int updateListB(String degId, String stime);
 	public int updateListC(String degId, String stime);
 	public int deleteList(int [] num);
-	public List<ResDetailDTO> searchDetail(int num);
 }

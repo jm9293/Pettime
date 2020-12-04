@@ -9,12 +9,11 @@ public class AdminResDTO {
 	
 	private int num;
 	private Timestamp stime;
+	private Timestamp etime;
 	private String address;
 	private String userid;
 	private String degid;
-	private String petName;
-	private String petKind;
-	private String petMemo;
+	private int petnum;
 	private int tprice;
 	private String state;
 

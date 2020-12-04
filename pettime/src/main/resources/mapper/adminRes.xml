@@ -2,52 +2,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sqld.pettime.dao.AdResAjaxDAO">
 
-	<select id="readRes"
-		resultType="com.sqld.pettime.dto.AdminResDTO">
+	<select id="readRes" resultType="com.sqld.pettime.dto.AdminResDTO">
 		SELECT * FROM PETTIME.RESLIST
-		WHERE STIME between
-		TO_DATE(#{param1}, 'YYYY-MM-DD') and
-		TO_DATE(#{param1},
-		'YYYY-MM-DD')+0.99999
+		WHERE STIME between TO_DATE(#{param1}, 'YYYY-MM-DD') and
+		TO_DATE(#{param1}, 'YYYY-MM-DD')+0.99999
 	</select>
-
-	<select id="searchRes"
-		resultType="com.sqld.pettime.dto.AdminResDTO">
+	
+	<select id="searchRes" resultType="com.sqld.pettime.dto.AdminResDTO">
 		SELECT * FROM PETTIME.RESLIST WHERE NUM = #{param1}
 	</select>
-
+	
 	<update id="updateListA">
-		UPDATE DAYSCHEDULE
-		SET TIME1 = null
-		WHERE DEGID = #{param1} AND DAY = #{param2}
+		UPDATE DAYSCHEDULE 
+		SET TIME1 = null  
+		WHERE DEGID = #{param1} AND DAY = #{param2}  
 	</update>
-
+	
 	<update id="updateListB">
-		UPDATE DAYSCHEDULE
-		SET TIME2 = null
-		WHERE DEGID = #{param1} AND DAY = #{param2}
+		UPDATE DAYSCHEDULE 
+		SET TIME2 = null  
+		WHERE DEGID = #{param1} AND DAY = #{param2}  
 	</update>
-
+	
 	<update id="updateListC">
-		UPDATE DAYSCHEDULE
-		SET TIME3 = null
-		WHERE DEGID = #{param1} AND DAY = #{param2}
+		UPDATE DAYSCHEDULE 
+		SET TIME3 = null  
+		WHERE DEGID = #{param1} AND DAY = #{param2}  
 	</update>
-
+	
 	<delete id="deleteList" flushCache="true"
-		parameterType="java.util.ArrayList">
-
-		DELETE FROM PETTIME.RESLIST
-		WHERE num IN (
-		<foreach collection="array" item="item" index="index"
-			separator=",">
-			${item}
-		</foreach>
-		) 
-	</delete>
-
-	<select id="searchDetail" resultType="com.sqld.pettime.dto.ResDetailDTO">
-		SELECT NUM, RESNUM, CONTENT, PRICE
-		FROM PETTIME.RESDETAIL WHERE RESNUM = #{param1}
-	</select>
+	 	parameterType="java.util.ArrayList">
+	 
+	 	DELETE FROM PETTIME.RESLIST
+	 	WHERE num IN (
+	 		<foreach collection="array" item="item" index="index" separator=",">
+	 			${item}
+	 		</foreach>
+	 	)
+	 </delete>
 </mapper>
