@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sqld.pettime.dao.UserDAO">
+	<select id="idchk" resultType="int">
+		SELECT count(*) 
+		FROM USERDATA WHERE ID = #{param1}
+	</select>
+	
+	<select id="emailchk" resultType="int">
+		SELECT count(*) 
+		FROM USERDATA WHERE email = #{param1}
+	</select>
+	
+	<insert id="insert" parameterType="com.sqld.pettime.dto.UserDTO" flushCache="true">
+		INSERT INTO USERDATA (ID, PASSWORD, NAME, PHONE, EMAIL, ENABLED) 
+		VALUES (#{dto.id} , #{dto.password} , #{dto.name},  #{dto.phone}, #{dto.email}, '1')
+	</insert>
+	
+	<insert id="grantUser">
+	INSERT INTO UAUTH  (id, authority) VALUES (#{param1},'ROLE_USER')
+	</insert>
+	
+	<select id="selectById" resultType="com.sqld.pettime.dto.UserDTO">
+		SELECT *
+		FROM USERDATA WHERE ID = #{param1}
+	</select>
+	
+	<update id="update" parameterType="com.sqld.pettime.dto.UserDTO" flushCache="true">
+		UPDATE USERDATA SET PASSWORD = #{dto.password}, PHONE =  #{dto.phone}, EMAIL = #{dto.email} 
+		WHERE ID = #{dto.id}
+	</update>
+
+</mapper>

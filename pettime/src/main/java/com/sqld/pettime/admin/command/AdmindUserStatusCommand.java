@@ -15,8 +15,8 @@ public class AdmindUserStatusCommand implements AdminCommand {
 	public void execute(Model model) {
 		AdminInfoDAO dao = DBSession.sqlSession.getMapper(AdminInfoDAO.class);
 		int num = (int)model.getAttribute("num");
-		char chk = '1';
-		char chk2 = '0';
+		String chk = "1";
+		String chk2 = "0";
 		int cnt = 0;
 		UserDTO dto = new UserDTO();
 		

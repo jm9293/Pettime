@@ -15,8 +15,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sqld.pettime.dto.QnaDTO;
+import com.sqld.pettime.dto.UserDTO;
 import com.sqld.pettime.user.beans.UserDataJSON;
 import com.sqld.pettime.user.beans.UserLoginJSON;
+import com.sqld.pettime.user.command.UserEmailchkCommend;
+import com.sqld.pettime.user.command.UserIdchkCommend;
+import com.sqld.pettime.user.command.UserInfoCommend;
 import com.sqld.pettime.user.command.UserNoticeSelectCommend;
 import com.sqld.pettime.user.command.UserNoticeViewCommend;
 import com.sqld.pettime.user.command.UserQnADeleteCommend;
@@ -25,6 +29,8 @@ import com.sqld.pettime.user.command.UserQnASelectCommend;
 import com.sqld.pettime.user.command.UserQnAUpdateCommend;
 import com.sqld.pettime.user.command.UserQnAViewCommend;
 import com.sqld.pettime.user.command.UserQnAWriteCommend;
+import com.sqld.pettime.user.command.UserSignUpCommend;
+import com.sqld.pettime.user.command.UserUpdateCommend;
 
 
 
@@ -174,5 +180,60 @@ public class UserRestController {
 		return ajax;
 	}
 	
+	
+	@RequestMapping(value = "/idchk" , method = RequestMethod.POST)
+	UserDataJSON idchk(Model model, String id) {
+		model.addAttribute("id", id);
+		
+		new UserIdchkCommend().excute(model);
+		
+		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
+
+		return ajax;
+	}
+	
+	@RequestMapping(value = "/emailchk" , method = RequestMethod.POST)
+	UserDataJSON emailchk(Model model, String email) {
+		model.addAttribute("email", email);
+		
+		new UserEmailchkCommend().excute(model);
+		
+		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
+
+		return ajax;
+	}
+	
+	@RequestMapping(value = "/signup" , method = RequestMethod.POST)
+	UserDataJSON signup(Model model, UserDTO dto) {
+		model.addAttribute("dto", dto);
+		
+		new UserSignUpCommend().excute(model);
+		
+		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
+
+		return ajax;
+	}
+	
+	@RequestMapping(value = "/userinfo" , method = RequestMethod.POST)
+	UserDataJSON signup(Model model, Authentication authentication) {
+		model.addAttribute("id", ((UserDetails)authentication.getPrincipal()).getUsername());
+		
+		new UserInfoCommend().excute(model);
+		
+		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
+
+		return ajax;
+	}
+	
+	@RequestMapping(value = "/userUpdate" , method = RequestMethod.POST)
+	UserDataJSON userUpdate(Model model, UserDTO dto ,Authentication authentication) {
+		model.addAttribute("dto", dto);
+		model.addAttribute("id", ((UserDetails)authentication.getPrincipal()).getUsername());
+		new UserUpdateCommend().excute(model);
+		
+		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
+
+		return ajax;
+	}
 
 }

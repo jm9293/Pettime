@@ -10,16 +10,11 @@ String status;
 	List data;
 	
 	int maxpage;
-	
-
-	
+		
 	public UserDataJSON() {
 		
 	}
 	 
-
-
-
 
 	public int getMaxpage() {
 		return maxpage;
