@@ -1,0 +1,20 @@
+@charset "UTF-8";
+.content{
+    margin-top: 5%;
+}
+.contain{
+    margin: auto;
+}
+.open{
+    margin-left: 80%;
+}
+#content{
+    height: 200px;
+    overflow: auto;
+}
+h2{
+    font-weight: bold;
+}
+.head{
+    margin: auto;
+}

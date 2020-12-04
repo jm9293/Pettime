@@ -23,46 +23,36 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/adminCSS/adBasic.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/adminCSS/adRes.css">
+	href="${pageContext.request.contextPath}/adminCSS/adNoticeView.css">
 <title>Pettime Manager</title>
 </head>
 <body class="col-lg-10" style="margin: auto;">
 	<div id="navbar-wrap">
-		<%@ include file="adminNav.jsp"%>
+		<%@ include file="../adminNav.jsp"%>
 	</div>
 
 	<div class="content col-12">
-		<div id="myCalender" class="col-12 col-md-6">
-			<div class="cal_top">
-				<button type="button" id="movePrevMonth">
-					<span id="prevMonth" class="cal_tit">&lt;</span>
-				</button>
-				<span id="cal_top_year"></span> <span id="cal_top_month"></span>
-				<button type="button" id="moveNextMonth">
-					<span id="nextMonth" class="cal_tit">&gt;</span>
-				</button>
-			</div>
-			<div id="cal_tab" class="cal"></div>
-			
+	<div class="col-12 col-md-8 head row">
+			<h2 class="col-7">공지사항</h2>
 		</div>
-		<form id="frmList" name="frmList">
-		<div id="resList" class="col-12 col-md-6"></div>
-		 <input type="hidden"
-					name="${_csrf.parameterName }" value="${_csrf.token }" />
-		</form>
-		<div class="row col-12">
-		<div class="row col-6">
-			<div class="col-6">선택한 날짜 :</div>
-			<div class="col-6"id="choiceday"></div>
+	<br>
+	<c:if test="${dto != null }">
+		<div class="col-12 col-md-8 titlebox">
+		<h3 class="title">글 제목 : ${dto.title }</h3><br>
+		<h6 class="title">조회수 : ${dto.viewcnt }</h6>
+		<h6 class="title">작성일 : ${dto.wrdate }</h6>
 		</div>
-		<div class="row col-6">
-			<button type="button" onclick="deleteList();" id="delete" disabled="disabled">삭제하기</button>
+		<div class="row col-12 col-md-8 contentbox">
+			<textarea class="col-12 form-control" readonly>${dto.content }</textarea>
 		</div>
-		</div>
+	</c:if>	
+	<br>
+	<div id="select" class="col-12">
+	<button type="button" class="btn btn-primary btn-md" onclick="location.href='adNoticeUpdate?num=${dto.num }'">수정</button>
+	<button type="button" class="btn btn-primary btn-md" onclick="location.href='adNoticeDelete?page=${page }&num=${dto.num }'">삭제</button>
+	<button type="button" id="back" class="btn btn-primary btn-md" onclick="location.href='adNoticelist?page=${page}'">목록으로</button>
 	</div>
-	<br>
-	<br>
-	<script
-		src="${pageContext.request.contextPath }/adminJS/adminCalendar.js"></script>
+	<br><br>
+	</div>
 </body>
 </html>

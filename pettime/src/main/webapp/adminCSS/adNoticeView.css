@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+.titlebox {
+	text-align: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	height: 100px;
+	margin: auto;
+}
+
+h2 {
+	font-weight: bold;
+}
+
+.head {
+	margin: auto;
+}
+
+.title {
+	margin: auto;
+}
+
+.contentbox {
+	height: 395px;
+	overflow: auto;
+	margin: auto;
+	font-size: 20px;
+}
+
+#back {
+	text-align: center;
+}
+
+#select {
+	margin-left: 65%;
+}

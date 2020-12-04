@@ -23,46 +23,41 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/adminCSS/adBasic.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/adminCSS/adRes.css">
+	href="${pageContext.request.contextPath}/adminCSS/adNoticeWrite.css">
+<script
+		src="${pageContext.request.contextPath }/adminJS/adNotice.js"></script>
 <title>Pettime Manager</title>
 </head>
 <body class="col-lg-10" style="margin: auto;">
 	<div id="navbar-wrap">
-		<%@ include file="adminNav.jsp"%>
+		<%@ include file="../adminNav.jsp"%>
 	</div>
 
 	<div class="content col-12">
-		<div id="myCalender" class="col-12 col-md-6">
-			<div class="cal_top">
-				<button type="button" id="movePrevMonth">
-					<span id="prevMonth" class="cal_tit">&lt;</span>
-				</button>
-				<span id="cal_top_year"></span> <span id="cal_top_month"></span>
-				<button type="button" id="moveNextMonth">
-					<span id="nextMonth" class="cal_tit">&gt;</span>
-				</button>
+	<div class="col-12 col-md-8 head row">
+			<h2 class="col-7">공지사항</h2>
+		</div>
+		<br>
+		<div class="col-12 col-md-8 contain">
+		<form name="frm" action="adNoticeWriteOk" method="post" onsubmit="return chkSubmit()">
+			<input type="hidden" name="page" value="${page }"/>
+			<div class="form-group col-12">
+				<label for="title">제목</label> 
+				<input type="text" class="form-control" id="title" name="title" maxlength="30"/>
 			</div>
-			<div id="cal_tab" class="cal"></div>
-			
-		</div>
-		<form id="frmList" name="frmList">
-		<div id="resList" class="col-12 col-md-6"></div>
-		 <input type="hidden"
+			<div class="form-group col-12">
+				<label for="content">내용</label> 
+				<textArea class="form-control" id="content" name="content" rows="10"></textArea>
+			</div>
+			<input type="hidden"
 					name="${_csrf.parameterName }" value="${_csrf.token }" />
+			<div class="btn row col-12">
+			<button type="submit" class="btn btn-primary">작성</button>
+			<button type="button" class="btn btn-dark" onclick="history.back()">목록으로</button>
+			</div>
+			<br><br>
 		</form>
-		<div class="row col-12">
-		<div class="row col-6">
-			<div class="col-6">선택한 날짜 :</div>
-			<div class="col-6"id="choiceday"></div>
-		</div>
-		<div class="row col-6">
-			<button type="button" onclick="deleteList();" id="delete" disabled="disabled">삭제하기</button>
-		</div>
 		</div>
 	</div>
-	<br>
-	<br>
-	<script
-		src="${pageContext.request.contextPath }/adminJS/adminCalendar.js"></script>
 </body>
 </html>
