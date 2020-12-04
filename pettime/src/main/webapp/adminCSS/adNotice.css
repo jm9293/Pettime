@@ -88,9 +88,12 @@ h2 {
 	color: white;
 	border: 1px solid rgb(52, 152, 219);
 }
-
-.paging a:hover:not (.active ) {
-	background-color: #ddd;
+.paging a:hover:not(.active) {background-color: #ddd;}
+.paging a.active{
+    border-radius: 30%;
+    background-color: rgb(52, 152, 219);
+    color: white;
+    border: 1px solid rgb(52, 152, 219);
 }
 
 #write {

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +24,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/adminCSS/adBasic.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/adminCSS/adNotice.css">
+	href="${pageContext.request.contextPath}/adminCSS/adQna.css">
 <title>Pettime Manager</title>
 </head>
 <body class="col-lg-10" style="margin: auto;">
@@ -33,46 +34,67 @@
 
 	<div class="content col-12">
 		<div class="col-12 col-md-8 head row">
-			<h2 class="col-7">공지사항</h2>
+			<h2 class="col-7">Q&A 상담게시판</h2>
 		</div>
 		<br>
 		<div class="menuname menuborder row col-12 col-md-8 alert-primary">
-			<div class="col-2 menu">No</div>
-			<div class="col-4 menu">제목</div>
-			<div class="col-2 menu">조회</div>
-			<div class="col-4 menu">작성일</div>		
+			<div class="col-2 col-md-1 menu">No</div>
+			<div class="col-6 col-md-3 menu">제목</div>
+			<div class="col-4 col-md-2 menu">작성자</div>
+			<div class="col-2 col-md-2 menu">조회</div>
+			<div class="col-6 col-md-2 menu">작성일</div>
+			<div class="col-4 col-md-2 menu">공개글</div>		
 		</div>
-		<c:forEach var="item" items="${list }">
-		<div class="menuname textarea row col-12 col-md-8 textlist" onclick="location.href='adNoticeView?page=${page }&num=${item.num }'">
-			<div class="col-2 text" id="text1">${item.num }</div>
-			<div class="col-4 text" id="text1">${item.title }</div>
-			<div class="col-2 text" id="text4">${item.viewcnt }</div>
-			<div class="col-4 text" id="text5">${item.wrdate }</div>
-		</div>
-		</c:forEach>
+		<c:if test="${list != null }">
+			<c:forEach var="item" items="${list }">
+			<div class="menuname textarea row col-12 col-md-8 textlist" onclick="location.href='adQnaView?&num=${item.num }'">
+				<div class="col-2 col-md-1 text" id="text1">${item.num }</div>
+				<c:choose>
+					<c:when test="${item.anser != null }">
+						<div class="col-6 col-md-3 text" id="text2"><t>[답변완료]</t> ${item.title }</div>
+					</c:when>
+					<c:otherwise>
+						<div class="col-6 col-md-3 text" id="text2">${item.title }</div>
+					</c:otherwise>
+				</c:choose>
+					<div class="col-4 col-md-2 text" id="text3">${item.userid }</div>
+					<div class="col-2 col-md-2 text" id="text4">${item.viewcnt }</div>
+					<fmt:formatDate  value="${item.wrdate}" var="dateFmt" pattern="yyyy-MM-dd"/>		
+					<div class="col-6 col-md-2 text" id="text5">${dateFmt }</div>
+				<c:choose>
+					<c:when test="${item.open eq 'Y'}">
+						<div class="col-4 col-md-2 text">비공개</div>
+					</c:when>
+					<c:otherwise>
+						<div class="col-4 col-md-2 text">공개</div>
+					</c:otherwise>
+				</c:choose>
+			</div>
+			</c:forEach>
+		</c:if>
 		<br>
 		<div class="box_ul">
 			<ul class="box_li">
-			<c:choose>
-				<c:when test="${page -1 <1 }">
-					<li class="paging"><a
-					href="${pageContext.request.contextPath }/admin/adNotice/adNoticelist?page=1">이전</a></li>
-				</c:when>
-				<c:otherwise>
-					<li class="paging"><a
-						href="${pageContext.request.contextPath }/admin/adNotice/adNoticelist?page=${page -1}">이전</a></li>
-				</c:otherwise>
-			</c:choose>
+				<c:choose>
+					<c:when test="${page -1 < 1 }">
+						<li class="paging"><a
+					href="${pageContext.request.contextPath }/admin/adQna/adQnalist?page=1">이전</a></li>
+					</c:when>
+					<c:otherwise>
+						<li class="paging"><a
+						href="${pageContext.request.contextPath }/admin/adQna/adQnalist?page=${page -1}">이전</a></li>
+					</c:otherwise>
+				</c:choose>
 				<c:if test="${pageNum > 0 }">
 					<c:forEach var="item2" begin="1" end="${pageNum }">
 					<c:choose>
 						<c:when test="${page == item2} ">
 							<li class="paging"><a class='active tooltip-top'
-					href="${pageContext.request.contextPath }/admin/adNotice/adNoticelist?page=${item2 }">${item2 }</a></li>
+					href="${pageContext.request.contextPath }/admin/adQna/adQnalist?page=${item2 }">${item2 }</a></li>
 						</c:when>
 						<c:otherwise>
 							<li class="paging"><a
-					href="${pageContext.request.contextPath }/admin/adNotice/adNoticelist?page=${item2 }">${item2 }</a></li>
+					href="${pageContext.request.contextPath }/admin/adQna/adQnalist?page=${item2 }">${item2 }</a></li>
 						</c:otherwise>
 						</c:choose>
 					</c:forEach>
@@ -80,16 +102,16 @@
 			<c:choose>
 				<c:when test="${page < pageNum }">
 					<li class="paging"><a
-					href="${pageContext.request.contextPath }/admin/adNotice/adNoticelist?page=${page + 1 }">다음</a></li>
+					href="${pageContext.request.contextPath }/admin/adQna/adQnalist?page=${page + 1 }">다음</a></li>
 				</c:when>
 				<c:otherwise>
 					<li class="paging"><a
-					href="${pageContext.request.contextPath }/admin/adNotice/adNoticelist?page=${pageNum}">다음</a></li>
+					href="${pageContext.request.contextPath }/admin/adQna/adQnalist?page=${pageNum}">다음</a></li>
 				</c:otherwise>
 			</c:choose>
 			</ul>
 		</div>
-		<form action="adSearchText" method="get">
+		<form action="adSearchText2" method="get">
 			<div class="col-12 col-md-6 row searchbox">
 				<input type="hidden" name="page" value="1">
 				<div class="col-5">
@@ -99,9 +121,6 @@
 					<button type="submit" id="searchbtn"
 						class="form-control col-12 btn btn-success btn-sm">검색</button>
 				</div>
-				<button type="button" id="write"
-					class="col-4 col-md-2 btn btn-primary btn-sm form-control"
-					onclick="location.href='${pageContext.request.contextPath }/admin/adNotice/adNoticeWrite'">글쓰기</button>
 			</div>
 		</form>
 		<br>

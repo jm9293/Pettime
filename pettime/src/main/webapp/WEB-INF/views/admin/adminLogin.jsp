@@ -31,6 +31,7 @@
 					type="submit" value="로그인"><br> <input type="hidden"
 					name="${_csrf.parameterName }" value="${_csrf.token }" />
 			</form>
+			<button type="button" onclick="location.href='${pageContext.request.contextPath}/admin/createAdmin'">계정 생성</button>
 		</div>
 	</div>
 </body>

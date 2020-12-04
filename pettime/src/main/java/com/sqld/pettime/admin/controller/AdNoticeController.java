@@ -48,12 +48,11 @@ public class AdNoticeController {
 		return "admin/adNotice/adNoticeUpdateOk";
 	}
 	
-	@RequestMapping(value = "/adSearchText", method = RequestMethod.POST)
-	public String goSearch(int pageNum, String title, Model model) {
+	@RequestMapping("/adSearchText")
+	public void goSearch(int page, String title, Model model) {
 		model.addAttribute("title", title);
-		model.addAttribute("pageNum", pageNum);
+		model.addAttribute("page", page);
 		new AdminNoticeSearchCommand().execute(model);
-		return "admin/adNotice/adSearchText";
 	}
 	
 	@RequestMapping("/adNoticeDelete")

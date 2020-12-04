@@ -40,7 +40,6 @@
 		<br>
 		<div class="col-12 col-md-8 contain">
 		<form name="frm" action="adNoticeWriteOk" method="post" onsubmit="return chkSubmit()">
-			<input type="hidden" name="page" value="${page }"/>
 			<div class="form-group col-12">
 				<label for="title">제목</label> 
 				<input type="text" class="form-control" id="title" name="title" maxlength="30"/>

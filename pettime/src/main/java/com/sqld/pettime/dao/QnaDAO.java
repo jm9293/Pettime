@@ -17,4 +17,6 @@ public interface QnaDAO {
 	int insert(@Param("dto") QnaDTO dto);
 	int update(@Param("dto") QnaDTO dto);
 	int delete(@Param("dto") QnaDTO dto);
+	int insertAnswer(int num, String anser);
+	int deleteWord(int num);
 }

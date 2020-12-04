@@ -54,53 +54,50 @@
 		<div class="box_ul">
 			<ul class="box_li">
 			<c:choose>
-				<c:when test="${pageNum -1 <1 }">
+				<c:when test="${page -1 <1 }">
 					<li class="paging"><a
-					href="${pageContext.request.contextPath }/admin/adNotice/adNoticelist?page=1">이전</a></li>
+					href="${pageContext.request.contextPath }/admin/adNotice/adSearchText?page=1&title=${title}">이전</a></li>
 				</c:when>
 				<c:otherwise>
 					<li class="paging"><a
-						href="${pageContext.request.contextPath }/admin/adNotice/adNoticelist?page=${page -1}">이전</a></li>
+						href="${pageContext.request.contextPath }/admin/adNotice/adSearchText?page=${page -1}&title=${title}">이전</a></li>
 				</c:otherwise>
 			</c:choose>
-				<c:if test="${maxCnt > 0 }">
+				<c:if test="${pageNum > 0 }">
 					<c:forEach var="item2" begin="1" end="${pageNum }">
 					<c:choose>
-						<c:when test="${pageNum == item2} ">
+						<c:when test="${page == item2} ">
 							<li class="paging"><a class='active tooltip-top'
-					href="${pageContext.request.contextPath }/admin/adNotice/adNoticelist?page=${item2 }">${item2 }</a></li>
+					href="${pageContext.request.contextPath }/admin/adNotice/adSearchText?page=${item2 }&title=${title}">${item2 }</a></li>
 						</c:when>
 						<c:otherwise>
 							<li class="paging"><a
-					href="${pageContext.request.contextPath }/admin/adNotice/adNoticelist?page=${item2 }">${item2 }</a></li>
+					href="${pageContext.request.contextPath }/admin/adNotice/adSearchText?page=${item2 }&title=${title}">${item2 }</a></li>
 						</c:otherwise>
 						</c:choose>
 					</c:forEach>
 				</c:if>
 			<c:choose>
-				<c:when test="${pageNum < maxCnt }">
+				<c:when test="${page < pageNum }">
 					<li class="paging"><a
-					href="${pageContext.request.contextPath }/admin/adNotice/adNoticelist?page=${pageNum + 1 }">다음</a></li>
+					href="${pageContext.request.contextPath }/admin/adNotice/adSearchText?page=${page + 1 }&title=${title}">다음</a></li>
 				</c:when>
 				<c:otherwise>
 					<li class="paging"><a
-					href="${pageContext.request.contextPath }/admin/adNotice/adNoticelist?page=${maxCnt}">다음</a></li>
+					href="${pageContext.request.contextPath }/admin/adNotice/adSearchText?page=${pageNum}&title=${title}">다음</a></li>
 				</c:otherwise>
 			</c:choose>
 			</ul>
 		</div>
-		<form action="adSearchText" method="post">
+		<form action="adSearchText" method="get">
 			<div class="col-12 col-md-6 row searchbox">
-				<input type="hidden" name="page" value="${page }">
-				<input type="hidden" name="pageNum" value="1">
+				<input type="hidden" name="page" value="1">
 				<div class="col-5">
-					<input class="col-12 form-control" type="text" name="title" />
+					<input class="col-12 form-control" type="text" name="title" value="${title}"/>
 				</div>
 				<div class="col-3 col-md-2">
 					<button type="submit" id="searchbtn"
 						class="form-control col-12 btn btn-success btn-sm">검색</button>
-				<input type="hidden"
-					name="${_csrf.parameterName }" value="${_csrf.token }" />
 				</div>
 				<button type="button" id="write"
 					class="col-4 col-md-2 btn btn-primary btn-sm form-control"

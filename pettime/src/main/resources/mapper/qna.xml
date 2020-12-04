@@ -61,5 +61,12 @@ WHERE RN BETWEEN ((#{param1}-1)*7)+1 AND ((#{param1}-1)*7)+7]]>
 	DELETE FROM QNA WHERE NUM = #{dto.num} AND USERID = #{dto.userid}
 	</delete>
 	
+	<update id="insertAnswer" flushCache="true">
+		UPDATE QNA SET ANSER=#{param2}, ANDATE=SYSDATE WHERE NUM = #{param1}
+	</update>
+	
+	<delete id="deleteWord" flushCache="true">
+	DELETE FROM QNA WHERE NUM = #{param1}
+	</delete>
 
 </mapper>

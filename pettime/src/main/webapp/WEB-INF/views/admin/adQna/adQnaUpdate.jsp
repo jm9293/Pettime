@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +24,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/adminCSS/adBasic.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/adminCSS/adNoticeView.css">
+	href="${pageContext.request.contextPath}/adminCSS/adQna.css">
 <title>Pettime Manager</title>
 </head>
 <body class="col-lg-10" style="margin: auto;">
@@ -32,26 +33,37 @@
 	</div>
 
 	<div class="content col-12">
-	<div class="col-12 col-md-8 head row">
-			<h2 class="col-7">공지사항</h2>
+		<div class="col-12 col-md-8 head row">
+			<h2 class="col-7">Q&A 상담게시판</h2>
 		</div>
 	<br>
 	<c:if test="${dto != null }">
 		<div class="col-12 col-md-8 titlebox">
 		<h3 class="title">글 제목 : ${dto.title }</h3><br>
-		<h6 class="title">조회수 : ${dto.viewcnt }</h6>
-		<h6 class="title">작성일 : ${dto.wrdate }</h6>
+		<h6 class="title">작성자 : ${dto.userid } </h6>
+		<h6 class="title">조회수 : ${dto.viewcnt } </h6>
+		<fmt:formatDate  value="${dto.wrdate}" var="dateFmt" pattern="yyyy-MM-dd"/>	
+		<h6 class="title">작성일 : ${dateFmt }></h6>
+		<c:if test="${dto.open eq 'Y' }">
+			<h6 class="title">비공개 글</h6>
+		</c:if>
 		</div>
 		<div class="row col-12 col-md-8 contentbox">
 			<textarea class="col-12 form-control" readonly>${dto.content }</textarea>
 		</div>
-	</c:if>	
+			<br>
+			<form action="adQnaAnswerOk" method="post">
+				<input type="hidden" name="num" value="${dto.num }">
+				<div class="contentbox2 row col-12 col-md-8">
+				<textarea class="col-12 form-control" name="anser">${dto.anser }</textarea>
+				<input type="hidden" name="${_csrf.parameterName }"
+					value="${_csrf.token }" />
+			</div>
+			<button type="submit">수정완료</button>
+			<button type="button" id="back" class="btn btn-dark btn-md" onclick="location.href='${pageContext.request.contextPath }/admin/adQna/adQnalist?page=1'">목록으로</button>
+			</form>
 	<br>
-	<div id="select" class="col-12">
-	<button type="button" class="btn btn-primary btn-md" onclick="location.href='adNoticeUpdate?page=${page }&num=${dto.num }'">수정</button>
-	<button type="button" class="btn btn-primary btn-md" onclick="location.href='adNoticeDelete?page=${page }&num=${dto.num }'">삭제</button>
-	<button type="button" id="back" class="btn btn-primary btn-md" onclick="location.href='adNoticelist?page=${page}'">목록으로</button>
-	</div>
+	</c:if>
 	<br><br>
 	</div>
 </body>

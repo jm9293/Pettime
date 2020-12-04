@@ -15,7 +15,7 @@ public interface NoticeDAO {
 	int addViewCnt(int num);
 	public int writeNotice(@Param("a") NoticeDTO dto);
 	public int updateNotice(@Param("a") NoticeDTO dto);
-	List<NoticeDTO> selectPageBySearch(int pageNum, String title);
+	List<NoticeDTO> selectPageBySearch(int page, String title);
 	int maxCntBySearch(String title);
 	public int deleteNum(int num);
 }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sqld.pettime.dao.AdminInfoDAO">
-	<select id="selectUserlist" resultType="com.sqld.pettime.dto.UserDTO">
+	<select id="selectUserlist"
+		resultType="com.sqld.pettime.dto.UserDTO">
 		SELECT
 		usernum, id, name,
 		email
@@ -42,15 +43,18 @@
 	<update id="updateDesInfo" flushCache="true">
 		UPDATE PETTIME.DESIGNER
 		SET
-		id = #{a.id}, name = #{a.name}, email = #{a.email}, phone = #{a.phone},
+		id = #{a.id}, name = #{a.name}, email = #{a.email}, phone =
+		#{a.phone},
 		intro = #{a.intro}, enabled = #{a.enabled}
-		WHERE num = #{param1}
+		WHERE num =
+		#{param1}
 	</update>
 
 	<update id="updateUserInfo" flushCache="true">
 		UPDATE PETTIME.USERDATA
 		SET
-		id = #{a.id}, name = #{a.name}, email = #{a.email}, phone = #{a.phone},
+		id = #{a.id}, name = #{a.name}, email = #{a.email}, phone =
+		#{a.phone},
 		enabled = #{a.enabled}
 		WHERE usernum = #{param1}
 	</update>
@@ -58,14 +62,22 @@
 	<insert id="insertDes" flushCache="true"
 		parameterType="com.sqld.pettime.dto.DesignerDTO">
 		INSERT INTO PETTIME.DESIGNER
-		(ID, PASSWORD, NAME, EMAIL, PHONE, INTRO, ENABLED)
-		VALUES(#{a.id}, #{a.password}, #{a.name}, #{a.email}, #{a.phone}, #{a.intro},
+		(ID, PASSWORD, NAME, EMAIL,
+		PHONE, INTRO, ENABLED)
+		VALUES(#{a.id}, #{a.password}, #{a.name},
+		#{a.email}, #{a.phone}, #{a.intro},
 		#{a.enabled})
 	</insert>
 
 	<select id="idChk" flushCache="true" resultType="int">
 		SELECT COUNT(*)
 		FROM PETTIME.DESIGNER WHERE ID = #{param1}
+	</select>
+
+	<select id="adminIdChk" flushCache="true" resultType="int">
+		SELECT
+		COUNT(*)
+		FROM PETTIME.ADMIN WHERE ID = #{param1}
 	</select>
 
 	<select id="emailChk" flushCache="true" resultType="int">
@@ -75,6 +87,20 @@
 
 	<insert id="grantDes" flushCache="true">
 		INSERT INTO PETTIME.DAUTH
+		(ID,
+		AUTHORITY)
+		VALUES(#{param1} , #{param2})
+	</insert>
+
+	<insert id="insertAdmin"
+		parameterType="com.sqld.pettime.dto.AdminDTO">
+		INSERT INTO PETTIME.ADMIN
+		(ID, PASSWORD, ENABLED)
+		VALUES(#{a.id}, #{a.password}, '1')
+	</insert>
+
+	<insert id="grantAdmin" flushCache="true">
+		INSERT INTO PETTIME.AAUTH
 		(ID, AUTHORITY)
 		VALUES(#{param1} , #{param2})
 	</insert>

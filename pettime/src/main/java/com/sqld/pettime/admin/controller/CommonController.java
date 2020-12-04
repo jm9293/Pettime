@@ -5,10 +5,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sqld.pettime.admin.command.AdminMenulistCommand;
 import com.sqld.pettime.admin.command.AdminNoticeSelectCommend;
+import com.sqld.pettime.admin.command.AdminQnaSelectCommand;
 import com.sqld.pettime.admin.command.AdminResSearchCommand;
+import com.sqld.pettime.dto.AdminDTO;
+import com.sqld.pettime.admin.command.AdminCreateCommand;
 import com.sqld.pettime.admin.command.AdminMainCommand;
 
 
@@ -24,6 +28,16 @@ public class CommonController {
 		}else {
 			model.addAttribute("msg", "");
 		}
+	}
+	
+	@RequestMapping("/createAdmin")
+	public void doCreate() {}
+	
+	@RequestMapping(value = "/createOk", method = RequestMethod.POST)
+	public String doCreateAdmin(AdminDTO dto, Model model) {
+		model.addAttribute("dto", dto);
+		new AdminCreateCommand().execute(model);
+		return "admin/createOk";
 	}
 	
 	@RequestMapping("/adminMain")
@@ -51,5 +65,11 @@ public class CommonController {
 	public void goNotice(int page, Model model) {
 		model.addAttribute("page", page);
 		new AdminNoticeSelectCommend().execute(model);
+	}
+	
+	@RequestMapping("/adQna/adQnalist")
+	public void goQna(int page, Model model) {
+		model.addAttribute("page", page);
+		new AdminQnaSelectCommand().execute(model);
 	}
 }

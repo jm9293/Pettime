@@ -35,7 +35,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="${pageContext.request.contextPath }/admin/adNotice/adNoticelist?page=1">공지사항</a>                        
-                        <a class="dropdown-item" href="">고객 상담 게시판</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath }/admin/adQna/adQnalist?page=1">고객 상담 게시판</a>
                     </div>
                   </li> 
                   <li class="nav-item">
