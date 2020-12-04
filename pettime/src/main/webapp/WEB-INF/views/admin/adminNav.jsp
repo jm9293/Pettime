@@ -34,7 +34,7 @@
                       고객센터
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="">공지사항</a>                        
+                        <a class="dropdown-item" href="${pageContext.request.contextPath }/admin/adNotice/adNoticelist?page=1">공지사항</a>                        
                         <a class="dropdown-item" href="">고객 상담 게시판</a>
                     </div>
                   </li> 
