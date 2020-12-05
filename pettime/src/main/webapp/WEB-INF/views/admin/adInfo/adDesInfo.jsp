@@ -28,34 +28,23 @@
 	</div>
 
 	<div class="content col-12">
+	<h1>직원 정보</h1>
 		<form name="frm" method="post" action="adDesStatus">
 			<input type="hidden" name="num" value="${list[0].num}">
+			<div class="col-12 col-md-6 contentBox">사진?</div>
 			<div class="col-12 col-md-6 contentBox">
-				<div class="col-12">사진?</div>
-				<div class="col-12">
-					<c:choose>
-						<c:when test="${list[0].enabled eq '1'.charAt(0)}">
-							<button type="submit">계정 비활성화</button>
-						</c:when>
-						<c:otherwise>
-							<button type="submit">계정 활성화</button>
-						</c:otherwise>
-					</c:choose>
-
-					<button type="button"
-						onclick="location.href='adDesPassword?id=${list[0].id}&email=${list[0].email }'">임시비밀번호
-						발급</button>
-					<button type="button" onclick="history.back()">목록으로</button>	
-				</div>
-			</div>
-			<div class="col-12 col-md-6 contentBox">
-				<div class="col-12 contentType">ID : ${list[0].id }</div>
-				<div class="col-12 contentType">NAME : ${list[0].name }</div>
-				<div class="col-12 contentType">Email : ${list[0].email }</div>
-				<div class="col-12 contentType">Phone : ${list[0].phone }</div>
-				<div class="col-12 contentType" id="intro">Intro :
+				<div class="col-12 contentType bg-light">ID : ${list[0].id }</div>
+				<br>
+				<div class="col-12 contentType bg-light">NAME : ${list[0].name }</div>
+				<br>
+				<div class="col-12 contentType bg-light">Email : ${list[0].email }</div>
+				<br>
+				<div class="col-12 contentType bg-light">Phone : ${list[0].phone }</div>
+				<br>
+				<div class="col-12 contentType bg-light" id="intro">Intro :
 					${list[0].intro }</div>
-				<div id="blackChk" class="col-12 contentType">
+					<br>
+				<div id="blackChk" class="col-12 contentType bg-light">
 					<c:choose>
 						<c:when test="${list[0].enabled eq '1'.charAt(0)}">	
 						직원분류 : 정상 계정 입니다.
@@ -68,6 +57,21 @@
 			</div>
 			<input type="hidden"
 					name="${_csrf.parameterName }" value="${_csrf.token }" />
+			<div class="col-12 btnbox row">
+					<c:choose>
+						<c:when test="${list[0].enabled eq '1'.charAt(0)}">
+							<button class="btn btn-dark" type="submit">계정 비활성화</button>
+						</c:when>
+						<c:otherwise>
+							<button class="btn btn-light" type="submit">계정 활성화</button>
+						</c:otherwise>
+					</c:choose>
+
+					<button type="button" class="btn btn-success"
+						onclick="location.href='adDesPassword?id=${list[0].id}&email=${list[0].email }'">임시비밀번호
+						발급</button>
+					<button type="button" class="btn btn-primary" onclick="history.back()">목록으로</button>	
+				</div>
 		</form>
 	</div>
 	<br>

@@ -32,18 +32,18 @@
 	</div>
 
 	<div class="content col-12">
-		<div class="col-12 col-md-8 head row">
+		<div class="col-10 head row">
 			<h2 class="col-7">공지사항</h2>
 		</div>
 		<br>
-		<div class="menuname menuborder row col-12 col-md-8 alert-primary">
+		<div class="menuname menuborder row col-10">
 			<div class="col-2 menu">No</div>
 			<div class="col-4 menu">제목</div>
 			<div class="col-2 menu">조회</div>
 			<div class="col-4 menu">작성일</div>		
 		</div>
 		<c:forEach var="item" items="${list }">
-		<div class="menuname textarea row col-12 col-md-8 textlist" onclick="location.href='adNoticeView?page=${page }&num=${item.num }'">
+		<div class="menuname textarea row col-10 textlist" onclick="location.href='adNoticeView?page=${page }&num=${item.num }'">
 			<div class="col-2 text" id="text1">${item.num }</div>
 			<div class="col-4 text" id="text1">${item.title }</div>
 			<div class="col-2 text" id="text4">${item.viewcnt }</div>
@@ -90,18 +90,20 @@
 			</ul>
 		</div>
 		<form action="adSearchText" method="get">
-			<div class="col-12 col-md-6 row searchbox">
+			<div class="col-6 row searchbox">
 				<input type="hidden" name="page" value="1">
 				<div class="col-5">
 					<input class="col-12 form-control" type="text" name="title" />
 				</div>
-				<div class="col-3 col-md-2">
+				<div class="col-3">
 					<button type="submit" id="searchbtn"
 						class="form-control col-12 btn btn-success btn-sm">검색</button>
 				</div>
+				<div class="col-4">
 				<button type="button" id="write"
-					class="col-4 col-md-2 btn btn-primary btn-sm form-control"
+					class="col-12 btn btn-primary btn-sm form-control"
 					onclick="location.href='${pageContext.request.contextPath }/admin/adNotice/adNoticeWrite'">글쓰기</button>
+				</div>
 			</div>
 		</form>
 		<br>

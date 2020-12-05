@@ -11,8 +11,8 @@
 	</c:when>
 	<c:otherwise>
 	<script>
-		alert("계정발급 성공, 로그인 페이지로  이동 합니다.");
-		location.href = "${pageContext.request.contextPath}/admin/adminLogin";
+		alert("계정발급 성공, 목록 페이지로  이동 합니다.");
+		location.href = "${pageContext.request.contextPath}/admin/createAdmin";
 	</script>
 	</c:otherwise>
 </c:choose>

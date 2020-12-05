@@ -32,7 +32,7 @@
 	</div>
 
 	<div class="content col-12">
-		<div id="myCalender" class="col-12 col-md-6">
+		<div id="myCalender" class="col-6">
 			<div class="cal_top">
 				<button type="button" id="movePrevMonth">
 					<span id="prevMonth" class="cal_tit">&lt;</span>
@@ -43,22 +43,21 @@
 				</button>
 			</div>
 			<div id="cal_tab" class="cal"></div>
-			
+			<div class="row col-12 datelist">
+			<div class="col-4">선택한 날짜 :</div>
+			<div class="col-4" id="choiceday"></div>
+			<button class="col-4 btn btn-primary" type="button" onclick="deleteList();" id="delete" disabled="disabled">삭제하기</button>
+		</div>
 		</div>
 		<form id="frmList" name="frmList">
-		<div id="resList" class="col-12 col-md-6"></div>
-		 <input type="hidden"
+		<div id="resbox" class="col-6">
+			<h1>예약 현황</h1>
+		<div id="resList" class="col-12">
+		</div>
+		<input type="hidden"
 					name="${_csrf.parameterName }" value="${_csrf.token }" />
+		</div>
 		</form>
-		<div class="row col-12">
-		<div class="row col-6">
-			<div class="col-6">선택한 날짜 :</div>
-			<div class="col-6"id="choiceday"></div>
-		</div>
-		<div class="row col-6">
-			<button type="button" onclick="deleteList();" id="delete" disabled="disabled">삭제하기</button>
-		</div>
-		</div>
 	</div>
 	<br>
 	<br>

@@ -32,7 +32,7 @@
 		<div class="col-12 col-md-4" id="resCnt"><div class="bg-warning text-dark">당일 예약현황 ${cnt }건</div></div>
 		<div class="col-12 col-md-4" id="userCnt"><div class="bg-light text-dark">회원수 ${cnt2 }명</div></div>
 		<div class="col-12 col-md-4" id="weather">
-			<div class="weathertxt col-8"></div>
+			<div class="weathertxt col-8">날씨정보</div>
 			<div class="weather-box col-4" id="weatherimg"></div>
 		</div>
 		<div class="col-12" id="desList">
@@ -44,7 +44,7 @@
 				<div class="col-6 col-md-4 bg-light text-dark">이메일</div>
 			</div>
 			<c:forEach var="item" items="${list }" varStatus="status">
-				<div class="col-12 row" id="desinfo">
+				<div class="col-12 row desinfo">
 					<div class="col-6 col-md-2">${item.id }</div>
 					<div class="col-6 col-md-2">${item.name }</div>
 					<div class="col-6 col-md-4">${item.phone }</div>

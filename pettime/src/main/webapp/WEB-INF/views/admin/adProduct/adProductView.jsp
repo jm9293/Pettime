@@ -19,7 +19,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/adminCSS/adBasic.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/adminCSS/adMenu.css">
+	href="${pageContext.request.contextPath}/adminCSS/adProductView.css">
 <script src="${pageContext.request.contextPath }/adminJS/adminMenu.js"></script>
 <title>Pettime Manager</title>
 </head>
@@ -28,23 +28,24 @@
 		<%@ include file="../adminNav.jsp"%>
 	</div>
 	<div class="content col-12">
+	<h1>상품 상세 정보</h1>
 	<form method="post" action="adProductupdate">
-	<div class="content col-12">
-		<div class="col-12 row">
+		<div class="col-6 box row">
+		<div class="col-12 row list">
 			<input type="hidden" name="num" value="${dto.num }">
-			<div class="col-6">메뉴</div>
-			<div class="col-6">${dto.subject }</div>
-			<div class="col-6">금액</div>
-			<div class="col-6">${dto.price }</div>
+			<div class="col-6 bg-danger text-white">메뉴</div>
+			<div class="col-6 bg-white">${dto.subject }</div>
+			<div class="col-6 bg-danger text-white">금액</div>
+			<div class="col-6 bg-white">${dto.price }</div>
 		</div>
-		<div class="col-12 row">
-			<button type="submit">수정하기</button>
-			<button type="button" onclick="location.href='adProductDelete?num=${dto.num}'">삭제하기</button>
-			<button type="button" onclick="history.back()">목록으로</button>
+		<div class="col-12 row btnlist">
+			<button type="submit" class="btn btn-primary">수정하기</button>
+			<button type="button" class="btn btn-warning" onclick="location.href='adProductDelete?num=${dto.num}'">삭제하기</button>
+			<button type="button" class="btn btn-dark" onclick="history.back()">목록으로</button>
 		</div>
-	</div>
 	<input type="hidden"
 					name="${_csrf.parameterName }" value="${_csrf.token }" />
+		</div>
 	</form>
 	</div>
 </body>

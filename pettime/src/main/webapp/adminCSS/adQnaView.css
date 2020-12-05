@@ -1,0 +1,46 @@
+@charset "UTF-8";
+.box{
+	margin-left:20%;
+}
+.titlebox{
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 150px;
+    margin: auto;
+}
+h2{
+	margin-left:14%;
+	margin-top:5%;
+    font-weight: bold;
+}
+.contentbox{
+    margin: auto;
+    overflow: auto;
+    height: 190px;
+}
+.contentbox2{
+    margin: auto;
+    height: 100px;
+}
+.answerbox{
+    text-align: left;
+    overflow: auto;
+    height: 70px;
+    margin: auto;
+}
+.head{
+    margin: auto;
+}
+.title{
+    margin: auto;
+}
+ #select{
+ 	margin-top:20px;
+    text-align: center;
+    margin-left:7%;
+ }
+ #select button{
+     margin: 5px;
+ }

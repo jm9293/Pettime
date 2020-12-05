@@ -5,22 +5,22 @@
 	float: left;
 	box-sizing: border-boxed;
 	border: 1px solid black;
+	margin-top:5%;
 }
-
+h1{
+	text-align: center;
+}
 .contentType {
-	line-height:50px;
-	height: 50px;
-	box-sizing: border-boxed;
-	border: 1px solid black;
+	line-height:55px;
+	height: 55px;
+}
+.btnbox{
+	margin-left:35%;
+}
+.btnbox button{
+	margin:10px;
+	margin-top:3%;
 }
 #intro{
-	height: 250px;
-}
-@media screen and (min-width: 769px) {
-	.content {
-		padding: 30px;
-	}
-	.contentBox {
-		margin-top:150px;
-	}
+	height: 100px;
 }

@@ -104,4 +104,10 @@
 		(ID, AUTHORITY)
 		VALUES(#{param1} , #{param2})
 	</insert>
+
+	<select id="selectAdmin"
+		resultType="com.sqld.pettime.dto.AdminDTO">
+		SELECT ID
+		FROM PETTIME.ADMIN
+	</select>
 </mapper>

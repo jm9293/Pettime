@@ -19,33 +19,36 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/adminCSS/adBasic.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/adminCSS/adMenu.css">
+	href="${pageContext.request.contextPath}/adminCSS/adProductadd.css">
 <script src="${pageContext.request.contextPath }/adminJS/adminMenu.js"></script>
 <title>Pettime Manager</title>
 </head>
-<body class="col-lg-10" style="margin: auto;">
+<body class="col-10" style="margin: auto;">
 	<div id="navbar-wrap">
 		<%@ include file="../adminNav.jsp"%>
 	</div>
 	<div class="content col-12">
+	<h1>상품 추가</h1>
 		<form action="adProductAddOk" method="POST">
-			<div class="col-12 row">
-				<div class="col-6">메뉴</div>
+			<div class="col-6 box row">
+			<div class="col-12 row list">
+				<div class="col-6 bg-danger text-white">메뉴</div>
 				<div class="col-6">
-					<input type="text" name="subject">
+					<input class="col-12" type="text" name="subject">
 				</div>
-				<div class="col-6">금액</div>
+				<div class="col-6 bg-danger text-white">금액</div>
 				<div class="col-6">
-					<input type="text" name="price">
+					<input class="col-12" type="number" name="price">
 				</div>
 			</div>
 
-			<div class="col-12 row">
-				<button type="submit">생성하기</button>
-				<button type="button" onclick="history.back()">목록으로</button>
+			<div class="col-12 row btnlist">
+				<button type="submit" class="btn btn-primary">생성하기</button>
+				<button type="button" class="btn btn-dark" onclick="history.back()">목록으로</button>
 			</div>
 			<input type="hidden"
 					name="${_csrf.parameterName }" value="${_csrf.token }" />
+			</div>
 		</form>
 	</div>
 

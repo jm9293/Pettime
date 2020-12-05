@@ -23,14 +23,21 @@
 .navbar-light .navbar-logo:hover {
 	color:  rgb(255, 178, 146);
 }
-
+#logoutbtn{
+	margin-top:7px;
+	background-color:rgb(255, 178, 146);
+	color:#fff;
+	font-weight:bold;
+}
+#logoutbtn:hover{
+	background-color:#f5dcc5;
+	color:#000;
+}
 .content {
 	display: block;
 	position: relative;
 	width: 100%;
 	margin-top: 50px; height : 800px;
-	box-sizing: border-boxed;
-	border: 1px solid black;
 	padding: 0;
 	height: 800px;
 }

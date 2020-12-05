@@ -15,7 +15,6 @@ public class AdminDesCreateCommand implements AdminCommand {
 		dto.setPassword(DBSession.passwordEncoder.encode(dto.getPassword()));
 		int result = dao.insertDes(dto);
 		int res = dao.grantDes(dto.getId(), "ROLE_DESIGNER");
-		System.out.println(res);
 		model.addAttribute("result", result);
 
 	}

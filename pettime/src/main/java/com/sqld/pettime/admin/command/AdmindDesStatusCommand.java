@@ -16,8 +16,8 @@ public class AdmindDesStatusCommand implements AdminCommand {
 	public void execute(Model model) {
 		AdminInfoDAO dao = DBSession.sqlSession.getMapper(AdminInfoDAO.class);
 		int num = (int)model.getAttribute("num");
-		char chk = '1';
-		char chk2 = '0';
+		String chk = "1";
+		String chk2 = "0";
 		int cnt = 0;
 		DesignerDTO dto = new DesignerDTO();
 		
@@ -33,10 +33,10 @@ public class AdmindDesStatusCommand implements AdminCommand {
 			dto.setEnabled(list.get(i).getEnabled());
 		}
 		
-		if(dto.getEnabled() == chk) {
-			dto.setEnabled(chk2);
+		if(chk.charAt(0) == dto.getEnabled()) {
+			dto.setEnabled(chk2.charAt(0));
 		}else {
-			dto.setEnabled(chk);
+			dto.setEnabled(chk.charAt(0));
 		}
 		
 		cnt = dao.updateDesInfo(dto.getNum(), dto);

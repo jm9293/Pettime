@@ -1,0 +1,39 @@
+@charset "UTF-8";
+.box{
+	margin-top:7%;
+	margin-left:17%;
+}
+.adLogin {
+	float:left;
+	text-align: center;
+	box-sizing: border-boxed;
+	border: 2px solid #dedede;
+	background-color: #fefde2;
+	height: 600px;
+}
+
+.adLogin * {
+	margin: 5px;
+	margin-top:5%;
+}
+
+.idlist {
+	float:left;
+	box-sizing: border-boxed;
+	border: 2px solid #dedede;
+	text-align: center;
+	height:600px;
+	overflow:auto;
+}
+
+.idlist div{
+	margin-top:10%;
+	height:50px;
+	line-height:50px;
+}
+.list{
+	background-color: rgb(255, 178, 146);
+	box-sizing: border-boxed;
+	border: 1px solid white;
+	border-radius: 5px;
+}

@@ -31,7 +31,7 @@ public class AdmindUserStatusCommand implements AdminCommand {
 			dto.setEnabled(list.get(i).getEnabled());
 		}
 		
-		if(dto.getEnabled() == chk) {
+		if(dto.getEnabled().equals(chk)) {
 			dto.setEnabled(chk2);
 		}else {
 			dto.setEnabled(chk);

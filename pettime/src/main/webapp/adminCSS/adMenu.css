@@ -1,28 +1,38 @@
 @charset "UTF-8";
+.box{
+	margin-left:18%;
+}
 #menulist{
 	float:left;
-	height:700px;
+	height:600px;
 	box-sizing: border-boxed;
 	border: 1px solid black;
 	overflow:auto;
 	margin:auto;
 	text-align:center;
 	padding:0;
+	margin-top:3%;
+}
+h1{
+	text-align: center;
+}
+#createbtn{
+	margin-left:45%;
+	margin-top:15px;
 }
 .menubar{
 	padding:0;
 	height:100px;
 	line-height:100px;
-	box-sizing: border-boxed;
-	border: 1px solid black;
+	font-size:2rem;
+	background:rgb(255, 178, 146);
 }
 .menuvalue{
 	padding:0;
 	height:100px;
 	line-height:100px;
-	box-sizing: border-boxed;
-	border: 1px solid black;
+	font-size:1.5rem;
 }
 .menuvalue:hover{
-	background:rgb(255, 178, 146);
+	background:#e1dedb;
 }

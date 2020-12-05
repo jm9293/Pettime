@@ -1,1 +1,41 @@
 @charset "UTF-8";
+
+.cbox {
+	left: 17%;
+	overflow: auto;
+	background-color: #fcf2e4;
+	height:700px;
+}
+button{
+	margin-top:10px;
+	margin-left:50%;
+}
+.box {
+	text-align: center;
+	height: 50px;
+	margin:auto;
+}
+
+.menu {
+	height: 50px;
+	line-height: 50px;
+	box-sizing: border-boxed;
+	border: 1px solid white;
+	border-radius: 5px 0px 0px 5px;
+	margin: auto;
+	background-color: rgb(255, 178, 146);
+}
+
+.menu2 {
+	background-color: #81BEF7;
+}
+
+.subject {
+	line-height: 50px;
+	height: 50px;
+	box-sizing: border-boxed;
+	border: 1px solid white;
+	border-radius: 0px 5px 5px 0px;
+	margin: auto;
+	background-color: #fff;
+}

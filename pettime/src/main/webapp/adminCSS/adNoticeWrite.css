@@ -1,7 +1,5 @@
 @charset "UTF-8";
-.content{
-    margin-top: 5%;
-}
+
 .contain{
     margin: auto;
 }
@@ -12,9 +10,12 @@
     height: 200px;
     overflow: auto;
 }
-h2{
+h2{margin-top: 5%;
     font-weight: bold;
 }
 .head{
     margin: auto;
+}
+.btn{
+	margin:5px;
 }

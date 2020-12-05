@@ -24,7 +24,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/adminCSS/adBasic.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/adminCSS/adQna.css">
+	href="${pageContext.request.contextPath}/adminCSS/adQnaView.css">
 <title>Pettime Manager</title>
 </head>
 <body class="col-lg-10" style="margin: auto;">
@@ -33,12 +33,13 @@
 	</div>
 
 	<div class="content col-12">
-		<div class="col-12 col-md-8 head row">
+		<div class="col-10 head row">
 			<h2 class="col-7">Q&A 상담게시판</h2>
 		</div>
 	<br>
+	<div class="col-10 box">
 	<c:if test="${dto != null }">
-		<div class="col-12 col-md-8 titlebox">
+		<div class="col-12 titlebox">
 		<h3 class="title">글 제목 : ${dto.title }</h3><br>
 		<h6 class="title">작성자 : ${dto.userid } </h6>
 		<h6 class="title">조회수 : ${dto.viewcnt } </h6>
@@ -48,22 +49,25 @@
 			<h6 class="title">비공개 글</h6>
 		</c:if>
 		</div>
-		<div class="row col-12 col-md-8 contentbox">
-			<textarea class="col-12 form-control" readonly>${dto.content }</textarea>
+		<div class="row col-12 contentbox">
+			<textarea class="col-8 form-control" readonly>${dto.content }</textarea>
 		</div>
 			<br>
 			<form action="adQnaAnswerOk" method="post">
 				<input type="hidden" name="num" value="${dto.num }">
-				<div class="contentbox2 row col-12 col-md-8">
-				<textarea class="col-12 form-control" name="anser"></textarea>
+				<div class="contentbox2 row col-12">
+				<textarea class="col-8 form-control" name="anser"></textarea>
 				<input type="hidden" name="${_csrf.parameterName }"
 					value="${_csrf.token }" />
 			</div>
-			<button type="submit">작성완료</button>
+			<div id="select" class="col-12">
+			<button type="submit" class="btn btn-primary">작성완료</button>
 			<button type="button" id="back" class="btn btn-dark btn-md" onclick="location.href='${pageContext.request.contextPath }/admin/adQna/adQnalist?page=1'">목록으로</button>
+			</div>
 			</form>
 	<br>
 	</c:if>
+	</div>
 	<br><br>
 	</div>
 </body>

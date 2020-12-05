@@ -33,11 +33,11 @@
 	</div>
 
 	<div class="content col-12">
-		<div class="col-12 col-md-8 head row">
+		<div class="col-10 head row">
 			<h2 class="col-7">Q&A 상담게시판</h2>
 		</div>
 		<br>
-		<div class="menuname menuborder row col-12 col-md-8 alert-primary">
+		<div class="menuname menuborder row col-10">
 			<div class="col-2 col-md-1 menu">No</div>
 			<div class="col-6 col-md-3 menu">제목</div>
 			<div class="col-4 col-md-2 menu">작성자</div>
@@ -47,7 +47,7 @@
 		</div>
 		<c:if test="${list != null }">
 			<c:forEach var="item" items="${list }">
-			<div class="menuname textarea row col-12 col-md-8 textlist" onclick="location.href='adQnaView?&num=${item.num }'">
+			<div class="menuname textarea row col-10 textlist" onclick="location.href='adQnaView?&num=${item.num }'">
 				<div class="col-2 col-md-1 text" id="text1">${item.num }</div>
 				<c:choose>
 					<c:when test="${item.anser != null }">
@@ -112,12 +112,12 @@
 			</ul>
 		</div>
 		<form action="adSearchText2" method="get">
-			<div class="col-12 col-md-6 row searchbox">
+			<div class="col-6 row searchbox">
 				<input type="hidden" name="page" value="1">
-				<div class="col-5">
+				<div class="col-8">
 					<input class="col-12 form-control" type="text" name="title" value="${title}"/>
 				</div>
-				<div class="col-3 col-md-2">
+				<div class="col-4">
 					<button type="submit" id="searchbtn"
 						class="form-control col-12 btn btn-success btn-sm">검색</button>
 				</div>

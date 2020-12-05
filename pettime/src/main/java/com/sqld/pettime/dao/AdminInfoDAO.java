@@ -24,4 +24,5 @@ public interface AdminInfoDAO {
 	public int grantDes(String degId, String grant);
 	public int grantAdmin(String id, String grant);
 	public int insertAdmin(@Param("a") AdminDTO dto);
+	public List<AdminDTO> selectAdmin();
 }

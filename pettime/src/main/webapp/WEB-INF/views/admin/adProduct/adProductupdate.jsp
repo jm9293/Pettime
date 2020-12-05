@@ -19,7 +19,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/adminCSS/adBasic.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/adminCSS/adMenu.css">
+	href="${pageContext.request.contextPath}/adminCSS/adProductadd.css">
 <script src="${pageContext.request.contextPath }/adminJS/adminMenu.js"></script>
 <title>Pettime Manager</title>
 </head>
@@ -28,25 +28,28 @@
 		<%@ include file="../adminNav.jsp"%>
 	</div>
 	<div class="content col-12">
+	<h1>상품 수정</h1>
 		<form action="adProductUpdateOk" method="POST">
-			<div class="col-12 row">
+			<div class="col-6 box row">
+			<div class="col-12 row list">
 			<input type="hidden" name="num" value="${dto.num }">
-				<div class="col-6">메뉴</div>
+				<div class="col-6 bg-danger text-white">메뉴</div>
 				<div class="col-6">
-					<input type="text" name="subject" value="${dto.subject }">
+					<input class="col-12" type="text" name="subject" value="${dto.subject }">
 				</div>
-				<div class="col-6">금액</div>
+				<div class="col-6 bg-danger text-white">금액</div>
 				<div class="col-6">
-					<input type="text" name="price" value="${dto.price }">
+					<input class="col-12" type="text" name="price" value="${dto.price }">
 				</div>
 			</div>
 
-			<div class="col-12 row">
-				<button type="submit">수정완료</button>
-				<button type="button" onclick="history.back()">목록으로</button>
+			<div class="col-12 row btnlist">
+				<button type="submit" class="btn btn-primary">수정완료</button>
+				<button type="button" class="btn btn-dark" onclick="history.back()">목록으로</button>
 			</div>
 			<input type="hidden"
 					name="${_csrf.parameterName }" value="${_csrf.token }" />
+			</div>
 		</form>
 	</div>
 

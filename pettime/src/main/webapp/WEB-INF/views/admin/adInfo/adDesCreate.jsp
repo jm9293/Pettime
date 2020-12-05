@@ -20,7 +20,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/adminCSS/adBasic.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/adminCSS/adDeslist.css">
+	href="${pageContext.request.contextPath}/adminCSS/adCreateDes.css">
 <title>Pettime Manager</title>
 <script>
 var idlist = new Array();
@@ -37,72 +37,84 @@ console.log(size);
 	</div>
 
 	<div class="content col-12">
+			<div class="col-6 box">
+			<h2>직원 계정 생성</h2>
+			<br>
 		<form method="post" action="adDesCreateOk">
-			<div class="input-box col-12">
-				<label for="idtext">ID : </label> <input type="text"
-					class="form-control" id="idtext" name="id" maxlength="6" required />
-				<button type="button" onclick="createChk()" id="idchk-btn" disabled>중복체크</button>
-				<div class="invalid-feedback" id="id-invalid">아이디는 4~6자
-					영문소문자+숫자여야 합니다.</div>
-			</div>
-			<div class="input-box col-12">
-				<label for="pwtext">PW : </label> <input type="password"
-					class="form-control" id="pwtext" name="password" maxlength="8"
-					required />
-				<div class="invalid-feedback">비밀번호는 6~8자 영문+숫자여야 합니다.</div>
-			</div>
-			<div class="input-box col-12">
-				<label for="inputPWCHK" class="">비밀번호 확인 : </label> <input
-					type="password" class="form-control" name="pwchk" id="pwchk"
-					placeholder="비밀번호 확인" maxlength="8" required>
-				<div class="invalid-feedback">비밀번호와 일치하지 않습니다.</div>
-			</div>
-			<div class="input-box col-12">
-				<label for="nametext">Name : </label> <input type="text"
-					class="form-control" id="nametext" name="name" maxlength="10"
-					required />
-				<div class="invalid-feedback">한글 2글자 이상만 입력할수 있습니다.</div>
-			</div>
-			<div class="input-box col-12">
-				<label for="emailtext">e-mail : </label>
-				<div class="row col-12">
-					<input type="text" class="form-control emailf" id="emailtext"
-						placeholder="이메일 아이디" maxlength="10" required>
-					<div class="at emailg">@</div>
-					<select class="custom-select emailb" id="emailSelect">
-						<option selected value="gmail.com">gmail.com</option>
-						<option value="naver.com">naver.com</option>
-						<option value="daum.net">daum.net</option>
-						<option value="nate.com">nate.com</option>
-						<option value="direct">직접 입력</option>
-					</select> <input type="text" class="form-control emailb"
-						id="inputEmaildirect" placeholder="" value="직접입력">
-					<button type="button" onclick="createChk2()" id="emailchk-btn" disabled>중복체크</button>	
-					<input
-						type="hidden" id="email" name="email" value=""> <input
-						type="hidden" name="enabled" value="1">
-					<div class="invalid-feedback" id="email-invalid">이메일 형식이아닙니다.</div>
+				<div class="input-box col-12 row">
+					<label for="idtext" class="col-3">ID : </label> <input type="text"
+						class="form-control col-6" id="idtext" name="id" maxlength="6" required />
+					<button class="col-2 btn btn-success" type="button" onclick="createChk()" id="idchk-btn" disabled>중복체크</button>
+					<div class="invalid-feedback" id="id-invalid">아이디는 4~6자
+						영문소문자+숫자여야 합니다.</div>
 				</div>
+				<br>
+				<div class="input-box col-12 row">
+					<label for="pwtext" class="col-3">PW : </label> <input type="password"
+						class="form-control col-9" id="pwtext" name="password" maxlength="8"
+						required />
+					<div class="invalid-feedback">비밀번호는 6~8자 영문+숫자여야 합니다.</div>
+				</div>
+				<br>
+				<div class="input-box col-12 row">
+					<label for="inputPWCHK" class="col-3">PW 확인 : </label> <input
+						type="password" class="form-control col-9" name="pwchk" id="pwchk"
+						placeholder="동일한 비밀번호를 입력하세요" maxlength="8" required>
+					<div class="invalid-feedback">비밀번호와 일치하지 않습니다.</div>
+				</div>
+				<br>
+				<div class="input-box col-12 row">
+					<label for="nametext" class="col-3">Name : </label> <input type="text"
+						class="form-control col-9" id="nametext" name="name" maxlength="10"
+						required />
+					<div class="invalid-feedback">한글 2글자 이상만 입력할수 있습니다.</div>
+				</div>
+				<br>
+				<div class="input-box col-12">
+					<label for="emailtext">e-mail : </label>
+					<div class="row col-12">
+						<input type="text" class="form-control emailf col-3" id="emailtext"
+							placeholder="이메일 아이디" maxlength="10" required>
+						<div class="at emailg col-1 emaillogo">@</div>
+						<select class="custom-select emailb col-5" id="emailSelect">
+							<option selected value="gmail.com">gmail.com</option>
+							<option value="naver.com">naver.com</option>
+							<option value="daum.net">daum.net</option>
+							<option value="nate.com">nate.com</option>
+							<option value="direct">직접 입력</option>
+						</select> <input type="text" class="form-control emailb col-5"
+							id="inputEmaildirect" placeholder="" value="직접입력">
+						<button class="col-2 btn btn-success" type="button" onclick="createChk2()" id="emailchk-btn"
+							disabled>중복체크</button>
+						<input type="hidden" id="email" name="email" value=""> <input
+							type="hidden" name="enabled" value="1">
+						<div class="invalid-feedback" id="email-invalid">이메일
+							형식이아닙니다.</div>
+					</div>
+				</div>
+				<br>
+				<div class="input-box col-12 row">
+					<label for="phonetext" class="col-3">Phone : </label> <input type="text"
+						class="form-control col-9" id="phonetext" name="phone" maxlength="11"
+						required />
+					<div class="invalid-feedback">숫자 10~11자만 입력할수 있습니다.</div>
+				</div>
+				<br>
+				<div class="input-box col-12">
+					<label for="introtext">소개글</label>
+					<textArea class="form-control" id="introtext" name="intro" rows="5"
+						required></textArea>
+				</div>
+				<br>
+				<input type="hidden" value="1" name="enabled">
+				<button class="login-btn btn btn-primary emailf" type="submit"
+					id="signup-btn" disabled>계정발급</button>
+				<button id="off-btn" type="button" class="btn btn-danger emailf"
+					onclick="history.back();">취소</button>
+				<input type="hidden" name="${_csrf.parameterName }"
+					value="${_csrf.token }" />
+			</form>
 			</div>
-			<div class="input-box col-12">
-				<label for="phonetext">Phone : </label> <input type="text"
-					class="form-control" id="phonetext" name="phone" maxlength="11"
-					required />
-				<div class="invalid-feedback">숫자 10~11자만 입력할수 있습니다.</div>
-			</div>
-			<div class="input-box col-12">
-				<label for="introtext">소개글</label>
-				<textArea class="form-control" id="introtext" name="intro" rows="10"
-					required></textArea>
-			</div>
-			<input type="hidden" value="1" name="enabled">
-			<button class="login-btn btn btn-primary emailf" type="submit"
-				id="signup-btn" disabled>계정발급</button>
-			<button type="button" class="btn btn-danger emailf"
-				onclick="history.back();">취소</button>
-				<input type="hidden"
-					name="${_csrf.parameterName }" value="${_csrf.token }" />
-		</form>
 	</div>
 	<script
 		src="${pageContext.request.contextPath}/adminJS/adminDesCreate.js"></script>

@@ -1,31 +1,40 @@
 @charset "UTF-8";
-.content div{
-	text-align:center;
-	font-size:1rem;
+
+.content div {
+	text-align: center;
+	font-size: 1rem;
 }
-.searchbox{
-	margin:auto;
+
+.searchbox {
+	margin: auto;
+	margin-left: 33%;
 }
-.searchbox div{
-	float:right;
+
+.searchbox div {
+	margin-top: 10px;
+	float: right;
 }
-#box{
-	height:725px;
-	overflow:auto;
+
+#box {
+	height: 725px;
+	overflow: auto;
 }
-.menu{
+
+.menu {
 	margin: auto;
 	height: 50px;
 	text-align: center;
 	line-height: 50px;
-	background-color: rgb(238, 169, 20);
+	background-color: rgb(255, 178, 146);
 }
-.subject{
+
+.subject {
 	margin: auto;
 	height: 50px;
 	text-align: center;
 	line-height: 50px;
 }
-.subject:hover{
-	background-color: palegoldenrod;
+
+.subject:hover {
+	background-color: #e1dedb;
 }

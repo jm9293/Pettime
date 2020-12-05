@@ -2,19 +2,23 @@
 
 #myCalender {
 	float: left;
-	box-sizing: border-boxed;
-	border: 1px solid black;
-	height: 700px;
+	height: 800px;
 }
-
-#resList {
+#resbox{
 	float: left;
-	box-sizing: border-boxed;
-	border: 1px solid black;
-	height: 700px;
-	overflow:auto;
+	text-align:center;
 }
-
+#resList {
+	box-sizing: border-boxed;
+	border: 3px solid #f0f0f0;
+	height: 750px;
+	overflow:auto;
+	padding:0;
+	font-size:20px;
+}
+#addressword{
+	font-size:0.7rem;
+}
 .cal_top{
     text-align: center;
     font-size: 30px;
@@ -33,13 +37,29 @@ table.calendar td{
     width: 100px;
 }
 
-.resbox{
+.menu{
+	line-height:50px;
 	padding:0;
 	text-align:center;
+	margin:auto;
+	height:50px;
+	background:#1a7ef9;
+	color:#fff;
 }
-
+.datelist{
+	font-size:20px;
+}
+.resbox2{
+	line-height:50px;
+	margin:auto;
+	padding:0;
+	text-align:center;
+	background:#fff;
+	height:50px;
+	color:#000;
+}
 .resbox2:hover{
-	background:rgb(255, 178, 146);
+	background:#dddde8;
 }
 
 td:hover{
@@ -48,19 +68,17 @@ td:hover{
 .cal-day{
 	box-sizing: border-boxed;
 	border: 1px dotted white;
-	background-color:#749dfe;
+	background-color:rgb(255, 178, 146);
 }
 .cal-schedule{
 	box-sizing: border-boxed;
-	 border: 1px dotted black;
+	 border: 1px dotted #cacaca;
 	 height:75px;
 }
 tr{
 		height: 100px;
 }
 .id, .time, .address{
-	box-sizing: border-boxed;
-	 border: 1px solid black;
 	 padding:0;
 	 text-align:center;
 }

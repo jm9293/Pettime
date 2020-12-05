@@ -30,6 +30,8 @@
 	</div>
 
 	<div class="content col-12">
+	<h1>상품 정보</h1>
+		<div class="col-8 box">
 		<div class="col-12" id="menulist">
 			<div class="col-12 row menubar">
 				<div class="col-2">번호</div>
@@ -46,7 +48,8 @@
 				</c:forEach>
 			</div>
 		</div>
-				<button type="button" onclick="location.href='adProductAdd'">추가하기</button>
+				<button id="createbtn" type="button" class="btn btn-primary" onclick="location.href='adProductAdd'">추가하기</button>
+		</div>
 	</div>
 </body>
 </html>

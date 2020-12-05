@@ -8,6 +8,18 @@
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+                    <a class="nav-link" href="${pageContext.request.contextPath }/admin/adminMain" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
+                     메인화면
+                    </a>
+                    
+                  </li>
+              <li class="nav-item dropdown">
+                    <a class="nav-link" href="${pageContext.request.contextPath }/admin/createAdmin" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
+                     계정발급
+                    </a>
+                    
+                  </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="${pageContext.request.contextPath }/admin/adRes" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
                       예약현황
@@ -42,7 +54,7 @@
                   <form action="/pettime/admin/logout" method="post">
                   <input type="hidden"
 					name="${_csrf.parameterName }" value="${_csrf.token }" />
-                    <button type="submit" class="btn">
+                    <button type="submit" class="btn btn-md" id="logoutbtn">
                       logout
                      </button>  
                     </form> 

@@ -11,6 +11,7 @@ import com.sqld.pettime.admin.command.AdminMenulistCommand;
 import com.sqld.pettime.admin.command.AdminNoticeSelectCommend;
 import com.sqld.pettime.admin.command.AdminQnaSelectCommand;
 import com.sqld.pettime.admin.command.AdminResSearchCommand;
+import com.sqld.pettime.admin.command.AdminShowListCommand;
 import com.sqld.pettime.dto.AdminDTO;
 import com.sqld.pettime.admin.command.AdminCreateCommand;
 import com.sqld.pettime.admin.command.AdminMainCommand;
@@ -31,7 +32,9 @@ public class CommonController {
 	}
 	
 	@RequestMapping("/createAdmin")
-	public void doCreate() {}
+	public void doCreate(Model model) {
+		new AdminShowListCommand().execute(model);
+	}
 	
 	@RequestMapping(value = "/createOk", method = RequestMethod.POST)
 	public String doCreateAdmin(AdminDTO dto, Model model) {

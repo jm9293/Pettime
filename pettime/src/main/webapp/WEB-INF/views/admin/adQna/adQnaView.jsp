@@ -24,7 +24,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/adminCSS/adBasic.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/adminCSS/adQna.css">
+	href="${pageContext.request.contextPath}/adminCSS/adQnaView.css">
 <title>Pettime Manager</title>
 </head>
 <body class="col-lg-10" style="margin: auto;">
@@ -33,12 +33,13 @@
 	</div>
 
 	<div class="content col-12">
-		<div class="col-12 col-md-8 head row">
+		<div class="col-10 head row">
 			<h2 class="col-7">Q&A 상담게시판</h2>
 		</div>
 	<br>
+	<div class="col-10 box">
 	<c:if test="${dto != null }">
-		<div class="col-12 col-md-8 titlebox">
+		<div class="col-12 titlebox">
 		<h3 class="title">글 제목 : ${dto.title }</h3><br>
 		<h6 class="title">작성자 : ${dto.userid } </h6>
 		<h6 class="title">조회수 : ${dto.viewcnt } </h6>
@@ -48,18 +49,18 @@
 			<h6 class="title">비공개 글</h6>
 		</c:if>
 		</div>
-		<div class="row col-12 col-md-8 contentbox">
-			<textarea class="col-12 form-control" readonly>${dto.content }</textarea>
+		<div class="row col-12 contentbox">
+			<textarea class="col-8 form-control" readonly>${dto.content }</textarea>
 		</div>
 		<c:if test="${dto.anser != null }">
 			<br>
 			<fmt:formatDate  value="${dto.andate}" var="dateFmt2" pattern="yyyy-MM-dd"/>
-			<div class="col-12 col-md-8 answerbox"><h6>답변 내용<br>작성자: 관리자<br>작성일: ${dateFmt2 }</h6></div>
-			<div class="contentbox2 row col-12 col-md-8">
-				<textarea class="col-12 form-control" readonly>${dto.anser }</textarea>
+			<div class="col-12 answerbox"><h6>답변 내용<br>작성자: 관리자<br>작성일: ${dateFmt2 }</h6></div>
+			<div class="contentbox2 row col-12">
+				<textarea class="col-8 form-control" readonly>${dto.anser }</textarea>
 			</div>
 		</c:if>
-		<div class="row col-12 col-md-8">
+		<div class="row col-12">
 			<div id="select" class="col-12">
 			<c:choose>
 				<c:when test="${dto.anser != null }">
@@ -75,6 +76,7 @@
 		</div>
 	<br>
 	</c:if>
+	</div>
 	<br><br>
 	</div>
 </body>

@@ -41,8 +41,6 @@
 	float: left;
 	height: 650px;
 	text-align: center;
-	box-sizing: border-boxed;
-	border: 1px solid black;
 	overflow:auto;
 }
 #destitle{
@@ -61,7 +59,7 @@
 	margin:auto;
 	padding:0;
 }
-#desinfo{
+.desinfo{
 	height: 50px;
 	line-height: 50px;
 	margin:auto;

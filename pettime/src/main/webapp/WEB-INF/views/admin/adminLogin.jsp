@@ -23,15 +23,20 @@
 	<div class="wrap">
 		<div class="adLogin col-4">
 			<h1>환영합니다 관리자님!</h1>
-			<h3>로그인을 진행해주세요</h3>
 			<h3>${msg }</h3>
+			<h3>로그인을 진행해주세요</h3>
 			<form action="adminLoginOk" method="POST">
-				ID<input type="text" name="username" required><br> PW<input
-					type="password" name="password" required><br> <input
-					type="submit" value="로그인"><br> <input type="hidden"
-					name="${_csrf.parameterName }" value="${_csrf.token }" />
+			<div class="col-12 row box">
+				<h3 class="col-3">ID</h3><input class="form-control col-6" type="text" name="username" required>
+			</div>
+			<div class="col-12 row box">
+				<h3 class="col-3">PW</h3><input class="form-control col-6"  type="password" name="password" required>
+			</div>
+				<br>
+				<button type="submit" class="btn btn-primary">로그인</button>
+				<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" />
 			</form>
-			<button type="button" onclick="location.href='${pageContext.request.contextPath}/admin/createAdmin'">계정 생성</button>
+			
 		</div>
 	</div>
 </body>

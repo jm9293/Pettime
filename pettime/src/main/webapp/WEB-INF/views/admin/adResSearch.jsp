@@ -32,51 +32,62 @@
 	</div>
 
 	<div class="content col-12">
-		<div class="col-12">예약 정보</div>
-		<div class="col-12 row">
-		<div class="col-6">고객ID:</div>
-		<div class="col-6">${dto.userid }</div>
+	<div class="col-8 cbox">
+		<div class="col-12 box"><h1>예약 정보</h1></div>
+		<br>
+		<div class="col-12 row box">
+		<div class="col-4 menu">고객ID:</div>
+		<div class="col-8 subject">${dto.userid }</div>
 		</div>
-		<div class="col-12 row">
-		<div class="col-6">담당 미용사:</div>
-		<div class="col-6">${dto.degid }</div>
+		<br>
+		<div class="col-12 row box">
+		<div class="col-4 menu">담당 미용사:</div>
+		<div class="col-8 subject">${dto.degid }</div>
 		</div>
-		<div class="col-12 row">
-		<div class="col-6">예약 일자:</div>
-		<div class="col-6">${date }</div>
+			<br>
+		<div class="col-12 row box">
+		<div class="col-4 menu">예약 일자:</div>
+		<div class="col-8 subject">${date }</div>
 		</div>
-		<div class="col-12 row">
-		<div class="col-6">주소:</div>
-		<div class="col-6">${dto.address }</div>
+			<br>
+		<div class="col-12 row box">
+		<div class="col-4 menu">주소:</div>
+		<div class="col-8 subject">${dto.address }</div>
 		</div>
-		<div class="col-12 row">
-		<div class="col-6">견명:</div>
-		<div class="col-6">${dto.petName }</div>
+			<br>
+		<div class="col-12 row box">
+		<div class="col-4 menu">견명:</div>
+		<div class="col-8 subject">${dto.petName }</div>
 		</div>
-		<div class="col-12 row">
-		<div class="col-6">견종:</div>
-		<div class="col-6">${dto.petKind }</div>
+			<br>
+		<div class="col-12 row box">
+		<div class="col-4 menu">견종:</div>
+		<div class="col-8 subject">${dto.petKind }</div>
 		</div>
+			<br>
 		<c:forEach var="item" items="${dto2 }">
-		<div class="col-12 row">
-		<div class="col-6">항목:</div>
-		<div class="col-6">${item.content }</div>
+		<div class="col-12 row box">
+		<div class="col-4 menu menu2">항목:</div>
+		<div class="col-8 subject">${item.content }</div>
 		</div>
-		<div class="col-12 row">
-		<div class="col-6">금액:</div>
-		<div class="col-6">${item.price }</div>
+			<br>
+		<div class="col-12 row box">
+		<div class="col-4 menu menu2">금액:</div>
+		<div class="col-8 subject">${item.price }</div>
 		</div>
+			<br>
 		</c:forEach>
-		<div class="col-12 row">
-		<div class="col-6">예약 메모:</div>
-		<div class="col-6">${dto.petMemo }</div>
+		<div class="col-12 row box">
+		<div class="col-4 menu">예약 메모:</div>
+		<div class="col-8 subject">${dto.petMemo }</div>
 		</div>
-		<div class="col-12 row">
-		<div class="col-6">처리상태:</div>
-		<div class="col-6">${dto.state }</div>
+			<br>
+		<div class="col-12 row box">
+		<div class="col-4 menu">처리상태:</div>
+		<div class="col-8 subject">${dto.state }</div>
 		</div>
-		<button type="button" onclick="history.back()">돌아가기</button>
 	</div>
-
+		<button class="btn btn-primary" type="button" onclick="history.back()">돌아가기</button>
+</div>
 </body>
 </html>

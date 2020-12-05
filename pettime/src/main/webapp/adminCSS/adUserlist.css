@@ -5,8 +5,10 @@
 }
 .searchbox{
 	margin:auto;
+	margin-left:50%;
 }
 .searchbox div{
+	margin-top:10px;
 	float:right;
 }
 #box{
@@ -18,7 +20,7 @@
 	height: 50px;
 	text-align: center;
 	line-height: 50px;
-	background-color: rgb(238, 169, 20);
+	background-color: rgb(255, 178, 146);
 }
 .subject{
 	margin: auto;
@@ -27,5 +29,5 @@
 	line-height: 50px;
 }
 .subject:hover{
-	background-color: palegoldenrod;
+	background-color: #e1dedb;
 }

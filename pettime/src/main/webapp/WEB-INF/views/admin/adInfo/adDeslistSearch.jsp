@@ -28,10 +28,10 @@
 	</div>
 
 	<div class="content col-12">
-		<div class="col-12 searchbox">
+		<div class="col-8 searchbox">
 			<form action="adDeslistSearch" method="post">
 
-				<div class="col-3 col-md-2">
+				<div class="col-3">
 					<button type="submit" id="searchbtn"
 						class="form-control col-12 btn btn-success btn-sm">검색</button>
 				</div>
@@ -45,7 +45,7 @@
 					</select>
 				</div>
 				<div class="col-3">
-					<button type="button" onclick="">직원 생성</button>
+					<button class="btn btn-primary" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/adInfo/adDesCreate'">직원 생성</button>
 				</div>
 				<input type="hidden"
 					name="${_csrf.parameterName }" value="${_csrf.token }" />
@@ -54,6 +54,7 @@
 		<br>
 		<br>
 		<br>
+		<div class="col-12" id="box">
 		<div class="row col-12 menu">
 			<div class="col-3">등록ID</div>
 			<div class="col-4">이름</div>
@@ -68,6 +69,7 @@
 				<div class="col-5">${list.email }</div>
 			</div>
 		</c:forEach>
+		</div>
 	</div>
 	<br>
 	<br>
