@@ -18,17 +18,16 @@
         <a class="nav-link" href="#">스케줄</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">추가결제</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">게시판</a>
+        <a class="nav-link" href="#">공지사항</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">My</a>
       </li>
+      <li>
+	    <form class="form-inline my-2 my-lg-0">
+	      <button class="btn btn-outline-danger Hbutton" type="submit">Logout</button>
+	    </form>
+    	</li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Logout</button>
-    </form>
   </div>
 </nav>  

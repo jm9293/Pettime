@@ -1,60 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>   
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/DesignCSS/dSchedule.css"/>\
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>디자이너 스케줄 페이지</title>
 </head>
 <body>
-	<input type="date" id="cal" onchange="gDate()"/>
-	
-	<script>
-        
-        function gDate()  {
-            const dt = document.getElementById('cal').value;
-            document.getElementById("result").innerText = dt;
-        }
-
-    </script>
-    <div id="result"></div>
-    <br><br>
-    <div style="border: 1px solid black; width: 200px; height: 100px;">
-		<c:forEach var="dao" items="${list }"> <!-- var = "변수명" ,items = "목록 데이터" --> 	
-			<div id="bbd">${dao.holiday }</div>		
-		</c:forEach>
+	<div class="container">
+			
+		<%@ include file="../dNav.jsp" %><br>
+	   
+		<header>header
+			
+		</header>
+	    
+		<article>article
+		  	
+		 	
+		    	
+		</article>
+		    
+		    
+	   	<section>section
+		    	
+	   	</section>
+	 
     </div>
-    
-    
-    
-    <div id="bb"></div>
-    <script>
-    	
-    const bb = document.getElementById('bbd').value;
-    	document.getElemetById("resultB").innerText = bb;
-    
-    </script>
-    
-    
-    <button onclick="btn()">버튼</button>
-    
-    <script>
-    function btn(){
-    	
-    }
-
-    </script>
-    <br>
-    
-    <div id="final" style="border: 1px solid black; width: 200px; height: 100px;"></div>
-    
-    
-    
-    
-    
-    
     
     
     
