@@ -41,9 +41,13 @@ article {
     width: 50%;
     height: 400px;
     float: left;
-    border: 1px solid black;
+    border: 1px solid black;   
+    text-align: center;
+    
 }
-
+.resbox{
+	padding:0;
+}
 section {
     width: 50%;
     height: 400px;
@@ -52,10 +56,35 @@ section {
 }
 
 
+#weather {
+	float: left;
+	height: 150px;
+	text-align: center;
+	padding: 20px;
+}
+.reslist:hover{
+	background-color: #e2e2e2;
+}
+#weather div {
+	float: left;
+	height: 100px;
+}
 
+#weatherimg {
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: left;
+	background-color: #f2daa2;
+	border-radius: 0px 10px 10px 0px;
+}
 
-
-
+.weathertxt {
+	height: 150px;
+	font-size: 16px;
+	text-align: right;
+	background-color: #f2daa2;
+	border-radius: 10px 0px 0px 10px;
+}
 
 
 @media (max-width: 1200px) {

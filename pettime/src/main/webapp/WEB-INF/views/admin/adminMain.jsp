@@ -29,9 +29,9 @@
 	</div>
 
 	<div class="content col-12">
-		<div class="col-12 col-md-4" id="resCnt"><div class="bg-warning text-dark">당일 예약현황 ${cnt }건</div></div>
-		<div class="col-12 col-md-4" id="userCnt"><div class="bg-light text-dark">회원수 ${cnt2 }명</div></div>
-		<div class="col-12 col-md-4" id="weather">
+		<div class="col-4" id="resCnt"><div class="bg-warning text-dark">당일 예약현황 ${cnt }건</div></div>
+		<div class="col-4" id="userCnt"><div class="bg-light text-dark">회원수 ${cnt2 }명</div></div>
+		<div class="col-4" id="weather">
 			<div class="weathertxt col-8">날씨정보</div>
 			<div class="weather-box col-4" id="weatherimg"></div>
 		</div>
@@ -60,9 +60,5 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-	crossorigin="anonymous"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
 </html>

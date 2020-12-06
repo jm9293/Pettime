@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sqld.pettime.dao.DesMainDAO">
+	
+	<select id="selectRes" resultType="com.sqld.pettime.dto.ResListDTO">
+		SELECT * FROM PETTIME.RESLIST WHERE DEGID=#{param1} AND STIME between
+		TO_DATE(#{param2}, 'YYYY-MM-DD') and
+		TO_DATE(#{param2},
+		'YYYY-MM-DD')+0.99999
+	</select>
+	
+	<select id="selectResNum"
+		resultType="com.sqld.pettime.dto.ResListDTO">
+		SELECT * FROM PETTIME.RESLIST WHERE NUM = #{param1} AND DEGID = #{param2}
+	</select>
+	
+	<select id="searchDetail" resultType="com.sqld.pettime.dto.ResDetailDTO">
+		SELECT NUM, RESNUM, CONTENT, PRICE
+		FROM PETTIME.RESDETAIL WHERE RESNUM = #{param1}
+	</select>
+</mapper>

@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+	integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+	crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/DesignCSS/dMain.css"/>
@@ -20,8 +23,8 @@
 		<%@ include file="../dNav.jsp" %><br>
 	   
 		<header>
-			<p class="ct">안녕하세요 이승원 디자이너님!</p>
-			<p class="ct">${datestr }입니다</p>
+			<p class="ct">안녕하세요 ${id } 디자이너님!</p>
+			<p class="ct">${datestr }의 예약내역 입니다</p>
 			<div id="dailySchedule">
 				<div class="container">
 					<div class="my-calendar clearfix">
@@ -56,21 +59,39 @@
 				</div>
 			</div>
 		</header>
-	    
+
 		<article>
-		  	
-		 	${date}<br>
-		  	${datestr}
-		    	
+			<c:choose>
+				<c:when test="${!empty list}">
+					<div class="col-12 row resbox">
+						<div class="col-4">고객 ID</div>
+						<div class="col-4">예약 날짜</div>
+						<div class="col-4">펫 이름</div>
+					</div>
+					<c:forEach var="item" items="${list }">
+						<div class="col-12 row resbox reslist" onclick="location.href='desSearch?num=${item.num}'">		
+							<div class="col-4">${item.userId }</div>
+							<div class="col-4">${item.stime }</div>
+							<div class="col-4">${item.petName }</div>
+						</div>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<div class="col-12 row">예약이 없습니다.</div>
+				</c:otherwise>
+			</c:choose>
 		</article>
-		    
-		    
-	   	<section>날씨 api
-		    	
+
+		<section>
+		 <div class="col-12" id="weather">
+			<div class="weathertxt col-8">날씨정보</div>
+			<div class="weather-box col-4" id="weatherimg"></div>
+		</div>
 	   	</section>
 	 
     </div>
 </body>
+<script src="${pageContext.request.contextPath }/DesignJS/weatherList.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
 	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 			<script src="${pageContext.request.contextPath }/DesignJS/calender.js"></script>

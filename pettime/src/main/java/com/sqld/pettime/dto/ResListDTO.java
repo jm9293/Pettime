@@ -8,7 +8,7 @@ import lombok.Data;
 public class ResListDTO {
 	
 	private int num;
-	private Date sTime;
+	private Date stime;
 	private String address;
 	private String userId;
 	private String degId;
