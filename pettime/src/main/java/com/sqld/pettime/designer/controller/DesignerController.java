@@ -8,8 +8,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,22 +41,35 @@ public class DesignerController {
 	
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String dloginView(DesignerDTO dto) {
+	public String dloginView(Model model, HttpSession session) {
+		String msg = (String)session.getAttribute("loginFailMsg");
+		session.removeAttribute("loginFailMsg");
+		if(msg != null) {
+			model.addAttribute("msg", msg);
+		}else {
+			model.addAttribute("msg", "");
 		
+		}return "designer/dLogin";
+	}
+	
+	@RequestMapping("/logoutOk")
+	public String exitLogin(Model model) {
+		String msg = "로그아웃 되었습니다.";
+		model.addAttribute("msg", msg);
 		return "designer/dLogin";
 	}
 	
 	
 	
 	@RequestMapping(value = "/main")
-	public String dMain(String y,String m,String d, Model model) {
+	public String dMain(String y,String m,String d, Model model, Authentication authentication) {
 		Date date;
 		if(y==null&&m==null&&d==null) {
 			date = new Date();
 		}else {
 			date = new Date(Integer.parseInt(y)-1900, Integer.parseInt(m)-1,Integer.parseInt(d));
 		}
-		String id = "seon0000";
+		String id = ((UserDetails)authentication.getPrincipal()).getUsername();
 		
 		SimpleDateFormat sdf =  new SimpleDateFormat("yyyy-MM-dd");
 		model.addAttribute("datestr", sdf.format(date));

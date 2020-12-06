@@ -9,9 +9,14 @@
 <bean id="usercustomAccessDenied" class="com.sqld.pettime.user.beans.CustomAccessDeniedHandler"/>
 <bean id="usercustomLoginSuccesHandler" class="com.sqld.pettime.user.beans.CustomLoginSuccesHandler"></bean>
 <bean id="usercustomLoginFailHandler" class="com.sqld.pettime.user.beans.CustomLoginFailHandler"></bean>
+
 <bean id="admincustomAccessDenied" class="com.sqld.pettime.admin.beans.AdminAccessDeniedHandler"/>
 <bean id="admincustomLoginSuccesHandler" class="com.sqld.pettime.admin.beans.AdminLoginSuccesHandler"></bean>
 <bean id="admincustomLoginFailHandler" class="com.sqld.pettime.admin.beans.AdminLoginFailHandler"></bean>
+
+<bean id="designercustomAccessDenied" class="com.sqld.pettime.designer.beans.DesignerAccessDeniedHandler"/>
+<bean id="designercustomLoginSuccesHandler" class="com.sqld.pettime.designer.beans.DesignerLoginSuccesHandler"></bean>
+<bean id="designercustomLoginFailHandler" class="com.sqld.pettime.designer.beans.DesignerLoginFailHandler"></bean>
 <security:authentication-manager id="userAuthManager">
 	<security:authentication-provider>
 	<security:jdbc-user-service data-source-ref="dataSource"		 
@@ -31,6 +36,19 @@
 										FROM ADMIN WHERE ID = ?"
 		 	authorities-by-username-query="SELECT ID username, authority
 										FROM AAUTH WHERE ID = ?"
+	/>
+	 	<security:password-encoder ref="bcryptPasswordEncoder"/>
+	</security:authentication-provider>
+</security:authentication-manager>
+
+
+<security:authentication-manager id="designerAuthManager">
+	<security:authentication-provider>
+	<security:jdbc-user-service data-source-ref="dataSource"		 
+		 	users-by-username-query="SELECT ID username, password, enabled
+										FROM designer WHERE ID = ?"
+		 	authorities-by-username-query="SELECT ID username, authority
+										FROM DAUTH WHERE ID = ?"
 	/>
 	 	<security:password-encoder ref="bcryptPasswordEncoder"/>
 	</security:authentication-provider>
@@ -62,6 +80,16 @@
 	<security:intercept-url pattern="/admin/adminLogin" access="permitAll"/>
 	<security:logout invalidate-session="true" logout-url="/admin/logout" logout-success-url="/admin/logoutOk"/>
 	<security:access-denied-handler ref="admincustomAccessDenied"/>
+</security:http>
+
+<security:http pattern="/designer/**" authentication-manager-ref="designerAuthManager">
+	<security:form-login login-page="/designer/login" login-processing-url="/designer/loginOk" 
+	authentication-success-handler-ref="designercustomLoginSuccesHandler"
+	authentication-failure-handler-ref="designercustomLoginFailHandler"/>
+	<security:intercept-url pattern="/designer/main" access="hasRole('ROLE_DESIGNER')"/>
+	<security:intercept-url pattern="/designer/login" access="permitAll"/>
+	<security:logout invalidate-session="true" logout-url="/designer/logout" logout-success-url="/designer/logoutOk"/>
+	<security:access-denied-handler ref="designercustomAccessDenied"/>
 </security:http>
 
 

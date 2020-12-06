@@ -24,8 +24,10 @@
         <a class="nav-link" href="#">My</a>
       </li>
       <li>
-	    <form class="form-inline my-2 my-lg-0">
+	    <form method="post" class="form-inline my-2 my-lg-0" action="/pettime/designer/logout">
+	    
 	      <button class="btn btn-outline-danger Hbutton" type="submit">Logout</button>
+	      <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" />
 	    </form>
     	</li>
     </ul>
