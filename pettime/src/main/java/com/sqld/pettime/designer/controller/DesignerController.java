@@ -81,8 +81,8 @@ public class DesignerController {
 	}
 	
 	@RequestMapping("/desSearch")
-	public String goSearch(int num, Model model) {
-		String id = "seon0000";
+	public String goSearch(int num, Model model, Authentication authentication) {
+		String id = ((UserDetails)authentication.getPrincipal()).getUsername();
 		model.addAttribute("num", num);
 		model.addAttribute("id", id);
 		new DesSearchResCommand().execute(model);
@@ -90,14 +90,14 @@ public class DesignerController {
 	}
 	
 	@RequestMapping(value = "/schedule")
-	public String goSchedule(String y,String m,String d, Model model) {
+	public String goSchedule(String y,String m,String d, Model model, Authentication authentication) {
 		Date date;
 		if(y==null&&m==null&&d==null) {
 			date = new Date();
 		}else {
 			date = new Date(Integer.parseInt(y)-1900, Integer.parseInt(m)-1,Integer.parseInt(d));
 		}
-		String id = "seon0000";
+		String id = ((UserDetails)authentication.getPrincipal()).getUsername();
 		SimpleDateFormat sdf =  new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM");
 		
@@ -111,9 +111,9 @@ public class DesignerController {
 	}
 	
 	@RequestMapping("/dScheduleCancle")
-	public String goCancle(String datestr, Model model) {
+	public String goCancle(String datestr, Model model, Authentication authentication) {
 		
-		String id = "seon0000";
+		String id = ((UserDetails)authentication.getPrincipal()).getUsername();
 		model.addAttribute("datestr", datestr);
 		model.addAttribute("id", id);
 		new DesResDeleteCommand().execute(model);
@@ -122,9 +122,9 @@ public class DesignerController {
 	}
 	
 	@RequestMapping("/dScheduleAdd")
-	public String goAdd(String datestr, Model model) {
+	public String goAdd(String datestr, Model model, Authentication authentication) {
 		
-		String id = "seon0000";
+		String id = ((UserDetails)authentication.getPrincipal()).getUsername();
 		model.addAttribute("datestr", datestr);
 		model.addAttribute("id", id);
 		new DesResAddCommand().execute(model);

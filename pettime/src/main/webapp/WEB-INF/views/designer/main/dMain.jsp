@@ -24,7 +24,7 @@
 	   
 		<header>
 			<p class="ct">안녕하세요 ${id } 디자이너님!</p>
-			<p class="ct">${datestr }의 예약내역 입니다</p>
+			<p class="ct">${datestr } 일의 예약내역 입니다</p>
 			<div id="dailySchedule">
 				<div class="container">
 					<div class="my-calendar clearfix">
