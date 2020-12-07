@@ -48,6 +48,21 @@
 		<div class="col-8 subject">${date }</div>
 		</div>
 			<br>
+		<c:choose>
+			<c:when test="${dto.address ne '방문' }">
+			<div class="col-12 row box">
+				<div class="col-4 menu">주소:</div>
+				<div class="col-8 subject">${dto.address }</div>
+			</div>
+			<br>
+			</c:when>
+			<c:otherwise>
+			<div class="col-12 row box">
+				<div class="col-12 visit">매장 방문</div>
+			</div>
+			<br>
+			</c:otherwise>
+		</c:choose>
 		<div class="col-12 row box">
 		<div class="col-4 menu">주소:</div>
 		<div class="col-8 subject">${dto.address }</div>
@@ -63,6 +78,13 @@
 		<div class="col-8 subject">${dto.petKind }</div>
 		</div>
 			<br>
+		<c:if test="${dto.address ne '방문' }">
+			<div class="col-12 row box">
+				<div class="col-4 menu menu2">출장 비용:</div>
+				<div class="col-8 subject">30,000 원</div>
+			</div>
+			<br>
+		</c:if>
 		<c:forEach var="item" items="${list }">
 		<div class="col-12 row box">
 		<div class="col-4 menu menu2">항목:</div>
@@ -84,8 +106,19 @@
 		<div class="col-4 menu">처리상태:</div>
 		<div class="col-8 subject">${dto.state }</div>
 		</div>
+		<br>
 	</div>
-		<button class="btn btn-primary" type="button" onclick="history.back()">돌아가기</button>
+	<div class="col-8 row btnbox">
+		<c:choose>
+			<c:when test="${dto.state eq '결제완료'}">
+				<button class="btn btn-primary" id="resultOk" type="button" onclick="location.href='desResResultOk?num=${dto.num}'">처리완료</button>
+			</c:when>
+			<c:otherwise>
+				<button class="btn btn-primary" id="resetOk" type="button" onclick="location.href='desResResetOk?num=${dto.num}'">처리취소</button>
+			</c:otherwise>
+		</c:choose>
+		<button class="btn btn-dark" id="back" type="button" onclick="location.href='adRes'">돌아가기</button>
+	</div>	
 </div>
 </body>
 </html>

@@ -18,4 +18,12 @@
 		SELECT NUM, RESNUM, CONTENT, PRICE
 		FROM PETTIME.RESDETAIL WHERE RESNUM = #{param1}
 	</select>
+	
+	<update id="updateResult">
+		UPDATE PETTIME.RESLIST SET STATE = #{param2} WHERE NUM = #{param1}
+	</update>
+	
+	<update id="updateReset">
+		UPDATE PETTIME.RESLIST SET STATE = #{param2} WHERE NUM = #{param1}
+	</update>
 </mapper>

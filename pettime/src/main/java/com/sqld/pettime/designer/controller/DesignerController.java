@@ -18,12 +18,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.sqld.pettime.designer.command.DCommand;
 import com.sqld.pettime.designer.command.DesMainCommand;
 import com.sqld.pettime.designer.command.DesMonthHoliCommand;
 import com.sqld.pettime.designer.command.DesResAddCommand;
 import com.sqld.pettime.designer.command.DesResDeleteCommand;
+import com.sqld.pettime.designer.command.DesResResetCommand;
+import com.sqld.pettime.designer.command.DesResResultCommand;
 import com.sqld.pettime.designer.command.DesSearchResCommand;
 import com.sqld.pettime.dto.DesignerDTO;
 
@@ -87,6 +88,20 @@ public class DesignerController {
 		model.addAttribute("id", id);
 		new DesSearchResCommand().execute(model);
 		return "designer/main/desSearch";
+	}
+	
+	@RequestMapping("/desResResultOk")
+	public String goResult(int num, Model model) {
+		model.addAttribute("num", num);
+		new DesResResultCommand().execute(model);
+		return "designer/main/desResResultOk";
+	}
+	
+	@RequestMapping("/desResResetOk")
+	public String goReset(int num, Model model) {
+		model.addAttribute("num", num);
+		new DesResResetCommand().execute(model);
+		return "designer/main/desResResultOk";
 	}
 	
 	@RequestMapping(value = "/schedule")

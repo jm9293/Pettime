@@ -12,4 +12,6 @@ public interface DesMainDAO {
 	public ResListDTO selectResNum(int num, String id);
 	public List<ResListDTO> selectRes(String id, String date);
 	public List<ResDetailDTO> searchDetail(int num);
+	public int updateResult(int num, String state);
+	public int updateReset(int num, String state);
 }

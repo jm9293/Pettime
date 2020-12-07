@@ -75,7 +75,7 @@
 		<div class="col-8 subject">${dto.petKind }</div>
 		</div>
 			<br>
-		<c:if test="${dto.address ne ' ' }">
+		<c:if test="${dto.address ne '방문' }">
 			<div class="col-12 row box">
 				<div class="col-4 menu menu2">출장 비용:</div>
 				<div class="col-8 subject">30,000 원</div>
