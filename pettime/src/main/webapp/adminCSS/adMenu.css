@@ -6,7 +6,7 @@
 	float:left;
 	height:600px;
 	box-sizing: border-boxed;
-	border: 1px solid black;
+	border: 1px solid #c0c0c0;
 	overflow:auto;
 	margin:auto;
 	text-align:center;
@@ -17,7 +17,7 @@ h1{
 	text-align: center;
 }
 #createbtn{
-	margin-left:45%;
+	margin-left:43%;
 	margin-top:15px;
 }
 .menubar{

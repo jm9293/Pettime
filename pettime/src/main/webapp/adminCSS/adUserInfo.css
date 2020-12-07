@@ -3,9 +3,8 @@
 .contentBox {
 	height: 500px;
 	float: left;
-	box-sizing: border-boxed;
-	border: 1px solid black;
 	margin-top:5%;
+	margin-left:25%;
 }
 h1{
 	text-align: center;
@@ -16,7 +15,7 @@ h1{
 }
 
 .btnbox{
-	margin-left:35%;
+	margin-left:32%;
 }
 
 .btnbox button{

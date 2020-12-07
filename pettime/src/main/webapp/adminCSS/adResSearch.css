@@ -5,17 +5,26 @@
 	overflow: auto;
 	background-color: #fcf2e4;
 	height:700px;
+	border: 1px solid #d0d0d0;
 }
-button{
-	margin-top:10px;
-	margin-left:50%;
+#back{
+	margin-top:15px;
+	margin-left:47%;
 }
 .box {
 	text-align: center;
 	height: 50px;
 	margin:auto;
 }
-
+.visit{
+	height: 50px;
+	line-height: 50px;
+	box-sizing: border-boxed;
+	border: 1px solid white;
+	border-radius: 5px;
+	margin: auto;
+	background-color: rgb(255, 178, 146);
+}
 .menu {
 	height: 50px;
 	line-height: 50px;

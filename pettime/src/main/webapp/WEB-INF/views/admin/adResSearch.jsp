@@ -50,11 +50,21 @@
 		<div class="col-8 subject">${date }</div>
 		</div>
 			<br>
-		<div class="col-12 row box">
-		<div class="col-4 menu">주소:</div>
-		<div class="col-8 subject">${dto.address }</div>
-		</div>
+		<c:choose>
+			<c:when test="${dto.address ne '방문' }">
+			<div class="col-12 row box">
+				<div class="col-4 menu">주소:</div>
+				<div class="col-8 subject">${dto.address }</div>
+			</div>
 			<br>
+			</c:when>
+			<c:otherwise>
+			<div class="col-12 row box">
+				<div class="col-12 visit">매장 방문</div>
+			</div>
+			<br>
+			</c:otherwise>
+		</c:choose>
 		<div class="col-12 row box">
 		<div class="col-4 menu">견명:</div>
 		<div class="col-8 subject">${dto.petName }</div>
@@ -65,6 +75,13 @@
 		<div class="col-8 subject">${dto.petKind }</div>
 		</div>
 			<br>
+		<c:if test="${dto.address ne ' ' }">
+			<div class="col-12 row box">
+				<div class="col-4 menu menu2">출장 비용:</div>
+				<div class="col-8 subject">30,000 원</div>
+			</div>
+			<br>
+		</c:if>
 		<c:forEach var="item" items="${dto2 }">
 		<div class="col-12 row box">
 		<div class="col-4 menu menu2">항목:</div>
@@ -86,8 +103,9 @@
 		<div class="col-4 menu">처리상태:</div>
 		<div class="col-8 subject">${dto.state }</div>
 		</div>
+		<br>
 	</div>
-		<button class="btn btn-primary" type="button" onclick="history.back()">돌아가기</button>
+		<button class="btn btn-primary" id="back" type="button" onclick="history.back()">돌아가기</button>
 </div>
 </body>
 </html>

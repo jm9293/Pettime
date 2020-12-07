@@ -156,7 +156,7 @@ function updateList(jsonObj) {
 		if (jsonObj.cnt != 0) {
 			$("#change").attr("disabled", false);
 			$("#delete").attr("disabled", false);
-			var result = "<div class='row col-12 menu'><div class='col-2'>번호</div><div class='col-2'>ID</div><div class='col-3'>예약 시간</div><div class='col-5'>주소</div></div>";
+			var result = "<div class='row col-12 menu'><div class='col-2'>번호</div><div class='col-4'>ID</div><div class='col-6'>예약 시간</div></div>";
 			var cnt = jsonObj.cnt;
 			var data = jsonObj.data;
 
@@ -164,10 +164,8 @@ function updateList(jsonObj) {
 				result += "<div class='row col-12 resbox2'>";
 				result += "<div class='col-2'><input type='checkbox' name='num' value='"+data[i].num+"'>"
 						+ (i+1) + "</div>";
-				result += "<div class='id col-2'>" + data[i].userid + "</div>";
-				result += "<div class='time col-3' onclick=\"location.href='adResSearch?num="+ data[i].num +"'\">"+moment(data[i].stime).format('YYYY-MM-DD HH')+"</div>";
-				result += "<div class='address col-5' id='addressword'>" + data[i].address
-						+ "</div>";
+				result += "<div class='id col-4' onclick=\"location.href='adResSearch?num="+ data[i].num +"'\">" + data[i].userid + "</div>";
+				result += "<div class='time col-6' onclick=\"location.href='adResSearch?num="+ data[i].num +"'\">"+moment(data[i].stime).format('YYYY-MM-DD HH')+"</div>";
 				result += "</div>";
 			}
 			$("#resList").html(result);
@@ -210,7 +208,7 @@ function deleteList(){
             success : function(data, status){
                 if(status == "success"){
                     if(data.status == "OK"){						
-                        alert("DELETE성공 " + data.cnt + "개:");
+                        alert(data.cnt + "개" + "삭제 성공 ");
                         loadPage(fullstr);  // 현제페이지 로딩
                     } else {
                         alert("DELETE실패 " );

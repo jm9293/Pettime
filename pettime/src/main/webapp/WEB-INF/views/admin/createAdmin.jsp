@@ -30,7 +30,7 @@
 	</div>
 
 	<div class="content col-12">
-		<div class="col-8 row box">
+		<div class="col-10 row box">
 		<div class="adLogin col-8">
 			<h1>관리자 계정 발급</h1>
 			<form action="createOk" method="POST">

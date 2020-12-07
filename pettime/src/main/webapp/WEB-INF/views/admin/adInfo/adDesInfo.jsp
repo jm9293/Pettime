@@ -31,7 +31,7 @@
 	<h1>직원 정보</h1>
 		<form name="frm" method="post" action="adDesStatus">
 			<input type="hidden" name="num" value="${list[0].num}">
-			<div class="col-12 col-md-6 contentBox">사진?</div>
+			<div class="col-12 col-md-6 contentBox"><img src="${pageContext.request.contextPath}/designerimg/${list[0].id }.jpg"/></div>
 			<div class="col-12 col-md-6 contentBox">
 				<div class="col-12 contentType bg-light">ID : ${list[0].id }</div>
 				<br>

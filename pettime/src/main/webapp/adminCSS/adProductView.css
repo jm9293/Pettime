@@ -2,7 +2,6 @@
 .box{
 	margin-left:25%;
 	margin-top:2%;
-	border:1px solid black;
 	height: 500px;
 	padding:0;
 }
@@ -27,5 +26,5 @@ h1{
 .btnlist button{
 	margin:5px;
 	margin-top:20px;
-	margin-left:17%;
+	margin-left:15%;
 }

@@ -31,7 +31,6 @@
 		<h1>고객 정보</h1>
 		<form name="frm" method="post" action="adUserStatus">
 			<input type="hidden" name="num" value="${list[0].userNum}">
-			<div class="col-6 contentBox">사진?</div>
 			<div class="col-6 contentBox">
 				<div class="col-12 contentType bg-light">ID : ${list[0].id }</div>
 				<br>
