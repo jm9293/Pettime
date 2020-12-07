@@ -105,7 +105,17 @@
 		</div>
 		<br>
 	</div>
-		<button class="btn btn-primary" id="back" type="button" onclick="history.back()">돌아가기</button>
+	<div class="col-8 row btnbox">
+		<c:choose>
+			<c:when test="${dto.state eq '결제완료'}">
+				<button class="btn btn-primary" id="resultOk" type="button" onclick="location.href='adResResultOk?num=${dto.num}'">처리완료</button>
+			</c:when>
+			<c:otherwise>
+				<button class="btn btn-primary" id="resetOk" type="button" onclick="location.href='adResResetOk?num=${dto.num}'">처리취소</button>
+			</c:otherwise>
+		</c:choose>
+		<button class="btn btn-dark" id="back" type="button" onclick="location.href='adRes'">돌아가기</button>
+	</div>	
 </div>
 </body>
 </html>

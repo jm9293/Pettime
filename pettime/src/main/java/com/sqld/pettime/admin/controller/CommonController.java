@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.sqld.pettime.admin.command.AdminMenulistCommand;
 import com.sqld.pettime.admin.command.AdminNoticeSelectCommend;
 import com.sqld.pettime.admin.command.AdminQnaSelectCommand;
+import com.sqld.pettime.admin.command.AdminResResetCommand;
+import com.sqld.pettime.admin.command.AdminResResultCommand;
 import com.sqld.pettime.admin.command.AdminResSearchCommand;
 import com.sqld.pettime.admin.command.AdminShowListCommand;
 import com.sqld.pettime.dto.AdminDTO;
@@ -62,6 +64,18 @@ public class CommonController {
 	public void goSearch(int num, Model model) {
 		model.addAttribute("num", num);
 		new AdminResSearchCommand().execute(model);
+	}
+	
+	@RequestMapping("/adResResultOk")
+	public void goResult(int num, Model model) {
+		model.addAttribute("num", num);
+		new AdminResResultCommand().execute(model);
+	}
+	
+	@RequestMapping("/adResResetOk")
+	public void goReset(int num, Model model) {
+		model.addAttribute("num", num);
+		new AdminResResetCommand().execute(model);
 	}
 	
 	@RequestMapping("/adNotice/adNoticelist")

@@ -17,4 +17,6 @@ public interface AdResAjaxDAO {
 	public int updateListC(String degId, String stime);
 	public int deleteList(int [] num);
 	public List<ResDetailDTO> searchDetail(int num);
+	public int updateResult(int num, String state);
+	public int updateReset(int num, String state);
 }
