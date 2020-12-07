@@ -15,6 +15,7 @@ public class ProfileUpdateCommand implements DCommand {
 		DesignerDTO dto = (DesignerDTO)model.getAttribute("dto");
 		dto.setId(id);
 		
+		dto.setPassword(DBSession.passwordEncoder.encode(dto.getPassword()));
 		int result =  dao.updateMyInfo(dto);
 		model.addAttribute("result", result);
 		System.out.println(dto);
