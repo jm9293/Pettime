@@ -1,4 +1,6 @@
+
 @charset "UTF-8";
+
 
 .cbox {
 	left: 17%;
@@ -7,13 +9,19 @@
 	height:700px;
 	border: 1px solid #d0d0d0;
 }
-.btnbox{
+.btngr{
 	margin-top:30px;
-	margin-left:40%;
+}
+
+.btnbox{
+	margin:auto;
+	width: 60%;
 }
 .btnbox button{
-	margin:5px;
+	margin:auto;
+	width: 40%;
 }
+
 .box {
 	text-align: center;
 	height: 50px;
@@ -49,5 +57,119 @@
 	border: 1px solid white;
 	border-radius: 0px 5px 5px 0px;
 	margin: auto;
-	background-color: #fff;
+	background-color: #fff4ea;
 }
+
+.subject2{
+	background-color: #e6f2fd;
+}
+
+<!-- -->
+.container{
+	margin-top: 30px;
+}
+
+.ct{
+	text-align: center;
+}
+
+.logo{
+	color: #222;
+}
+
+.nav-item{
+	width: 100%;
+}
+
+.nav-link{
+	height: 100%;
+	font-size: 0.8rem;
+	text-align: center;
+}
+
+.nav-link:hover{
+	background-color: #999;
+}
+
+
+table{
+	width: 60%;
+	margin: auto;
+}
+
+
+
+
+@media (max-width: 1200px) {
+	
+	#wrapper{
+		width: 768px;
+	}
+	
+	.logo{
+		font-size: medium;
+	}
+	
+	
+	.nav-link{
+		font-size: 0.8rem;
+	}
+	
+	ul{
+		width: 80%;
+		margin-left: 100px;
+	}
+	
+}
+
+
+@media (max-width: 991px){
+	
+	
+	.nav-link{
+		width:100%;
+		height: 40px;
+		text-align: center;
+	}
+	
+	
+	.btnbox button{
+		margin-top:10px;
+		width: 90%;
+	}
+	
+	
+	.intxt{
+		font-size: 0.8rem;
+	}
+
+}
+
+
+
+
+@media (max-width: 768px){
+	
+
+	nav{
+		width: 100%;
+	}
+	
+	.logo{
+		font-size: x-large;
+		margin-top: 0;
+	}
+	
+	.nav-item{
+		margin: 20px 0 0 0;
+		width: 100%;
+	}
+
+
+}
+
+
+
+
+
+

@@ -50,7 +50,7 @@
 				</tr>
 				<tr>
 					<td>이메일  </td>
-					<td><input type="text" name="email" value="${dto.email }" readonly/></td>
+					<td><input type="text" id="udtEmail" name="email" value="${dto.email }" readonly/></td>
 					<td>
 						<a class="btn btn-outline-info" onclick="updateEmail()">수정</a>					
 					</td>

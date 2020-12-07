@@ -61,25 +61,34 @@
 		</header>
 
 		<article>
+			<div class="container">
+			<h4 class="ct">${datestr }일 예약내역</h4><br>
 			<c:choose>
 				<c:when test="${!empty list}">
-					<div class="col-12 row resbox">
-						<div class="col-4">고객 ID</div>
-						<div class="col-4">예약 날짜</div>
-						<div class="col-4">펫 이름</div>
-					</div>
+					<table>
+						<thead>
+							<tr>
+							<th class="tth">고객 ID</th>
+							<th class="tth">예약 날짜</th>
+							<th class="tth">펫 이름</th>
+							</tr>
+						<thead>
+						<tbody>
 					<c:forEach var="item" items="${list }">
-						<div class="col-12 row resbox reslist" onclick="location.href='desSearch?num=${item.num}'">		
-							<div class="col-4">${item.userId }</div>
-							<div class="col-4">${item.stime }</div>
-							<div class="col-4">${item.petName }</div>
-						</div>
+						<tr class="reslist" onclick="location.href='desSearch?num=${item.num}'">		
+							<td class="ttd">${item.userId }</td>
+							<td class="ttd">${item.stime }</td>
+							<td class="ttd">${item.petName }</td>
+						</tr>
 					</c:forEach>
+						</tbody>
+					</table>
 				</c:when>
 				<c:otherwise>
-					<div class="col-12 row">예약이 없습니다.</div>
+					<div class="ct">예약이 없습니다.</div>
 				</c:otherwise>
 			</c:choose>
+			</div>
 		</article>
 
 		<section>

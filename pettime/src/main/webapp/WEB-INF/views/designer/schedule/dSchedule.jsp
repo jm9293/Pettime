@@ -9,7 +9,7 @@
 	crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/DesignCSS/dMain.css"/>
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/DesignCSS/dSchedule.css"/>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/DesignCSS/calender.css"/>
 <meta charset="UTF-8">
 <title>디자이너 스케줄 페이지</title>
@@ -58,22 +58,27 @@
 		</header>
 	    
 		<article>
-			<h1>${id } 님의 휴무 일정</h1>
+		<div class="container">
+			<h3 class="ct">${id } 님의 휴무 일정</h3><br>
 		  	<c:choose>
 				<c:when test="${!empty list}">
+				<table>
+					<tr>
+						<th class="tth">휴무 날짜</td>
+					</tr>
 					<c:forEach var="item" items="${list }">
-						<div class="col-12 row resbox reslist">		
-							<div class="col-4">휴무 날짜:</div>
-							<div class="col-8">${item.holiday}</div>
-						</div>
+					<tr>
+						<td class="tth">${item.holiday}</td>
+					</tr>
 					</c:forEach>
+				</table>
 				</c:when>
 				<c:otherwise>
-					<div class="col-12 row">휴무일이 없습니다.</div>
+					<div class="ct">휴무일이 없습니다.</div>
 				</c:otherwise>
 			</c:choose>
 		 	
-		    	
+		</div> 	
 		</article>
 		    
 		    
@@ -82,25 +87,36 @@
 	   			<c:when test="${!chk }">
 	   				<c:choose>
 	   					<c:when test="${cnt != 0 }">
-	   						<div class="col-12"><p>휴무날 입니다.</p></div>
+	   						<div class="container">
+	   							<p class="ct bdr-rd"><b>${datestr }일은 휴무날 입니다.</b><br><br>
+	   									편안하고 행복한 휴일 되세요 ^^</p>
+	   						</div>
 	   					</c:when>
 	   					<c:otherwise>
-	   						<div class="col-12"><p>휴무날이 아닙니다.</p></div>
+	   						<div class="container">
+	   						<p class="ct bdr-bl"><b>${datestr }일</b><br> 
+	   									휴무날이 아닙니다.<br><br>
+	   									"오늘 하루 화이팅!"</p>
+	   						</div>
 	   					</c:otherwise>
 	   				</c:choose>
 	   			</c:when>
 	   			<c:otherwise>
 	   				<c:choose>
 	   					<c:when test="${cnt != 0 }">
-	   						<div class="col-12 row">
-	   							<div class="col-7"><p>휴무 진행예정일 입니다.</p></div>
-	   							<button type="button" class="col-5" onclick="location.href='dScheduleCancle?datestr=${datestr}'">휴무 취소</button>
+	   						<div class="container">
+	   							<div class="ct"><p>${datestr }일은 휴무 진행예정일 입니다.</p></div>
+	   							<div class="ct">
+	   								<button class="btn btn-outline-danger innerbtn" onclick="location.href='dScheduleCancle?datestr=${datestr}'">휴무 취소</button>
+	   							</div>
 	   						</div>
 	   					</c:when>
 	   					<c:otherwise>
-	   						<div class="col-12 row">
-	   							<div class="col-7"><p>휴무날이 아닙니다.</p></div>
-	   							<button type="button" class="col-5" onclick="location.href='dScheduleAdd?datestr=${datestr}'">휴무 신청</button>
+	   						<div class="container">
+	   							<div class="ct"><p>${datestr }일은 휴무날이 아닙니다.</p></div>
+	   							<div class="ct">
+	   								<button class="btn btn-outline-success innerbtn" onclick="location.href='dScheduleAdd?datestr=${datestr}'">휴무 신청</button>
+	   							</div>
 	   						</div>
 	   					</c:otherwise>
 	   				</c:choose>

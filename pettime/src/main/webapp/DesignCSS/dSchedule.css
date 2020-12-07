@@ -33,31 +33,51 @@ ul{
 
 header {
     width: 50%;
-    height: 800px;
+    height: 650px;
     float: left;
-    border: 1px solid black;
 }
 
 article {
     width: 50%;
-    height: 400px;
-    float: left;
-    border: 1px solid black;
+    height: 300px;
+    float: left;  
 }
-
+.resbox{
+	padding:0;
+}
 section {
     width: 50%;
     height: 400px;
     float: left;
-    border: 1px solid black;
 }
 
+table{
+	width: 60%;
+	margin: auto;
+}
 
+.tth, .ttd{
+	border: 0.5px dotted black;
+	text-align: center;
+}
 
+.innerbtn{
+	width: 60%;
+}
 
+.bdr-rd{
+	border: 0.5px dotted red;
+	color: red;
+	width: 60%;
+	margin: auto;
+}
 
-
-
+.bdr-bl{
+	border: 0.5px dotted blue;
+	color: blue;
+	width: 60%;
+	margin: auto;
+}
 
 @media (max-width: 1200px) {
 	
@@ -100,6 +120,9 @@ section {
 		margin-left: 0px;
 	}
 	
+	.weathertxt{
+		font-size: 0.9rem;
+	}
 }
 
 
@@ -132,12 +155,10 @@ section {
 	
 	article{
 		width: 100%;
-		height: 400px;
 	}
 	
 	section{
 		width: 100%;
-		height: 400px;
 	}
 	
 	ul{

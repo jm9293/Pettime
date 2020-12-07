@@ -17,8 +17,9 @@
 }
 
 .nav-link{
-	height: 30px;
+	height: 100%;
 	font-size: 0.8rem;
+	text-align: center;
 }
 
 .nav-link:hover{
@@ -32,18 +33,14 @@ ul{
 
 header {
     width: 50%;
-    height: 800px;
+    height: 650px;
     float: left;
-    border: 1px solid black;
 }
 
 article {
     width: 50%;
-    height: 400px;
+    height: 250px;
     float: left;
-    border: 1px solid black;   
-    text-align: center;
-    
 }
 .resbox{
 	padding:0;
@@ -52,7 +49,16 @@ section {
     width: 50%;
     height: 400px;
     float: left;
-    border: 1px solid black;
+}
+
+table{
+	width: 80%;
+	margin: auto;
+}
+
+.tth, .ttd{
+	border: 0.5px solid black;
+	text-align: center;
 }
 
 
@@ -64,6 +70,7 @@ section {
 }
 .reslist:hover{
 	background-color: #e2e2e2;
+	cursor: pointer;
 }
 #weather div {
 	float: left;
@@ -85,6 +92,10 @@ section {
 	background-color: #f2daa2;
 	border-radius: 10px 0px 0px 10px;
 }
+
+
+
+
 
 
 @media (max-width: 1200px) {
@@ -128,6 +139,9 @@ section {
 		margin-left: 0px;
 	}
 	
+	.weathertxt{
+		font-size: 0.9rem;
+	}
 }
 
 
@@ -160,12 +174,10 @@ section {
 	
 	article{
 		width: 100%;
-		height: 400px;
 	}
 	
 	section{
 		width: 100%;
-		height: 400px;
 	}
 	
 	ul{
