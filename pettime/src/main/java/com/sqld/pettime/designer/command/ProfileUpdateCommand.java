@@ -17,23 +17,24 @@ public class ProfileUpdateCommand implements DCommand {
 		DesignerDTO origin = dao.selectMyInfo(id);
 		System.out.println(origin.getEmail());
 		
-		if(dto.getPassword()==null) {
+		if(dto.getPassword().equals("")) {
 			dto.setPassword(origin.getPassword());
 		}else {
 			dto.setPassword(DBSession.passwordEncoder.encode(dto.getPassword()));			
 		}
 		
-		if(dto.getEmail()==null) {
+		if(dto.getEmail().equals("")) {
 			dto.setEmail(origin.getEmail());
 		}
-		if(dto.getPhone()==null) {
+		if(dto.getPhone().equals("010")|| dto.getPhone().equals("")) {
 			dto.setPhone(origin.getPhone());
 		}
-		if(dto.getIntro()==null) {
+		if(dto.getIntro().equals("")) {
 			dto.setIntro(origin.getIntro());
 		}
 		
-		
+		System.out.println(origin.getEmail());
+		System.out.println(dto.toString());
 		int result =  dao.updateMyInfo(dto);
 		model.addAttribute("result", result);
 		System.out.println(dto);
