@@ -24,6 +24,7 @@
 
 .nav-link:hover{
 	background-color: #999;
+	
 }
 	
 ul{
@@ -53,10 +54,35 @@ section {
 }
 
 
+.frame{
+	margin-top: 40px;
+}
+
+table{
+	width: 50%;
+	margin: auto;
+}
+
+td{
+	padding-top: 20px;
+}
+
+input {
+	width: 100%;
+}
+
+textarea {
+	width: 100%;
+	height: 200px;
+}
+.updatetxt{
+	width: 200px;
+}
 
 
-
-
+.innerbtn{
+	width: 35%;
+}
 
 
 @media (max-width: 1200px) {
@@ -95,11 +121,19 @@ section {
 		width: 100%;
 	}
 	
+	table{
+		width: 80%;
+		margin: auto;
+	}
+	
 	ul{
 		width: 100%;
 		margin-left: 0px;
 	}
 	
+	.innerbtn{
+		width: 40%;
+	}
 }
 
 

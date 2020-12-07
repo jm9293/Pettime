@@ -17,8 +17,9 @@
 }
 
 .nav-link{
-	height: 30px;
+	height: 100%;
 	font-size: 0.8rem;
+	text-align: center;
 }
 
 .nav-link:hover{

@@ -26,6 +26,8 @@ import com.sqld.pettime.designer.command.DesResDeleteCommand;
 import com.sqld.pettime.designer.command.DesResResetCommand;
 import com.sqld.pettime.designer.command.DesResResultCommand;
 import com.sqld.pettime.designer.command.DesSearchResCommand;
+import com.sqld.pettime.designer.command.DesignerCommand;
+import com.sqld.pettime.designer.command.ProfileUpdateCommand;
 import com.sqld.pettime.dto.DesignerDTO;
 
 
@@ -146,6 +148,37 @@ public class DesignerController {
 		return "designer/schedule/dScheduleAdd";
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@RequestMapping("/myprofile")
+	public String dProfile(Model model, Authentication authentication) {
+		
+		
+		String id = ((UserDetails)authentication.getPrincipal()).getUsername();
+		model.addAttribute("id",id);
+		new DesignerCommand().execute(model);
+		
+		return "designer/profile/dProfile";
+	}
+	
+	@RequestMapping(value="/updateProfile", method= RequestMethod.POST)
+	public String updateProfile(DesignerDTO dto, Model model, Authentication authentication) {
+		String id = ((UserDetails)authentication.getPrincipal()).getUsername();
+		model.addAttribute("id", id);
+		model.addAttribute("dto", dto);
+		new ProfileUpdateCommand().execute(model);
+		
+		
+		return "designer/profile/updateProfile";
+	}
+
 	
 	
 }

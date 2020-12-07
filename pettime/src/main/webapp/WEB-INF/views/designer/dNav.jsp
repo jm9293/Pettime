@@ -18,10 +18,7 @@
         <a class="nav-link" href="${pageContext.request.contextPath }/designer/schedule">스케줄</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">공지사항</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">My</a>
+        <a class="nav-link" href="${pageContext.request.contextPath }/designer/myprofile">My</a>
       </li>
       <li>
 	    <form method="post" class="form-inline my-2 my-lg-0" action="/pettime/designer/logout">

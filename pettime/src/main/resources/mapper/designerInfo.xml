@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sqld.pettime.dao.DesignerDAO">
+	
+	<!-- 개인 프로필 조회 -->
+	<select id="selectMyInfo" resultType="com.sqld.pettime.dto.DesignerDTO">
+		SELECT * 
+		FROM DESIGNER
+		WHERE id=#{param1}
+	</select>
+	
+	<update id="updateMyInfo" parameterType="com.sqld.pettime.dto.DesignerDTO">
+		UPDATE DESIGNER 
+		SET 
+			password = #{a.password}, 
+			email = #{a.email}, 
+			phone = #{a.phone}, 
+			intro = #{a.intro}
+		WHERE id = #{a.id}
+		
+	</update>
+	
+</mapper>
