@@ -9,6 +9,17 @@ String status;
 	
 	List data;
 	
+	List data2;
+	
+	public List getData2() {
+		return data2;
+	}
+
+
+	public void setData2(List data2) {
+		this.data2 = data2;
+	}
+
 	int maxpage;
 		
 	public UserDataJSON() {

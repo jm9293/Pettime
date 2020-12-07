@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sqld.pettime.dao.ResListDAO">
+
+
+
+	<select id="callDesignersA" resultType="com.sqld.pettime.dto.DesignerDTO">
+		SELECT * FROM Designer WHERE id not in (SELECT id FROM monthschedule WHERE holiday = #{param1})
+		and id not in (SELECT DEGID FROM dayschedule WHERE time1 is not null and day = #{param1}) and ENABLED = '1'
+	</select>
+	
+	<select id="callDesignersB" resultType="com.sqld.pettime.dto.DesignerDTO">
+		SELECT * FROM Designer WHERE id not in (SELECT id FROM monthschedule WHERE holiday = #{param1})
+		and id not in (SELECT DEGID FROM dayschedule WHERE time2 is not null and day = #{param1}) and ENABLED = '1'
+	</select>
+
+	<select id="callDesignersC" resultType="com.sqld.pettime.dto.DesignerDTO">
+		SELECT * FROM Designer WHERE id not in (SELECT id FROM monthschedule WHERE holiday = #{param1})
+		and id not in (SELECT DEGID FROM dayschedule WHERE time3 is not null and day = #{param1}) and ENABLED = '1'
+	</select>
+	
+	<select id="callDesignersAbyID" resultType="com.sqld.pettime.dto.DesignerDTO">
+		SELECT * FROM Designer WHERE id not in (SELECT id FROM monthschedule WHERE holiday = #{param1})
+		and id not in (SELECT DEGID FROM dayschedule WHERE time1 is not null and day = #{param1}) and ENABLED = '1' and id = #{param2}
+	</select>
+	
+	<select id="callDesignersBbyID" resultType="com.sqld.pettime.dto.DesignerDTO">
+		SELECT * FROM Designer WHERE id not in (SELECT id FROM monthschedule WHERE holiday = #{param1})
+		and id not in (SELECT DEGID FROM dayschedule WHERE time2 is not null and day = #{param1}) and ENABLED = '1' and id = #{param2}
+	</select>
+
+	<select id="callDesignersCbyID" resultType="com.sqld.pettime.dto.DesignerDTO">
+		SELECT * FROM Designer WHERE id not in (SELECT id FROM monthschedule WHERE holiday = #{param1})
+		and id not in (SELECT DEGID FROM dayschedule WHERE time3 is not null and day = #{param1}) and ENABLED = '1' and id = #{param2}
+	</select>
+	
+	<insert id="insertDayschdule">
+		MERGE INTO DaySchedule USING DUAL ON (DEGID = #{param2} and day = #{param1}) 
+		WHEN MATCHED 
+        THEN UPDATE SET NUM = NUM
+		WHEN NOT MATCHED 
+        THEN INSERT (DEGID, Day) VALUES (#{param2}, #{param1})
+	</insert>
+	
+	<insert id="insert" parameterType="com.sqld.pettime.dto.ResListDTO"
+	     keyProperty="num" useGeneratedKeys="true" keyColumn="NUM" flushCache="true">
+		INSERT INTO RESLIST(num,STIME, ADDRESS, USERID, DEGID, PETNAME, PETKIND,  PETMEMO,  TPRICE, STATE) 
+		VALUES(RESLIST_SEQ.nextval, #{stime},#{address},#{userId}, #{degId},#{petName}, #{petKind},#{petMemo},#{tPrice} , #{state})
+	
+	</insert>
+	
+	<select id="maxcnt" resultType="int">
+	SELECT RESLIST_SEQ.nextval FROM DUAL;
+	</select>
+	
+	<update id="updateSchduleA">
+		UPDATE DAYSCHEDULE
+		SET TIME2 = #{param3}
+		WHERE DEGID = #{param2} AND DAY = #{param1}
+	</update>
+	
+	<update id="updateSchduleB">
+		UPDATE DAYSCHEDULE
+		SET TIME2 = #{param3}
+		WHERE DEGID = #{param2} AND DAY = #{param1}
+	</update>
+	
+	<update id="updateSchduleC">
+		UPDATE DAYSCHEDULE
+		SET TIME2 = #{param3}
+		WHERE DEGID = #{param2} AND DAY = #{param1}
+	</update>
+	
+	
+	
+
+</mapper>

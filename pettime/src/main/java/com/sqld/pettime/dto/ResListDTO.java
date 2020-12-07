@@ -17,4 +17,6 @@ public class ResListDTO {
 	private String petMemo;
 	private int tPrice;
 	private String state;
+	
+	
 }

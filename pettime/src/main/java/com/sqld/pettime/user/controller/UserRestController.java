@@ -1,6 +1,8 @@
 package com.sqld.pettime.user.controller;
 
 
+import java.sql.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -14,10 +16,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.sqld.pettime.dto.DesignerDTO;
 import com.sqld.pettime.dto.QnaDTO;
+import com.sqld.pettime.dto.ResListDTO;
 import com.sqld.pettime.dto.UserDTO;
 import com.sqld.pettime.user.beans.UserDataJSON;
 import com.sqld.pettime.user.beans.UserLoginJSON;
+import com.sqld.pettime.user.command.UserCallDesignersCommend;
 import com.sqld.pettime.user.command.UserEmailchkCommend;
 import com.sqld.pettime.user.command.UserIdchkCommend;
 import com.sqld.pettime.user.command.UserInfoCommend;
@@ -29,6 +38,7 @@ import com.sqld.pettime.user.command.UserQnASelectCommend;
 import com.sqld.pettime.user.command.UserQnAUpdateCommend;
 import com.sqld.pettime.user.command.UserQnAViewCommend;
 import com.sqld.pettime.user.command.UserQnAWriteCommend;
+import com.sqld.pettime.user.command.UserSetResListCommend;
 import com.sqld.pettime.user.command.UserSignUpCommend;
 import com.sqld.pettime.user.command.UserUpdateCommend;
 
@@ -235,5 +245,46 @@ public class UserRestController {
 
 		return ajax;
 	}
+	
+	@RequestMapping(value = "/calldesigners" , method = RequestMethod.POST)
+	UserDataJSON calldesigner(Model model, String date , String time) {
+		
+		model.addAttribute("date",date);
+		model.addAttribute("time",time);
+		
+		
+		
+		new UserCallDesignersCommend().excute(model);
+		
+		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
+
+		return ajax;
+	}
+	
+	@RequestMapping(value = "/setResList" , method = RequestMethod.POST)
+	UserDataJSON setResList(Model model,ResListDTO res, long stimeLong, String time , Authentication authentication) {
+		
+		res.setUserId(((UserDetails)authentication.getPrincipal()).getUsername());
+		res.setStime(new Date(stimeLong));
+		res.setState("결제완료");
+		
+		model.addAttribute("dto", res);
+		model.addAttribute("time", time);
+		System.out.println(time);
+		
+		new UserSetResListCommend().excute(model);
+		
+		
+		
+		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
+
+		return ajax;
+	}
+	
+	
+	
+	
+	
+	
 
 }
