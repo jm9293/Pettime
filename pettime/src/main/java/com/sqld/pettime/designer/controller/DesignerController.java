@@ -28,9 +28,10 @@ import com.sqld.pettime.designer.command.DesResAddCommand;
 import com.sqld.pettime.designer.command.DesResDeleteCommand;
 import com.sqld.pettime.designer.command.DesResResetCommand;
 import com.sqld.pettime.designer.command.DesResResultCommand;
+import com.sqld.pettime.designer.command.DesSearchCommand;
 import com.sqld.pettime.designer.command.DesSearchResCommand;
+import com.sqld.pettime.designer.command.DesUpdateCommand;
 import com.sqld.pettime.designer.command.DesignerCommand;
-import com.sqld.pettime.designer.command.ProfileUpdateCommand;
 import com.sqld.pettime.dto.DesignerDTO;
 
 
@@ -152,38 +153,21 @@ public class DesignerController {
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	@RequestMapping("/myprofile")
-	public String dProfile(Model model, Authentication authentication) {
-		
-		String id = ((UserDetails)authentication.getPrincipal()).getUsername();
-		model.addAttribute("id",id);
-		new DesignerCommand().execute(model);
-		
-		return "designer/profile/dProfile";
-	}
-	
-	@RequestMapping(value="/updateProfile", method= RequestMethod.POST)
-	public String updateProfile(DesignerDTO dto, Model model, MultipartFile photo,
-		HttpServletRequest request , Authentication authentication) {
+	@RequestMapping("/desProfile")
+	public void goInfo(Authentication authentication, Model model) {
 		String id = ((UserDetails)authentication.getPrincipal()).getUsername();
 		model.addAttribute("id", id);
-		model.addAttribute("dto", dto);
+		new DesSearchCommand().execute(model);
+	}
+	
+	@RequestMapping(value = "/desUpdateOk", method = RequestMethod.POST)
+	public String goUpdate(DesignerDTO dto, Authentication authentication, MultipartFile photo,HttpServletRequest request, Model model) {
+		String id = ((UserDetails)authentication.getPrincipal()).getUsername();
+		model.addAttribute("id", id);
 		model.addAttribute("photo", photo);
 		model.addAttribute("request", request);
-		new ProfileUpdateCommand().execute(model);
-		
-		
-		return "designer/profile/updateProfile";
+		model.addAttribute("dto", dto);
+		new DesUpdateCommand().execute(model);
+		return "designer/desUpdateOk";
 	}
-
-	
-	
 }

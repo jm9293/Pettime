@@ -115,4 +115,9 @@
 		UPDATE PETTIME.DESIGNER SET PASSWORD = #{a.password}
 		WHERE ID = #{a.id}
 	</update>
+	
+	<update id="updatePassword2" flushCache="true" parameterType="com.sqld.pettime.dto.UserDTO">
+		UPDATE PETTIME.USERDATA SET PASSWORD = #{a.password}
+		WHERE ID = #{a.id}
+	</update>
 </mapper>

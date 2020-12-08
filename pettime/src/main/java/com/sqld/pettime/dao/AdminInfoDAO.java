@@ -26,4 +26,5 @@ public interface AdminInfoDAO {
 	public int insertAdmin(@Param("a") AdminDTO dto);
 	public List<AdminDTO> selectAdmin();
 	public int updatePassword(@Param("a") DesignerDTO dto);
+	public int updatePassword2(@Param("a") UserDTO dto);
 }

@@ -8,5 +8,5 @@ public interface DesignerDAO {
 	
 	public DesignerDTO selectMyInfo(String id);
 	public int updateMyInfo(@Param("a") DesignerDTO dto);
-	
+	public int emailChk(String email);
 }

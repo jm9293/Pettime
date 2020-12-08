@@ -9,16 +9,18 @@
 	crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/DesignCSS/dSchedule.css"/>
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/DesignCSS/dMain.css"/>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/DesignCSS/calender.css"/>
 <meta charset="UTF-8">
 <title>디자이너 스케줄 페이지</title>
 </head>
-<body>
-	<div class="container">
-			
-		<%@ include file="../dNav.jsp" %><br>
-	   
+<body class="col-lg-10" style="margin: auto;">
+
+	<div id="navbar-wrap">
+		<%@ include file="../DesNav.jsp"%>
+	</div>
+
+	<div class="container">	   
 		<header>
 			<p class="ct">안녕하세요 ${id } 디자이너님!</p>
 			<p class="ct">${datestr2 } 월의 휴무내역 입니다</p>
@@ -59,6 +61,7 @@
 	    
 		<article>
 		<div class="container">
+		<div class="box2">
 			<h3 class="ct">${id } 님의 휴무 일정</h3><br>
 		  	<c:choose>
 				<c:when test="${!empty list}">
@@ -77,12 +80,13 @@
 					<div class="ct">휴무일이 없습니다.</div>
 				</c:otherwise>
 			</c:choose>
-		 	
+		 	</div>
 		</div> 	
 		</article>
 		    
 		    
 	   	<section>
+	   	<div class="box2">
 	   		<c:choose>
 	   			<c:when test="${!chk }">
 	   				<c:choose>
@@ -122,17 +126,10 @@
 	   				</c:choose>
 	   			</c:otherwise>
 	   		</c:choose>
-		    	
-	   	</section>
-	 
+	   		</div>
+	   	</section>	 
     </div>
-    
-    
-    
-    
 </body>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
-	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="${pageContext.request.contextPath }/DesignJS/calender2.js"></script>	
 
 </html>

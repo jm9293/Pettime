@@ -21,101 +21,17 @@
 	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/DesignCSS/dMain.css">
+	href="${pageContext.request.contextPath}/DesignCSS/desBasic.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/DesignCSS/desResSearch.css">
-<title>Pettime Manager</title>
+<title>Pettime Designer</title>
 </head>
-<body>
-	<div class="container">
-	<%@ include file="../dNav.jsp" %><br>
+<body class="col-lg-10" style="margin: auto;">
+
+	<div id="navbar-wrap">
+		<%@ include file="../DesNav.jsp"%>
+	</div>
 	
-		<table>
-			<div class="ct"><h3>예약 정보</h3></div><br>
-			<div class="col-12 row box" id="imgbox2">
-				<img id="imgbox"
-					src="${pageContext.request.contextPath }/petimg/${dto.num }.jpg" />
-			</div>
-			<br>
-			<tr class="col-12 row box intxt">
-				<td class="col-4 menu intxt">고객ID:</td>
-				<td class="col-8 subject intxt">${dto.userId }</td>
-			</tr>
-			<tr class="col-12 row box intxt">
-			<td class="col-4 menu intxt">담당 미용사:</td>
-			<td class="col-8 subject intxt">${dto.degId }</td>
-			</tr>
-			<tr class="col-12 row box intxt">
-			<td class="col-4 menu intxt">예약 일자:</td>
-			<td class="col-8 subject intxt">${date }</td>
-			</tr>
-			<c:choose>
-				<c:when test="${dto.address ne '방문' }">
-				<tr class="col-12 row box intxt">
-					<td class="col-4 menu intxt">주소:</td>
-					<td class="col-8 subject intxt">${dto.address }</td>
-				</tr>
-				<br>
-				</c:when>
-				<c:otherwise>
-				<tr class="col-12 row box intxt">
-					<td class="col-12 visit intxt">매장 방문</td>
-				</tr>
-				<br>
-				</c:otherwise>
-			</c:choose>
-			<tr class="col-12 row box intxt">
-			<td class="col-4 menu intxt">주소:</td>
-			<td class="col-8 subject intxt">${dto.address }</td>
-			</tr>
-			<tr class="col-12 row box intxt">
-			<td class="col-4 menu intxt">견명:</td>
-			<td class="col-8 subject intxt">${dto.petName }</td>
-			</tr>
-			<tr class="col-12 row box intxt">
-			<td class="col-4 menu intxt">견종:</td>
-			<td class="col-8 subject intxt">${dto.petKind }</td>
-			</tr>
-			<c:if test="${dto.address ne '방문' }">
-				<tr class="col-12 row box intxt">
-					<td class="col-4 menu menu2 intxt">출장 비용:</td>
-					<td class="col-8 subject subject2 intxt">30,000 원</td>
-				</tr>
-			</c:if>
-			<c:forEach var="item" items="${list }">
-			<tr class="col-12 row box intxt">
-			<td class="col-4 menu menu2 intxt">항목:</td>
-			<td class="col-8 subject subject2 intxt">${item.content }</td>
-			</tr>
-			<tr class="col-12 row box intxt">
-			<td class="col-4 menu menu2 intxt">금액:</td>
-			<td class="col-8 subject intxt">${item.price }</td>
-			</tr>
-			</c:forEach>
-			<tr class="col-12 row box intxt">
-			<td class="col-4 menu intxt">예약 메모:</td>
-			<td class="col-8 subject intxt">${dto.petMemo }</td>
-			</tr>
-			<tr class="col-12 row box intxt">
-			<td class="col-4 menu intxt">처리상태:</td>
-			<td class="col-8 subject intxt">${dto.state }</td>
-			</tr>
-		</table>
-		<div class="btngr">
-		<div class="row btnbox">
-			<c:choose>
-				<c:when test="${dto.state eq '결제완료'}">
-					<button class="btn btn-primary" id="resultOk" type="button" onclick="location.href='desResResultOk?num=${dto.num}'">처리완료</button>
-				</c:when>
-				<c:otherwise>
-					<button class="btn btn-primary" id="resetOk" type="button" onclick="location.href='desResResetOk?num=${dto.num}'">처리취소</button>
-				</c:otherwise>
-			</c:choose>
-			<button class="btn btn-dark" id="back" type="button" onclick="location.href='main'">돌아가기</button>
-		</div>	<br><br><br>
-		</div>
-	
-<!--  
 	<div class="content col-12">
 		<div class="col-8 cbox">
 			<div class="col-12 box"><h1>예약 정보</h1></div>
@@ -204,10 +120,10 @@
 					<button class="btn btn-primary" id="resetOk" type="button" onclick="location.href='desResResetOk?num=${dto.num}'">처리취소</button>
 				</c:otherwise>
 			</c:choose>
-			<button class="btn btn-dark" id="back" type="button" onclick="location.href='adRes'">돌아가기</button>
+			<button class="btn btn-dark" id="back" type="button" onclick="location.href='${pageContext.request.contextPath}/designer/main'">돌아가기</button>
 		</div>	
 	</div>
--->
+
 </body>
 </html>
 

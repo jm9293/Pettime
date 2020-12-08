@@ -15,11 +15,13 @@ import com.sqld.pettime.admin.command.AdminDesViewCommand;
 import com.sqld.pettime.admin.command.AdminDeslistCommand;
 import com.sqld.pettime.admin.command.AdminSendEmailCommand;
 import com.sqld.pettime.admin.command.AdminUserSearchCommand;
+import com.sqld.pettime.admin.command.AdminUserSendEmailCommand;
 import com.sqld.pettime.admin.command.AdminUserViewCommand;
 import com.sqld.pettime.admin.command.AdminUserlistCommand;
 import com.sqld.pettime.admin.command.AdmindDesStatusCommand;
 import com.sqld.pettime.admin.command.AdmindUserStatusCommand;
 import com.sqld.pettime.dto.DesignerDTO;
+import com.sqld.pettime.dto.UserDTO;
 
 @Controller
 @RequestMapping("/admin/adInfo")
@@ -92,6 +94,12 @@ public class AdInfoController {
 	public void goEmail(DesignerDTO dto, Model model) {
 		model.addAttribute("dto", dto);
 		new AdminSendEmailCommand().execute(model);
+	}
+	
+	@RequestMapping("/adUserPassword")
+	public void goEmail2(UserDTO dto, Model model) {
+		model.addAttribute("dto", dto);
+		new AdminUserSendEmailCommand().execute(model);
 	}
 	
 }

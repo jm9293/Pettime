@@ -65,7 +65,7 @@
 			</c:choose>
 
 			<button type="button" class="btn btn-success"
-				onclick="location.href='adDesPassword?id=${list[0].id}&email=${list[0].email }'">임시비밀번호
+				onclick="location.href='adUserPassword?id=${list[0].id}&email=${list[0].email }&userNum=${list[0].userNum }'">임시비밀번호
 				발급</button>
 			<button type="button" class="btn btn-primary" onclick="history.back()">목록으로</button>
 		</div>

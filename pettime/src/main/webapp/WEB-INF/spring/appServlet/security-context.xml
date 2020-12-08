@@ -89,6 +89,8 @@
 	<security:intercept-url pattern="/designer/main" access="hasRole('ROLE_DESIGNER')"/>
 	<security:intercept-url pattern="/designer/desSearch" access="hasRole('ROLE_DESIGNER')"/>
 	<security:intercept-url pattern="/designer/schedule**" access="hasRole('ROLE_DESIGNER')"/>
+	<security:intercept-url pattern="/designer/desProfile" access="hasRole('ROLE_DESIGNER')"/>
+	<security:intercept-url pattern="/designer/desUpdateOk" access="hasRole('ROLE_DESIGNER')"/>
 	<security:intercept-url pattern="/designer/login" access="permitAll"/>
 	<security:logout invalidate-session="true" logout-url="/designer/logout" logout-success-url="/designer/logoutOk"/>
 	<security:access-denied-handler ref="designercustomAccessDenied"/>

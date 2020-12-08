@@ -1,0 +1,36 @@
+@charset "UTF-8";
+.box{
+	margin-left:25%;
+	background-color: #e8e7e3;
+	border-radius: 10px;
+	height: 700px;
+	overflow: auto;
+}
+h2{
+	margin-top:20px;
+	text-align: center;
+}
+#dimg{
+	width: 200px;
+	height:200px;
+	border-radius: 50%;
+	margin-left: 30%;
+}
+.emaillogo{
+	text-align: center;
+}
+#idchk-btn{
+	margin-left:10px;
+}
+#emailchk-btn{
+	margin-left:20px;
+}
+#signup-btn{
+	margin-left:37%;
+}
+.invalid-feedback{
+	text-align: center;
+}
+#off-btn{
+	margin-left:20px;
+}
