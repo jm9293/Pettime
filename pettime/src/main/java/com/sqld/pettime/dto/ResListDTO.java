@@ -16,7 +16,7 @@ public class ResListDTO {
 	private String petName;
 	private String petKind;
 	private String petMemo;
-	private int tPrice;
+	private int tprice;
 	private String state;
 	
 	

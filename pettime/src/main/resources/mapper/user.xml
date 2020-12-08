@@ -25,6 +25,16 @@
 		FROM USERDATA WHERE ID = #{param1}
 	</select>
 	
+	<select id="selectByNameAndEmail" resultType="com.sqld.pettime.dto.UserDTO">
+		SELECT *
+		FROM USERDATA WHERE NAME = #{param1} AND EMAIL=#{param2}
+	</select>
+	
+	<select id="selectByIdAndEmail" resultType="com.sqld.pettime.dto.UserDTO">
+		SELECT *
+		FROM USERDATA WHERE ID = #{param1} AND EMAIL=#{param2}
+	</select>
+	
 	<update id="update" parameterType="com.sqld.pettime.dto.UserDTO" flushCache="true">
 		UPDATE USERDATA SET PASSWORD = #{dto.password}, PHONE =  #{dto.phone}, EMAIL = #{dto.email} 
 		WHERE ID = #{dto.id}

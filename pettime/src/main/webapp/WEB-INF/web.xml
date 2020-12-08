@@ -49,7 +49,7 @@
 	 
 	<servlet>
 	    <servlet-name>page</servlet-name>
-	    <jsp-file>/resources/vue/index.html</jsp-file>
+	    <jsp-file>/user/vue/index.html</jsp-file>
 	</servlet>
 	
 	<servlet-mapping>
@@ -58,7 +58,7 @@
 	</servlet-mapping>
 	<servlet-mapping>
 	    <servlet-name>page</servlet-name>
-	    <url-pattern>/resources/vue/</url-pattern>
+	    <url-pattern>/user/vue/</url-pattern>
 	</servlet-mapping>
 	
 	

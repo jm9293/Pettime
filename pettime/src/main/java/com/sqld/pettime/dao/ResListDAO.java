@@ -28,6 +28,10 @@ public interface ResListDAO {
 	
 	ResListDTO searchRes(int num);
 	
+	List<ResListDTO> selectPage(int num, String id);
 	
+	int maxCnt(String id);
+	
+	List<ResListDTO> selectByUidandID(String id, int num);
 	
 }

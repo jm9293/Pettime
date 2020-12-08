@@ -31,16 +31,20 @@ import com.sqld.pettime.user.beans.UserDataJSON;
 import com.sqld.pettime.user.beans.UserLoginJSON;
 import com.sqld.pettime.user.command.UserCallDesignersCommend;
 import com.sqld.pettime.user.command.UserEmailchkCommend;
+import com.sqld.pettime.user.command.UserIdSearchCommend;
 import com.sqld.pettime.user.command.UserIdchkCommend;
 import com.sqld.pettime.user.command.UserInfoCommend;
 import com.sqld.pettime.user.command.UserNoticeSelectCommend;
 import com.sqld.pettime.user.command.UserNoticeViewCommend;
+import com.sqld.pettime.user.command.UserPwSearchCommend;
 import com.sqld.pettime.user.command.UserQnADeleteCommend;
 import com.sqld.pettime.user.command.UserQnASearchCommend;
 import com.sqld.pettime.user.command.UserQnASelectCommend;
 import com.sqld.pettime.user.command.UserQnAUpdateCommend;
 import com.sqld.pettime.user.command.UserQnAViewCommend;
 import com.sqld.pettime.user.command.UserQnAWriteCommend;
+import com.sqld.pettime.user.command.UserResListSelectCommend;
+import com.sqld.pettime.user.command.UserResListViewCommend;
 import com.sqld.pettime.user.command.UserSetResListCommend;
 import com.sqld.pettime.user.command.UserSignUpCommend;
 import com.sqld.pettime.user.command.UserUpdateCommend;
@@ -289,7 +293,43 @@ public class UserRestController {
 		return ajax;
 	}
 	
+	@RequestMapping("/resList/list/{pageNum}")
+	UserDataJSON resListSelect(Model model, @PathVariable int pageNum, Authentication authentication) {
+		model.addAttribute("pageNum", pageNum);
+		model.addAttribute("id",((UserDetails)authentication.getPrincipal()).getUsername());
+		new UserResListSelectCommend().excute(model);
+		
+		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
+
+		return ajax;
+	}
 	
+	@RequestMapping("/resList/view/{uid}")
+	UserDataJSON resListView(Model model, @PathVariable int uid , Authentication authentication) {
+		model.addAttribute("uid", uid);
+		model.addAttribute("id",((UserDetails)authentication.getPrincipal()).getUsername());
+		new UserResListViewCommend().excute(model);		
+		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
+		return ajax;
+	}
+	
+	@RequestMapping("/idSearch")
+	UserDataJSON idSearch(Model model, String name , String email) {
+		model.addAttribute("name", name);
+		model.addAttribute("email", email);
+		new UserIdSearchCommend().excute(model);		
+		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
+		return ajax;
+	}
+	
+	@RequestMapping("/pwSearch")
+	UserDataJSON pwSearch(Model model, String id , String email) {
+		model.addAttribute("id", id);
+		model.addAttribute("email", email);
+		new UserPwSearchCommend().excute(model);		
+		UserDataJSON ajax = (UserDataJSON) model.getAttribute("ajax");
+		return ajax;
+	}
 	
 	
 	

@@ -76,6 +76,29 @@
 		WHERE DEGID = #{param2} AND DAY = #{param1}
 	</update>
 	
+	<select id="selectPage"
+		resultType="com.sqld.pettime.dto.ResListDTO">
+	<![CDATA[SELECT NUM, STIME, ADDRESS, USERID, DEGID, PETNAME, PETKIND, PETMEMO, TPRICE, STATE
+FROM (
+    SELECT ROW_NUMBER() OVER(ORDER BY NUM DESC) RN, 
+        NUM, STIME, ADDRESS, USERID, DEGID, PETNAME, PETKIND, PETMEMO, TPRICE, STATE
+    FROM RESLIST WHERE USERID = #{param2}) 
+WHERE RN BETWEEN ((#{param1}-1)*7)+1 AND ((#{param1}-1)*7)+7]]>
+
+	</select>
+
+	<select id="maxCnt" resultType="_int">
+		SELECT count(*)
+		FROM RESLIST WHERE USERID = #{param1}
+	</select>
+
+	<select id="selectByUidandID"
+		resultType="com.sqld.pettime.dto.ResListDTO">
+		SELECT *
+		FROM RESLIST WHERE NUM = #{param2} AND USERID = #{param1}
+	</select>
+
+
 	
 	
 
