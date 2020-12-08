@@ -19,6 +19,7 @@ public class AdminDesViewCommand implements AdminCommand {
 		AdminInfoDAO dao = DBSession.sqlSession.getMapper(AdminInfoDAO.class);
 
 		List<DesignerDTO> list = dao.selectDesByNum(num);
+		System.out.println(list.get(0).getNum());
 		model.addAttribute("list", list);
 
 	}

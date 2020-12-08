@@ -21,12 +21,11 @@
 		<form action="updateProfile" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="${_csrf.parameterName }"
 					value="${_csrf.token }" />
-			<div><img src="${pageContext.request.contextPath }/designer/${dto.id }"/></div>	
 			<table>
 				<tr>
-					<td>사진변경</td>
 					<td>
-						<input name="photo" type = "file" accept=".jpg, jpeg"/>
+						<div><img id="pimg" src="${pageContext.request.contextPath }/designerimg/${dto.id }.jpg"/></div>
+						<input id="imgbtn" name="photo"  type = "file" accept=".jpg, jpeg"/>
 					</td>
 				</tr>
 				<tr>

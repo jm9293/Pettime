@@ -103,15 +103,15 @@ $(function() {
 		}
 
 		validchk();
-		text += $("#emailtext").val();
+		text = $("#emailtext").val();
 		address = $("#emailSelect").val();
 		emailChk(text, address);
 	})
 
 	$("#inputEmaildirect").keyup(function() {
 		var value;
-		text = "";
-		address = "";
+		var text = "";
+		var address = "";
 		value = $("#emailtext").val() + '@' + $("#inputEmaildirect").val()
 
 		if (/[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}/.test(value)) {
@@ -136,6 +136,7 @@ $(function() {
 		var email = "";
 
 		email = emailId + '@' + emailAdd;
+		console.log(email);
 		$("#email").val(email);
 	}
 

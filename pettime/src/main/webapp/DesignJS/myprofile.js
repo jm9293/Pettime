@@ -41,6 +41,13 @@ function updatePhone(){
 	// var phonNumberCheck = RegExp(/^01[0179][0-9]{7,8}$/);
 }
 
+$(function() {
+	 $("#imgbtn").change(function(){  
+		 file = $('#imgbtn').prop("files")[0];
+        blobURL = window.URL.createObjectURL(file);
+        $('#pimg').attr('src', blobURL);
+	 });
+	});
 
 
 

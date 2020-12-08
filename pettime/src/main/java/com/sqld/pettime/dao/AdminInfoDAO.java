@@ -25,4 +25,5 @@ public interface AdminInfoDAO {
 	public int grantAdmin(String id, String grant);
 	public int insertAdmin(@Param("a") AdminDTO dto);
 	public List<AdminDTO> selectAdmin();
+	public int updatePassword(@Param("a") DesignerDTO dto);
 }

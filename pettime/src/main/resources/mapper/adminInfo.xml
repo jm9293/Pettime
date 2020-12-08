@@ -110,4 +110,9 @@
 		SELECT ID
 		FROM PETTIME.ADMIN
 	</select>
+	
+	<update id="updatePassword" flushCache="true" parameterType="com.sqld.pettime.dto.DesignerDTO">
+		UPDATE PETTIME.DESIGNER SET PASSWORD = #{a.password}
+		WHERE ID = #{a.id}
+	</update>
 </mapper>

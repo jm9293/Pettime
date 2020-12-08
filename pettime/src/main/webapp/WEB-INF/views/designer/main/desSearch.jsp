@@ -32,7 +32,11 @@
 	
 		<table>
 			<div class="ct"><h3>예약 정보</h3></div><br>
-			
+			<div class="col-12 row box" id="imgbox2">
+				<img id="imgbox"
+					src="${pageContext.request.contextPath }/petimg/${dto.num }.jpg" />
+			</div>
+			<br>
 			<tr class="col-12 row box intxt">
 				<td class="col-4 menu intxt">고객ID:</td>
 				<td class="col-8 subject intxt">${dto.userId }</td>
@@ -110,7 +114,6 @@
 			<button class="btn btn-dark" id="back" type="button" onclick="location.href='main'">돌아가기</button>
 		</div>	<br><br><br>
 		</div>
-	</div>
 	
 <!--  
 	<div class="content col-12">

@@ -13,6 +13,7 @@ import com.sqld.pettime.admin.command.AdminDesCreateIdChkCommand;
 import com.sqld.pettime.admin.command.AdminDesSearchCommand;
 import com.sqld.pettime.admin.command.AdminDesViewCommand;
 import com.sqld.pettime.admin.command.AdminDeslistCommand;
+import com.sqld.pettime.admin.command.AdminSendEmailCommand;
 import com.sqld.pettime.admin.command.AdminUserSearchCommand;
 import com.sqld.pettime.admin.command.AdminUserViewCommand;
 import com.sqld.pettime.admin.command.AdminUserlistCommand;
@@ -85,6 +86,12 @@ public class AdInfoController {
 		model.addAttribute("request", request);
 		new AdminDesCreateCommand().execute(model);
 		return "admin/adInfo/adDesCreateOk";
+	}
+	
+	@RequestMapping("/adDesPassword")
+	public void goEmail(DesignerDTO dto, Model model) {
+		model.addAttribute("dto", dto);
+		new AdminSendEmailCommand().execute(model);
 	}
 	
 }

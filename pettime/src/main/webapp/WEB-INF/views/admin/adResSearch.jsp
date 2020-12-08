@@ -35,6 +35,10 @@
 	<div class="col-8 cbox">
 		<div class="col-12 box"><h1>예약 정보</h1></div>
 		<br>
+		<div class="col-12 row box" id="imgbox2">
+		<img id="imgbox" src="${pageContext.request.contextPath }/petimg/${dto.num }.jpg"/>
+		</div>
+		<br>
 		<div class="col-12 row box">
 		<div class="col-4 menu">고객ID:</div>
 		<div class="col-8 subject">${dto.userid }</div>

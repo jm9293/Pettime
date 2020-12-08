@@ -31,7 +31,7 @@
 	<h1>직원 정보</h1>
 		<form name="frm" method="post" action="adDesStatus">
 			<input type="hidden" name="num" value="${list[0].num}">
-			<div class="col-12 col-md-6 contentBox"><img src="${pageContext.request.contextPath}/designerimg/${list[0].id }.jpg"/></div>
+			<div class="col-12 col-md-6 contentBox"><img id="imgbox" src="${pageContext.request.contextPath}/designerimg/${list[0].id }.jpg"/></div>
 			<div class="col-12 col-md-6 contentBox">
 				<div class="col-12 contentType bg-light">ID : ${list[0].id }</div>
 				<br>
@@ -68,7 +68,7 @@
 					</c:choose>
 
 					<button type="button" class="btn btn-success"
-						onclick="location.href='adDesPassword?id=${list[0].id}&email=${list[0].email }'">임시비밀번호
+						onclick="location.href='adDesPassword?id=${list[0].id}&email=${list[0].email }&num=${list[0].num }'">임시비밀번호
 						발급</button>
 					<button type="button" class="btn btn-primary" onclick="history.back()">목록으로</button>	
 				</div>

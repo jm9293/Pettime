@@ -12,7 +12,17 @@
 .btngr{
 	margin-top:30px;
 }
-
+#imgbox2{
+	height:300px;
+	text-align: center;
+}
+#imgbox{
+	width:250px;
+	heigth:250px;
+	border-radius: 50%;
+	margin-left:38%;
+	
+}
 .btnbox{
 	margin:auto;
 	width: 60%;
