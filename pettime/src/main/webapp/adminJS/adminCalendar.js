@@ -194,7 +194,7 @@ function deleteList(){
     if(nums.length == 0){
 		alert("삭제할 글을 체크해주세요");
 	} else {
-		if(!confirm(nums.length + "개의 글을 삭제하시겠습니까?")) return false;
+		if(!confirm(nums.length + "개의 예약을 삭제하시겠습니까?")) return false;
 		
 		var data = $("#frmList").serialize();
 		//alert(data);  // uid=10&uid=20   <-- 이런 형태로 출력된다.
