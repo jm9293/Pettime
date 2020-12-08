@@ -22,16 +22,17 @@ public class ProfileUpdateCommand implements DCommand {
 		DesignerDTO origin = dao.selectMyInfo(id);
 		System.out.println(origin.getEmail());
 		HttpServletRequest request = (HttpServletRequest)model.getAttribute("request");
-		if(dto.getPassword().equals("")) {
+		
+		if(dto.getPassword()==null ||dto.getPassword().equals("")) {
 			dto.setPassword(origin.getPassword());
 		}else {
 			dto.setPassword(DBSession.passwordEncoder.encode(dto.getPassword()));			
 		}
 		
-		if(dto.getEmail().equals("")) {
+		if(dto.getEmail()==null ||dto.getEmail().equals("")) {
 			dto.setEmail(origin.getEmail());
 		}
-		if(dto.getPhone().equals("010")|| dto.getPhone().equals("")) {
+		if(dto.getPhone()==null ||dto.getPhone().equals("010")|| dto.getPhone().equals("")) {
 			dto.setPhone(origin.getPhone());
 		}
 		if(dto.getIntro().equals("")) {

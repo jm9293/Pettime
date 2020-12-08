@@ -21,18 +21,18 @@
 		<form action="updateProfile" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="${_csrf.parameterName }"
 					value="${_csrf.token }" />
-			<input type="hidden" name="num"	value="${dto.num }" />	
 			<div><img src="${pageContext.request.contextPath }/designer/${dto.id }"/></div>	
 			<table>
 				<tr>
+					<td>사진변경</td>
 					<td>
-						<input name="photo"  type = "file" accept=".jpg, jpeg"/>
+						<input name="photo" type = "file" accept=".jpg, jpeg"/>
 					</td>
 				</tr>
 				<tr>
 					<td class="">비밀번호 변경  </td>
 					<td>
-						<input type="password" name="password" value="${dto.password }" readonly/>
+						<input type="password" name="password" value="" disabled/>
 					</td>
 					<td>
 						<a class="btn btn-outline-info" onclick="updatePw()">수정</a>					
@@ -41,23 +41,23 @@
 				<tr>
 					<td class="">비밀번호 확인  </td>
 					<td>
-						<input type="password" name="passwordchk" value="${dto.password }" readonly/>
+						<input type="password" name="passwordchk" value="" disabled/>
 					</td>
 				</tr>
 				<tr>
 					<td>이름  </td>
-					<td><input type="text" name="name" value="${dto.name}" readonly/></td>
+					<td><input type="text" name="name" value="${dto.name}" disabled/></td>
 				</tr>
 				<tr>
 					<td>이메일  </td>
-					<td><input type="text" id="udtEmail" name="email" value="${dto.email }" readonly/></td>
+					<td><input type="text" id="udtEmail" name="email" value="${dto.email }" disabled/></td>
 					<td>
 						<a class="btn btn-outline-info" onclick="updateEmail()">수정</a>					
 					</td>
 				</tr>
 				<tr>
 					<td>연락처  </td>
-					<td><input type="text" name="phone" value="${dto.phone }" readonly/></td>
+					<td><input type="text" name="phone" value="${dto.phone }" disabled/></td>
 					<td>
 						<a class="btn btn-outline-info" onclick="updatePhone()">수정</a>					
 					</td>
@@ -72,6 +72,7 @@
 			
 
 			<button class="btn btn-outline-danger innerbtn" type="submit">수정완료</button>
+			<br><br><br>
 		</form>	
 		</div>
 		

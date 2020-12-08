@@ -163,7 +163,6 @@ public class DesignerController {
 	@RequestMapping("/myprofile")
 	public String dProfile(Model model, Authentication authentication) {
 		
-		
 		String id = ((UserDetails)authentication.getPrincipal()).getUsername();
 		model.addAttribute("id",id);
 		new DesignerCommand().execute(model);

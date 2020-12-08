@@ -107,8 +107,8 @@
 					<button class="btn btn-primary" id="resetOk" type="button" onclick="location.href='desResResetOk?num=${dto.num}'">처리취소</button>
 				</c:otherwise>
 			</c:choose>
-			<button class="btn btn-dark" id="back" type="button" onclick="location.href='adRes'">돌아가기</button>
-		</div>	
+			<button class="btn btn-dark" id="back" type="button" onclick="location.href='main'">돌아가기</button>
+		</div>	<br><br><br>
 		</div>
 	</div>
 	
