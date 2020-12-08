@@ -26,6 +26,8 @@ public interface ResListDAO {
 	
 	int maxcnt();
 	
+	ResListDTO searchRes(int num);
+	
 	
 	
 }

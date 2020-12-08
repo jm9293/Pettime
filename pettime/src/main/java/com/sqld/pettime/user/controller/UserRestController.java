@@ -6,6 +6,7 @@ import java.sql.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.csrf.CsrfToken;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -262,14 +264,18 @@ public class UserRestController {
 	}
 	
 	@RequestMapping(value = "/setResList" , method = RequestMethod.POST)
-	UserDataJSON setResList(Model model,ResListDTO res, long stimeLong, String time , Authentication authentication) {
+	UserDataJSON setResList(Model model,ResListDTO res, long stimeLong, String time ,
+			String [] menu, MultipartFile photo , HttpServletRequest request,Authentication authentication) {
 		
 		res.setUserId(((UserDetails)authentication.getPrincipal()).getUsername());
 		res.setStime(new Date(stimeLong));
 		res.setState("결제완료");
 		
+		model.addAttribute("photo", photo);
+		model.addAttribute("request", request);
 		model.addAttribute("dto", res);
 		model.addAttribute("time", time);
+		model.addAttribute("menu", menu);
 		System.out.println(time);
 		
 		new UserSetResListCommend().excute(model);

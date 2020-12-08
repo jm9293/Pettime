@@ -49,6 +49,11 @@
 	
 	</insert>
 	
+	<select id="searchRes"
+		resultType="com.sqld.pettime.dto.ResListDTO">
+		SELECT * FROM PETTIME.RESLIST WHERE NUM = #{param1}
+	</select>
+	
 	<select id="maxcnt" resultType="int">
 	SELECT RESLIST_SEQ.nextval FROM DUAL;
 	</select>
