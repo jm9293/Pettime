@@ -18,15 +18,15 @@
 	
 		
 		<div class="frame ct">
-		<form action="updateProfile" method="post">
+		<form action="updateProfile" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="${_csrf.parameterName }"
 					value="${_csrf.token }" />
-			<input type="hidden" name="num"	value="${dto.num }" />		
+			<input type="hidden" name="num"	value="${dto.num }" />	
+			<div><img src="${pageContext.request.contextPath }/designer/${dto.id }"/></div>	
 			<table>
 				<tr>
-					<td>상태  </td>
 					<td>
-						<input name="enabled" value="${dto.enabled }" readonly/>
+						<input name="photo"  type = "file" accept=".jpg, jpeg"/>
 					</td>
 				</tr>
 				<tr>

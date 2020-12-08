@@ -14,7 +14,7 @@ public class Fileupload {
 	
 	public static void proflieImgupload(HttpServletRequest request, MultipartFile multipartFile ,String filepath, String userID) {
 
-		File file = new File(request.getRealPath(filepath)+userID+".jpg"); 
+		File file = new File(request.getRealPath(filepath)+"/"+userID+".jpg"); 
 		try {
 			if(!file.exists()) {
 			multipartFile.transferTo(file);

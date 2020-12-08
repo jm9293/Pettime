@@ -1,5 +1,7 @@
 package com.sqld.pettime.admin.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
@@ -78,8 +80,9 @@ public class AdInfoController {
 	public void CreateDes() {}
 	
 	@RequestMapping(value = "/adDesCreateOk", method = RequestMethod.POST)
-	public String CreateDesOk(DesignerDTO dto, Model model) {
+	public String CreateDesOk(DesignerDTO dto, Model model, HttpServletRequest request) {
 		model.addAttribute("dto", dto);
+		model.addAttribute("request", request);
 		new AdminDesCreateCommand().execute(model);
 		return "admin/adInfo/adDesCreateOk";
 	}

@@ -8,6 +8,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
@@ -18,6 +19,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.sqld.pettime.designer.command.DCommand;
 import com.sqld.pettime.designer.command.DesMainCommand;
 import com.sqld.pettime.designer.command.DesMonthHoliCommand;
@@ -169,10 +172,13 @@ public class DesignerController {
 	}
 	
 	@RequestMapping(value="/updateProfile", method= RequestMethod.POST)
-	public String updateProfile(DesignerDTO dto, Model model, Authentication authentication) {
+	public String updateProfile(DesignerDTO dto, Model model, MultipartFile photo,
+		HttpServletRequest request , Authentication authentication) {
 		String id = ((UserDetails)authentication.getPrincipal()).getUsername();
 		model.addAttribute("id", id);
 		model.addAttribute("dto", dto);
+		model.addAttribute("photo", photo);
+		model.addAttribute("request", request);
 		new ProfileUpdateCommand().execute(model);
 		
 		
