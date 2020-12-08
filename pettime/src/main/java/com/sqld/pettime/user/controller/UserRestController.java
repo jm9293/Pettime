@@ -2,6 +2,7 @@ package com.sqld.pettime.user.controller;
 
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -268,7 +269,8 @@ public class UserRestController {
 			String [] menu, MultipartFile photo , HttpServletRequest request,Authentication authentication) {
 		
 		res.setUserId(((UserDetails)authentication.getPrincipal()).getUsername());
-		res.setStime(new Date(stimeLong));
+		res.setStime(new Timestamp(stimeLong));
+		System.out.println(new Timestamp(stimeLong));
 		res.setState("결제완료");
 		
 		model.addAttribute("photo", photo);

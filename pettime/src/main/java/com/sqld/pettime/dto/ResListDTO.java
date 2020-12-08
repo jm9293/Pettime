@@ -1,6 +1,7 @@
 package com.sqld.pettime.dto;
 
-import java.sql.Date;
+
+import java.sql.Timestamp;
 
 import lombok.Data;
 
@@ -8,7 +9,7 @@ import lombok.Data;
 public class ResListDTO {
 	
 	private int num;
-	private Date stime;
+	private Timestamp stime;
 	private String address;
 	private String userId;
 	private String degId;
