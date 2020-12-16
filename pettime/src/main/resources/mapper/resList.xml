@@ -45,7 +45,7 @@
 	<insert id="insert" parameterType="com.sqld.pettime.dto.ResListDTO"
 	     keyProperty="num" useGeneratedKeys="true" keyColumn="NUM" flushCache="true">
 		INSERT INTO RESLIST(num,STIME, ADDRESS, USERID, DEGID, PETNAME, PETKIND,  PETMEMO,  TPRICE, STATE) 
-		VALUES(RESLIST_SEQ.nextval, #{stime},#{address},#{userId}, #{degId},#{petName}, #{petKind},#{petMemo},#{tPrice} , #{state})
+		VALUES(RESLIST_SEQ.nextval, #{stime},#{address},#{userId}, #{degId},#{petName}, #{petKind},#{petMemo},#{tprice} , #{state})
 	
 	</insert>
 	
