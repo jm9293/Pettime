@@ -12,7 +12,7 @@ export default new Vuex.Store({
     resListPage: 1,
     qnaPage: 1,
     qnaSearchPage: 1,
-    baseurl: "http://192.168.1.105:8989",
+    baseurl: "http://localhost:8989",
   },
   mutations: {
     setCsrf(state, val) {
